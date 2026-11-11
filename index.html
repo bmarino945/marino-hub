@@ -299,6 +299,12 @@ td.sel,th.sel{background:var(--sel)}
  .tool .sw{min-height:44px}
 }
 
+.facts .mpg b{color:var(--accent)}
+.chips{align-items:center}
+.chips a.cfx{margin-left:auto;font-size:var(--fs-12);font-weight:500;color:var(--blue);padding:3px 0}
+.chips a.cfx:hover{text-decoration:underline}
+@media (max-width:800px){.chips a.cfx{padding:11px 0}}
+
 </style>
 </head>
 <body>
@@ -391,11 +397,12 @@ td.sel,th.sel{background:var(--sel)}
           <li><b>Payment</b> = standard fixed-rate amortization on (all-in price minus down payment).</li>
         </ul></div>
         <div><h3>Fuel</h3><ul>
-          <li><b>Estimate</b> = miles a year / MPG x gas price. Defaults are 12,000 miles and $3.40 a gallon; both are editable in Your terms.</li>
+          <li><b>MPG</b> is on every card; sort by Best MPG. The fuel cost in each car's detail = miles a year / MPG x gas price. Defaults are 12,000 miles and $3.40 a gallon; both are editable in Your terms.</li>
           <li><b>MPG</b> is the EPA combined figure (55% city, 45% highway) for the model; the Kia EV6 uses MPGe at $0.18 per kWh.</li>
         </ul></div>
         <div><h3>History and value</h3><ul>
-          <li><b>Heated seats, accidents and owners</b> come from the dealer listing or its vehicle history badge. "Not listed" means the page does not say, so ask the dealer.</li>
+          <li><b>Heated seats and owners</b> come from the dealer listing or its CARFAX badge. "Not listed" means the page does not say.</li>
+          <li><b>Accident history</b>: every car links to its CARFAX page, which shows accidents, owners and service history. Open it before visiting.</li>
           <li><b>Blue Book</b> opens the Kelley Blue Book page for that model and year. It does not price this exact car.</li>
         </ul></div>
         <div><h3>Where the cars come from</h3><ul id="listNotes"></ul></div>
@@ -453,9 +460,10 @@ const view=()=>S.mode==='cash'?'total':S.show;
 const mpgTxt=c=>c.mpge?c.mpge+' MPGe':mpgC(c)?mpgC(c)+' mpg':'n/a';
 const fuelMo=c=>{const mi=num('miles')/12;if(c.mpge)return mi*(33.7/c.mpge)*ELEC;const m=mpgC(c);return m?mi/m*num('gas'):0};
 const heatedTxt=c=>c.heated===true?'Yes':c.heated===false?'No':'Not listed';
-const histTxt=c=>c.accidents==null?'Not shown on the listing':c.accidents===0?'No accidents reported':c.accidents+(c.accidents>1?' accidents':' accident')+' reported';
+const histTxt=c=>c.accidents==null?'Open the CARFAX report':c.accidents===0?'No accidents reported':c.accidents+(c.accidents>1?' accidents':' accident')+' reported';
 const ownTxt=c=>c.owners==null?'Not listed':c.owners===1?'1 owner':c.owners+' owners';
 const slug=t=>String(t).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const cfx=c=>c.hist||`https://www.carfax.com/vehicle/${c.id}`;
 const kbb=c=>`https://www.kbb.com/${slug(c.make)}/${slug(c.model)}/${c.year}/`;
 const fuelSpan=()=>S.mode==='cash'?60:S.term;
 const headline=(c,k)=>view()==='total'?k.total:k.pmt;
@@ -477,14 +485,14 @@ function card(c){
   const fm=fuelMo(c),yrs=fuelSpan()/12;
   const fuel=!fm?'':tot?R('Fuel, est. '+yrs+' yr',usd(fm*fuelSpan())):R('Fuel, est. per month',usd(fm));
   const rows=!fin
-    ?R('Listed price',(k.disc?`<span class="strike">${usd(c.price+c.fees)}</span> `:'')+usd(c.price+c.fees-k.disc))+R('All-in price',usd(cash.otd))+fuel+bud$
-    :R('Due at signing',usd(k.down))+(tot?R('Monthly payment',usd(k.pmt)+' x '+k.n):R('Total paid',usd(k.total)))+fuel+bud$;
-  const chips=(c.heated===true?'<span>Heated seats</span>':'')+(c.accidents===0?'<span>No accidents</span>':c.accidents>0?`<span class="warn">${c.accidents} accident${c.accidents>1?'s':''}</span>`:'')+(c.owners===1?'<span>1 owner</span>':'');
+    ?R('Listed price',(k.disc?`<span class="strike">${usd(c.price+c.fees)}</span> `:'')+usd(c.price+c.fees-k.disc))+R('All-in price',usd(cash.otd))+bud$
+    :R('Due at signing',usd(k.down))+(tot?R('Monthly payment',usd(k.pmt)+' x '+k.n):R('Total paid',usd(k.total)))+bud$;
+  const chips=(c.heated===true?'<span>Heated seats</span>':'')+(c.accidents===0?'<span>No accidents</span>':c.accidents>0?`<span class="warn">${c.accidents} accident${c.accidents>1?'s':''}</span>`:'')+(c.owners===1?'<span>1 owner</span>':'')+`<a class="cfx" href="${cfx(c)}" target="_blank" rel="noopener">CARFAX report</a>`;
   return `<article class="card tile car${on?' picked':''}" data-id="${c.id}" data-open="${c.id}">
     <div class="ph" data-open="${c.id}">${c.img?`<img loading="lazy" alt="${name(c)}" src="${c.img}">`:'<div class="none">Photo not posted yet</div>'}<div class="tags">${tags}</div>${c.rep?'<span class="tag r">Similar car</span>':''}</div>
     <div class="cbody">
       <div><div class="ttl" data-open="${c.id}">${name(c)}</div><div class="sub">${c.trim}</div></div>
-      <div class="facts"><span><b>${c.miles.toLocaleString()}</b> mi</span><span><b>${c.drive}</b></span><span>${c.color}</span><span class="full">${c.cargo?`<b>${c.cargo}</b> cu ft cargo &middot; `:''}<b>${mpgTxt(c)}</b></span></div>${chips?`<div class="chips">${chips}</div>`:''}
+      <div class="facts"><span><b>${c.miles.toLocaleString()}</b> mi</span><span><b>${c.drive}</b></span><span class="mpg"><b>${mpgTxt(c)}</b></span><span class="full">${c.color}${c.cargo?` &middot; <b>${c.cargo}</b> cu ft cargo`:''}</span></div><div class="chips">${chips}</div>
       <div class="sub">${dealerName(c)}, ${c.city}${c.dist?` (${c.dist} mi from ${pickup(c)})`:''}</div>
       <div class="money">${big}<div class="rows">${rows}</div></div>
       <div class="acts"><button class="btn pri press" data-open="${c.id}">Details</button><button class="btn press${on?' on':''}" data-pick="${c.id}">${on?'On shortlist':'Shortlist'}</button></div>
@@ -546,7 +554,7 @@ function openCar(id){
     <div class="sec"><h3>History and value</h3><div class="specs">
       <div><span>Heated seats</span>${heatedTxt(c)}</div><div><span>Accident history</span>${histTxt(c)}</div>
       <div><span>Owners</span>${ownTxt(c)}</div><div><span>Deal rating</span>${c.deal||'Not shown'}</div>
-      <div><span>Vehicle history</span>${c.hist?`<a class="link" href="${c.hist}" target="_blank" rel="noopener">Open report</a>`:'Ask the dealer'}</div><div><span>Blue Book</span><a class="link" href="${kbb(c)}" target="_blank" rel="noopener">${c.make} ${c.model} on KBB</a></div></div></div>
+      <div><span>Vehicle history</span><a class="link" href="${cfx(c)}" target="_blank" rel="noopener">Open CARFAX</a></div><div><span>Blue Book</span><a class="link" href="${kbb(c)}" target="_blank" rel="noopener">${c.make} ${c.model} on KBB</a></div></div></div>
     <div class="sec"><h3>Fuel</h3><table>
       <tr><td>Estimated per month</td><td>${usd(fuelMo(c))}</td></tr>
       <tr><td>Estimated per year</td><td>${usd(fuelMo(c)*12)}</td></tr>
@@ -612,6 +620,7 @@ function renderCompare(){
     ${T('Heated seats',c=>heatedTxt(c))}
     ${T('Accident history',c=>histTxt(c))}
     ${T('Owners',c=>ownTxt(c))}
+    ${T('CARFAX',c=>`<a class="link" href="${cfx(c)}" target="_blank" rel="noopener">Open report</a>`)}
     ${T('Deal rating',c=>c.deal||'Not shown')}
     ${T('Blue Book',c=>`<a class="link" href="${kbb(c)}" target="_blank" rel="noopener">${c.model} on KBB</a>`)}
     ${T('Seats',c=>c.seats)}
@@ -628,6 +637,7 @@ function sheet(on){$('controls').classList.toggle('open',on);$('sheetScrim').cla
 function pick(id){const i=S.picked.indexOf(id);if(i>=0)S.picked.splice(i,1);else{if(S.picked.length>=4)S.picked.shift();S.picked.push(id)}}
 
 document.addEventListener('click',e=>{
+  if(e.target.closest('a[href]'))return;
   if(e.target===$('scrim')){hide();return}
   if(e.target===$('sheetScrim')){sheet(false);return}
   const t=e.target.closest('[data-step],[data-open],[data-pick],[data-close],[data-view],[data-sheet],[data-sheetclose],[data-clear],.seg button');
