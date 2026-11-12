@@ -12,7 +12,7 @@ html,body{margin:0;min-height:100%}
 body{background:var(--deep);color:#fff;font:400 16px/1.5 Geist,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 a{color:inherit;text-decoration:none;cursor:pointer}
 .stage{position:relative;min-height:100vh;display:flex;flex-direction:column;isolation:isolate;overflow:hidden}
-.stage::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(900px 520px at 82% 8%,rgba(46,61,160,.55),transparent 70%),radial-gradient(700px 480px at 6% 100%,rgba(255,158,13,.14),transparent 70%)}
+.stage::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(900px 520px at 82% 8%,rgba(46,61,160,.55),transparent 70%)}
 .stage::after{content:"";position:absolute;inset:0;z-index:-1;background:var(--contours) center top/1600px auto no-repeat;opacity:.5;mask-image:linear-gradient(#000 40%,transparent 95%)}
 .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 32px}
 .bar{display:flex;align-items:center;gap:12px;height:76px}
@@ -44,7 +44,25 @@ h1 em{font-style:normal;color:var(--hl)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .hin{animation:rise 640ms var(--ease) both;animation-delay:calc(var(--i,0) * 90ms)}
 @media (prefers-reduced-motion:reduce){.hin{animation:none}.tile,.tile *{transition:none!important}}
-@media (max-width:800px){.wrap{padding:0 16px}.bar{height:60px}.pick{grid-template-columns:minmax(0,1fr);gap:16px;padding-bottom:40px}.tile{min-height:0;border-radius:22px}.tile .body{padding:20px 20px 24px}.go{width:48px;height:48px;right:18px;bottom:18px}.tile .chips{padding-right:64px}.asof{display:none}}
+@media (max-width:800px){
+ .wrap{padding:0 16px}
+ .bar{height:52px}.mk{width:28px;height:28px}.bar b{font-size:17px}.asof{display:none}
+ .hero{padding:6px 0 14px}
+ .kick{font-size:11px}
+ h1{font-size:28px;line-height:1.08;margin-top:8px;max-width:none}
+ .lede{display:none}
+ .pick{grid-template-columns:minmax(0,1fr);gap:12px;padding-bottom:24px}
+ .tile{min-height:0;border-radius:20px}
+ .tile .art{aspect-ratio:auto;height:clamp(112px,18vh,176px)}
+ .chips span:nth-child(3){display:none}
+ .tile .body{padding:12px 16px 16px;gap:6px}
+ .tile h2{font-size:22px}
+ .tile p{display:none}
+ .chips{padding-top:6px}.chips span{padding:4px 10px;font-size:12px}
+ .tile .chips{padding-right:60px}
+ .go{width:44px;height:44px;right:14px;bottom:14px}.go svg{width:20px;height:20px}
+ .foot{display:none}
+}
 </style></head>
 <body>
 <div class="stage">
