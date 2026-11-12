@@ -408,6 +408,85 @@ td.sel,th.sel{background:var(--sel)}
 .saveBtn.on{background:rgba(168,31,59,.1)!important;color:var(--neg)!important;box-shadow:inset 0 0 0 1.5px rgba(168,31,59,.4)!important}
 .svFoot .btn.pri{box-shadow:none}
 
+/* ---- compact layout (shared): slim hero, filters in a side column, compact list cards ---- */
+.hero{padding:22px 0 26px}
+.heroIn{gap:36px;align-items:center}
+.hero h1{font-size:40px;line-height:1.08;max-width:20ch}
+.hero .lede{font-size:16px;margin-top:10px;max-width:52ch}
+.ctas{margin-top:16px}
+.stats{margin-top:18px;grid-template-columns:repeat(4,max-content);gap:10px 22px}
+.stat b{font-size:20px;line-height:26px}
+.stat span{font-size:12px;max-width:14ch}
+.pk .acts{flex-wrap:wrap}
+.pk .acts .btn{padding:0 12px}
+.heroR .art{aspect-ratio:16/8;max-height:236px;width:100%}
+.block{padding-top:26px}
+.bhead{margin-bottom:12px}
+.bhead h2{font-size:22px}
+.lay{display:grid;grid-template-columns:288px minmax(0,1fr);gap:26px;align-items:start;padding-top:22px}
+.mainCol{min-width:0}
+.mainCol .block:first-child{padding-top:0}
+.picks{gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.pk .fph{aspect-ratio:16/7;max-height:128px}
+.pk .fph img{max-height:128px}
+/* compact list cards: photo left, the deciding facts right; the card opens for the rest */
+.grid{grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:14px}
+.tile.car{display:grid;grid-template-columns:148px minmax(0,1fr);column-gap:14px;row-gap:3px;align-items:start;padding:12px;border-radius:18px}
+.tile.car .ph{grid-column:1;grid-row:1/span 9;width:148px;aspect-ratio:1/1;border-radius:12px;align-self:start}
+.tile.car .ph img{border-radius:12px}
+.tile.car .cbody{display:contents}
+.tile.car .cbody>*{grid-column:2;min-width:0}
+.tile.car .tags{left:5px;top:5px;gap:3px}.tile.car .tags .tag{font-size:10px;padding:2px 6px}
+.tile.car .ttl{font-size:16px;line-height:1.25}
+.tile.car .sub{font-size:13px;line-height:1.35}
+.tile.car .facts{font-size:13px;gap:0 12px}
+.tile.car .facts .full,.tile.car .chips,.tile.car .schl,.tile.car .dist,.tile.car .money .rows{display:none}
+.tile.car .money{padding-top:2px;margin-top:0;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.tile.car .money .cap{order:2;font-size:12.5px;line-height:1.2}
+.tile.car .big{font-size:24px;margin-top:0}
+.tile.car .acts{gap:6px;padding-top:4px!important;margin-top:2px!important}
+.tile.car .acts .btn{min-height:34px;height:34px;padding:0 12px;font-size:13px;flex:0 0 auto}
+.tile.car .acts a.btn{display:none}
+.tile.car .pay{gap:8px;align-items:baseline}
+.tile.car .pay .price{font-size:22px}
+.tile.car .pay .mo{font-size:13px}.tile.car .pay .mo b{font-size:15px}
+.tile.car .qual{font-size:12.5px;line-height:1.3;margin:0}
+.tile.car .avg b{font-size:16px}
+.tile.car .avg .sub{font-size:12.5px}
+@media (min-width:801px){
+ .side{position:sticky;top:calc(var(--nav) + 14px);max-height:calc(100vh - var(--nav) - 28px);overflow:auto;display:flex;flex-direction:column;gap:14px;scrollbar-width:thin}
+ .side .tool{position:static;display:flex;flex-direction:column;align-items:stretch;flex-wrap:nowrap;gap:12px;padding:14px;margin:0}
+ .side .tool .field{width:100%;flex-direction:column;align-items:stretch;gap:5px}
+ .side .tool .field>label,.side .tool .field>.l{font-size:12px;color:var(--ink-2)}
+ .side .tool .field>.sr{position:static!important;width:auto!important;height:auto!important;clip:auto!important;overflow:visible!important;margin:0;font-size:12px;color:var(--ink-2);white-space:normal}
+ .side .tool select.sel{width:100%;min-width:0}
+ .side .tool .grow{display:none}
+ .side .tool .railSeg{width:100%;flex-direction:column;align-items:stretch;gap:2px;background:transparent;padding:0}
+ .side .tool .railSeg .thumb{display:none}
+ .side .tool .railSeg button{flex:0 0 auto;width:100%;height:34px;justify-content:flex-start;text-align:left;padding:0 12px;border-radius:10px}
+ .side .tool .railSeg button.on{background:var(--sel);color:var(--accent)}
+ .side .tool .sw{min-height:32px}
+ .side #numbers{padding-top:0}
+ .side #numbers .bhead{margin-bottom:8px}.side #numbers .bhead h2{font-size:17px}.side #numbers .bhead p{display:none}
+ .side .controls{padding:14px;margin:0}
+ .side .fields{grid-template-columns:1fr 1fr;gap:10px}
+ .side .fields .field:has(.railSeg,.discRow),.side .fields .reset{grid-column:1/-1}
+ .side .sheetHead{display:none}
+ .side .tool .railSeg.seg button{height:34px}
+ .side #src{flex-direction:row;flex-wrap:wrap}.side #src button{width:calc(50% - 1px)}
+}
+@media (max-width:800px){
+ .lay{display:flex;flex-direction:column;padding-top:0;gap:0}
+ .side,.mainCol,#lineup{display:contents}
+ #picksBlock{order:1}
+ #lineup>.bhead{order:2}
+ .tool{order:3}
+ #grid,#groups{order:4}
+ #numbers{order:5}
+ .grid{grid-template-columns:minmax(0,1fr)}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
+}
+
 /* ---- phone layout: compact, built for a small screen (shared by the car and house pages) ---- */
 @media (max-width:800px){
  :root{--fs-20:17px;--fs-24:20px;--fs-28:22px;--fs-36:26px;--fs-44:28px;--fs-64:30px;--gut:14px;--nav:54px}
@@ -467,6 +546,13 @@ td.sel,th.sel{background:var(--sel)}
  .verdict{padding:16px}.verdict h2{font-size:18px}.verdict p{font-size:14px}
  .foot{margin-top:40px}
  .svFab{height:42px;padding:0 14px}
+ /* compact top: title, one line, the filters */
+ .hero{padding:2px 0 12px}
+ .heroR,.hero .lede,.hero .ctas,.hero .stat:nth-child(n+3){display:none}
+ .hero h1{font-size:24px;margin:0}
+ .stats{margin-top:10px;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 12px}
+ .stat b{font-size:16px;line-height:20px}.stat span{font-size:12px}
+ #picksBlock{display:none}
 }
 
 </style>
@@ -517,11 +603,22 @@ td.sel,th.sel{background:var(--sel)}
     </div></div>
 
     <div class="wrap">
-      <section class="block" id="picksBlock">
-        <div class="bhead"><div><h2>Best picks at your numbers</h2><p id="picksSub"></p></div></div>
-        <div class="picks" id="picks"></div>
-      </section>
-
+      <div class="lay">
+      <aside class="side">
+        <div class="card tool">
+          <div class="field"><span class="l sr">Source</span><div class="railSeg seg" id="src"></div></div>
+          <div class="field"><label class="sr" for="make">Make</label><select class="sel" id="make"></select></div>
+          <div class="field"><label class="sr" for="cond">Condition</label><select class="sel" id="cond"><option value="all">New and used</option><option value="new">New only</option><option value="used">Used only</option></select></div>
+          <div class="field"><label for="sort">Sort by</label><select class="sel" id="sort">
+            <optgroup label="Cost"><option value="cost">Payment or total, lowest</option><option value="allin">All-in price, lowest</option><option value="fuel">Fuel cost, lowest</option></optgroup>
+            <optgroup label="The car"><option value="mpg">MPG, best</option><option value="miles">Miles, fewest</option><option value="year">Model year, newest</option><option value="cargo">Cargo room, most</option><option value="heated">Heated seats first</option></optgroup>
+            <optgroup label="History"><option value="acc">Accidents, fewest</option><option value="own">Owners, fewest</option><option value="deal">Deal rating, best</option></optgroup>
+            <optgroup label="Where"><option value="dist">Pickup distance, closest</option><option value="make">Make, A to Z</option></optgroup>
+          </select></div>
+          <label class="sw"><input type="checkbox" id="inBudget" checked>Inside my range</label>
+          <label class="sw"><input type="checkbox" id="heatedOnly">Heated seats</label>
+          <div class="grow"></div>
+        </div>
       <section class="block" id="numbers">
         <div class="bhead"><div><h2>Your numbers</h2><p>Every price on the page follows these. They stay saved in this browser.</p></div></div>
         <section class="card controls" id="controls" aria-label="Your numbers">
@@ -547,24 +644,19 @@ td.sel,th.sel{background:var(--sel)}
         </section>
       </section>
 
+      </aside>
+      <div class="mainCol">
+      <section class="block" id="picksBlock">
+        <div class="bhead"><div><h2>Best picks at your numbers</h2><p id="picksSub"></p></div></div>
+        <div class="picks" id="picks"></div>
+      </section>
+
       <section class="block" id="lineup">
         <div class="bhead"><div><h2>The lineup</h2><p>Tap any car for the full cost breakdown.</p></div><div class="count" id="count"></div></div>
-        <div class="card tool">
-          <div class="field"><span class="l sr">Source</span><div class="railSeg seg" id="src"></div></div>
-          <div class="field"><label class="sr" for="make">Make</label><select class="sel" id="make"></select></div>
-          <div class="field"><label class="sr" for="cond">Condition</label><select class="sel" id="cond"><option value="all">New and used</option><option value="new">New only</option><option value="used">Used only</option></select></div>
-          <div class="field"><label for="sort">Sort by</label><select class="sel" id="sort">
-            <optgroup label="Cost"><option value="cost">Payment or total, lowest</option><option value="allin">All-in price, lowest</option><option value="fuel">Fuel cost, lowest</option></optgroup>
-            <optgroup label="The car"><option value="mpg">MPG, best</option><option value="miles">Miles, fewest</option><option value="year">Model year, newest</option><option value="cargo">Cargo room, most</option><option value="heated">Heated seats first</option></optgroup>
-            <optgroup label="History"><option value="acc">Accidents, fewest</option><option value="own">Owners, fewest</option><option value="deal">Deal rating, best</option></optgroup>
-            <optgroup label="Where"><option value="dist">Pickup distance, closest</option><option value="make">Make, A to Z</option></optgroup>
-          </select></div>
-          <label class="sw"><input type="checkbox" id="inBudget" checked>Inside my range</label>
-          <label class="sw"><input type="checkbox" id="heatedOnly">Heated seats</label>
-          <div class="grow"></div>
-        </div>
         <div class="grid" id="grid"></div>
       </section>
+      </div>
+      </div>
     </div>
   </section>
 
