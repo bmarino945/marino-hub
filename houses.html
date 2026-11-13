@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta name="referrer" content="origin">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Marino House Search</title>
@@ -2148,7 +2149,7 @@ function renderMap(L){
   if(typeof L_==='undefined')return;
   if(!MAP){
     MAP=L_.map('map',{zoomControl:true,scrollWheelZoom:true,tap:true}).setView([40.55,-74.3],8);
-    L_.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap contributors'}).addTo(MAP);
+    L_.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(MAP);
     MLAY=L_.layerGroup().addTo(MAP);
     const dots=()=>MAP.getContainer().classList.toggle('dots',MAP.getZoom()<11);MAP.on('zoomend',dots);
     MAP.on('popupopen',e=>{const b=e.popup.getElement().querySelector('[data-open]');if(b)b.addEventListener('click',()=>openHome(b.dataset.open))});
