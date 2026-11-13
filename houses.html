@@ -513,7 +513,7 @@ td.sel,th.sel{background:var(--sel)}
 #map.dots .pin{font-size:0;padding:0;width:12px;height:12px;border-width:2px;box-shadow:0 1px 3px rgba(20,24,60,.4)}
 
 .tlIn{display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap;margin:8px 0 14px}
-.tlIn .field{width:190px}
+.tlIn .field{width:230px}
 .tlHead b{display:block;font-size:28px;line-height:1.1;font-weight:500;letter-spacing:-.015em}
 .tlHead span{font-size:13px;color:var(--ink-2)}
 #tlTbl .rtab td small{display:block;font-size:12px;color:var(--ink-2);font-weight:400}
@@ -822,7 +822,7 @@ td.sel,th.sel{background:var(--sel)}
  #map{height:calc(100vh - var(--nav) - 150px);min-height:360px;border-radius:14px}
  .vseg{margin-left:8px}
  .tlIn{gap:12px;margin:6px 0 8px}
- .tlIn .field{width:150px;flex:none}
+ .tlIn .field{width:100%;flex:none}
  .tlHead b{font-size:22px}
  #tlCard{padding:16px 12px!important}
  #tlTbl .rtab+.rtab td:first-child{width:30%}
@@ -1714,7 +1714,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         </div>
         <div>
           <section class="card panel" id="tlCard"><div class="pageTitle"><div><h2>When we can afford it</h2><div class="sub" id="tlSub"></div></div></div>
-            <div class="tlIn"><div class="field"><label for="chk">Saved per paycheck</label><div class="chipIn"><i>$</i><input id="chk" inputmode="numeric" value="2,000"></div></div><div class="tlHead" id="tlHead"></div></div>
+            <div class="tlIn"><div class="field"><label for="mosv">Saved per month, together</label><div class="chipIn"><i>$</i><input id="mosv" inputmode="numeric" value="4,000"></div></div><div class="tlHead" id="tlHead"></div></div>
             <div id="tlChart"></div><div class="tbl" id="tlTbl"></div><div class="note" id="tlNote"></div></section>
           <section class="card panel" style="margin-top:20px"><div class="tbl" id="afTable"></div></section>
           <section class="card panel" style="margin-top:20px"><div class="pageTitle"><div><h2>Highest price each approach qualifies for</h2><div class="sub" id="barSub"></div></div></div><div class="bars" id="bars"></div><div class="legend2">Black line = target price. Gold bar = the best option.</div></section>
@@ -1877,7 +1877,7 @@ const TOWNS={"Annandale":{"t":"Annandale, New Jersey","b":"Annandale is an uninc
 const REGIONS=['Northern NJ','Central NJ','Southern NJ','Nassau County NY','Westchester NY','Pennsylvania'];
 const RI={'Northern NJ':{lim:1249125,fha:1249125,tax:2.2,hub:'NYC'},'Central NJ':{lim:1249125,fha:1249125,tax:1.6,hub:'NYC'},'Southern NJ':{lim:832750,fha:630200,tax:1.9,hub:'Philadelphia'},
  'Nassau County NY':{lim:1249125,fha:1249125,tax:1.7,hub:'NYC'},'Westchester NY':{lim:1249125,fha:1249125,tax:1.9,hub:'NYC'},'Pennsylvania':{lim:832750,fha:630200,tax:1.3,hub:'Philadelphia'}};
-const DEF={sav:'30,000',chk:'2,000',wInc:'165,000',bInc:'240,000',wSc:'750',bSc:'600',bTgt:'680',debts:'700',tgt:'950,000',dp:'10',taxPct:'1.6',insPct:'0.25',hoa:'0',close:'3',base:'7.18',convDti:'45',fhaDti:'50'};
+const DEF={sav:'30,000',mosv:'4,000',wInc:'165,000',bInc:'240,000',wSc:'750',bSc:'600',bTgt:'680',debts:'700',tgt:'950,000',dp:'10',taxPct:'1.6',insPct:'0.25',hoa:'0',close:'3',base:'7.18',convDti:'45',fhaDti:'50'};
 const INP=Object.keys(DEF);
 const S={mode:'list',view:'homes',reg:'all',sort:'pay',appr:'best',minAvg:'7',minBeds:'4',qOnly:false,noNew:false,rail2:false,afReg:'Central NJ'};
 /* Shared "Saved" list for the car and house pages. Inlined into each page at build (see build_dashboard.py).
@@ -2000,7 +2000,7 @@ const med=a=>{const s=[...a].sort((x,y)=>x-y);return s.length?(s.length%2?s[s.le
 let Q={};
 function params(){
   const ri=RI[S.afReg]||RI['Central NJ'];
-  Q={sav:num('sav'),chk:num('chk'),W:num('wInc'),B:num('bInc'),ws:num('wSc'),bs:num('bSc'),bt:num('bTgt'),debts:num('debts'),tgt:num('tgt'),dp:Math.min(Math.max(num('dp'),0),100),
+  Q={sav:num('sav'),mo:num('mosv'),W:num('wInc'),B:num('bInc'),ws:num('wSc'),bs:num('bSc'),bt:num('bTgt'),debts:num('debts'),tgt:num('tgt'),dp:Math.min(Math.max(num('dp'),0),100),
      tax:num('taxPct'),ins:num('insPct'),hoa:num('hoa'),close:num('close'),base:num('base'),convDti:num('convDti')/100,fhaDti:num('fhaDti')/100,lim:ri.lim,fhaLim:ri.fha};
 }
 const pmt=(L,r,n=360)=>L<=0?0:r>0?L*r/(1-Math.pow(1+r,-n)):L/n;
@@ -2260,42 +2260,41 @@ function renderCash(res,tgt){
 }
 
 
-/* ---------- timeline: when savings from paychecks reach each price ---------- */
+/* ---------- timeline: when monthly savings reach each price ---------- */
 function renderTL(cur,tgt){
-  const chk=Q.chk,N=78,DPS=[3.5,5,10,20],t0=new Date();
-  const dt=k=>{const d=new Date(t0.getTime()+k*14*864e5);return d.toLocaleDateString('en-US',{month:'short',year:'numeric'})};
-  const cap=Object.fromEntries(DPS.map(d=>[d,incomePrice(d,cur)]));
-  const aff=(k,d)=>Math.min((Q.sav+k*chk)/((d+Q.close)/100),cap[d]);
+  const mo=Q.mo,DPS=[3.5,5,10,20],t0=new Date(),dpn=Math.max(Q.dp,3.5);
+  const dt=m=>new Date(t0.getFullYear(),t0.getMonth()+m,1).toLocaleDateString('en-US',{month:'short',year:'numeric'});
+  const capOf={};const cap=d=>capOf[d]!==undefined?capOf[d]:(capOf[d]=incomePrice(d,cur));
+  const aff=(m,d)=>Math.min((Q.sav+m*mo)/((d+Q.close)/100),cap(d));
   const need=d=>tgt*(d+Q.close)/100;
-  const kFor=d=>{if(cap[d]<tgt)return -1;const n=need(d)-Q.sav;return n<=0?0:chk>0?Math.ceil(n/chk):-1};
-  const gp=(Q.W+Q.B)/26;
-  const dpn=Q.dp<3.5?3.5:Q.dp;
-  const kk=kFor(dpn);
-  $('tlHead').innerHTML=kk===0?`<b>Ready now</b><span>${usd(tgt)} at ${pc(dpn,0)} down</span>`:kk>0&&kk<=520?`<b>${dt(kk)}</b><span>${usd(tgt)} at ${pc(dpn,0)} down, after ${kk} paychecks</span>`:`<b>Not reachable</b><span>${cap[dpn]!==undefined&&cap[dpn]<tgt?'income tops out near '+usdM(incomePrice(dpn,cur)):'raise the amount saved'}</span>`;
-  $('tlSub').textContent=`Starting with ${usd(Q.sav)} and saving ${usd(chk)} from every paycheck, paid every 2 weeks (${usd(gp)} gross together). Target ${usd(tgt)}.`;
-  /* chart */
-  const W=MOB?360:700,H=MOB?250:250,L=MOB?46:62,R=MOB?36:64,T=14,B=30,FS=MOB?11:12,mx=Math.max(tgt*1.3,...DPS.map(d=>aff(N,d)));
-  const step=[250e3,500e3,1e6,2e6].find(x=>mx/x<=5)||2e6,ymax=Math.ceil(Math.min(mx,tgt*1.8)/step)*step;
-  const X=k=>L+(W-L-R)*k/N,Y=v=>T+(H-T-B)*(1-Math.min(v,ymax)/ymax);
-  const col={3.5:'#8C94AB',5:'#FF9E0D',10:'#2E3DA0',20:'#070C29'};
+  const mFor=d=>{if(cap(d)<tgt)return -1;const n=need(d)-Q.sav;return n<=0?0:mo>0?Math.ceil(n/mo):-1};
+  const mm=mFor(dpn),ok=mm>=0&&mm<=600,N=ok?Math.min(96,Math.max(36,Math.ceil((mm+3)/12)*12)):36,SP=N>48?6:3,yrs=m=>m>=12?(m%12?Math.floor(m/12)+' yr '+m%12+' mo':Math.floor(m/12)+' yr'):m+' mo';
+  $('tlHead').innerHTML=mm===0?`<b>Ready now</b><span>${usd(tgt)} at ${pc(dpn,0)} down</span>`:ok?`<b>${dt(mm)}</b><span>${usd(tgt)} at ${pc(dpn,0)} down, in ${yrs(mm)}</span>`:`<b>Not reachable</b><span>${cap(dpn)<tgt?'income tops out near '+usdM(cap(dpn)):'raise the amount saved'}</span>`;
+  $('tlSub').textContent=`Starting with ${usd(Q.sav)} and adding ${usd(mo)} a month, together. Target ${usd(tgt)} at ${pc(dpn,0)} down.`;
+  /* chart: one bar per quarter or half year at the chosen down payment */
+  const W=MOB?360:700,H=230,L=MOB?46:62,R=8,T=18,B=28,FS=MOB?11:12;
+  const ms=[];for(let m=0;m<=N;m+=SP)ms.push(m);
+  const mx=Math.max(tgt*1.15,...ms.map(m=>aff(m,dpn)));
+  const step=[100e3,250e3,500e3,1e6].find(x=>mx/x<=5)||1e6,ymax=Math.ceil(mx/step)*step;
+  const bw=(W-L-R)/ms.length,Y=v=>T+(H-T-B)*(1-Math.min(v,ymax)/ymax);
   let g='';
   for(let v=0;v<=ymax;v+=step)g+=`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="#dfe2ee"/><text x="${L-8}" y="${Y(v)+4}" text-anchor="end" font-size="${FS}" fill="#4B4D66">${v?usdK(v):'$0'}</text>`;
-  (MOB?[0,26,52,78]:[0,13,26,39,52,65,78]).forEach(k=>{g+=`<text x="${X(k)}" y="${H-8}" text-anchor="${k===0?'start':k===N?'end':'middle'}" font-size="${FS}" fill="#4B4D66">${k===0?'Now':dt(k)}</text>`});
-  g+=`<line x1="${L}" x2="${W-R}" y1="${Y(tgt)}" y2="${Y(tgt)}" stroke="#0B1030" stroke-dasharray="5 4"/><text x="${L+6}" y="${Y(tgt)-6}" font-size="${FS}" font-weight="500" fill="#0B1030">Target ${usdK(tgt)}</text>`;
-  const LD=[5,10,20],ly={};let last=-99;
-  LD.map(d=>[d,Y(aff(N,d))]).sort((a,b)=>a[1]-b[1]).forEach(([d,y])=>{y=Math.max(y,last+14);ly[d]=y;last=y});
-  LD.forEach(d=>{const pts=[];for(let k=0;k<=N;k++)pts.push(X(k).toFixed(1)+','+Y(aff(k,d)).toFixed(1));
-    g+=`<polyline fill="none" stroke="${col[d]}" stroke-width="${d===dpn?3:2}" stroke-linejoin="round" points="${pts.join(' ')}"/><text x="${W-R+6}" y="${ly[d]+4}" font-size="${FS}" font-weight="500" fill="${col[d]}">${d}%</text>`;
-    const k0=kFor(d);if(k0>=0&&k0<=N)g+=`<circle cx="${X(k0)}" cy="${Y(tgt)}" r="5" fill="${col[d]}" stroke="#fff" stroke-width="2"/>`});
-  $('tlChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Price we can afford over time at each down payment" style="width:100%;height:auto;display:block">${g}</svg><div class="legend2">Price we can afford at 5%, 10% and 20% down: savings or income, whichever is lower. Dots mark when a line reaches the target.</div>`;
-  /* table */
-  const rows=[0,6,13,26,39,52,78].map(k=>{const c=DPS.slice(1).map(d=>{const v=aff(k,d);const hit=v>=tgt;return `<td class="${hit?'tlHit':''}">${v>=100000?usdM(Math.floor(v/1000)*1000):'&ndash;'}</td>`}).join('');
-    return `<tr><td>${k?dt(k):'Now'}<small>${k?k+' paychecks':'start'}</small></td><td>${usdM(Q.sav+k*chk)}</td>${c}</tr>`}).join('');
-  const ms=DPS.map(d=>{const k=kFor(d),n=need(d);return `<tr><td>${d}% down</td><td>${usdM(n)}</td><td>${k===0?'Now':k>0&&k<=520?dt(k)+' <small>'+k+' paychecks</small>':'<span class="neg">Income too low</span>'}</td></tr>`}).join('');
-  $('tlTbl').innerHTML=`<table class="rtab"><tr><th>${MOB?'When':'When'}</th><th>${MOB?'Saved':'Savings'}</th><th>5% down</th><th>10% down</th><th>20% down</th></tr>${rows}</table>
-  <table class="rtab" style="margin-top:14px"><tr><th>${usdM(tgt)} home</th><th>${MOB?'Cash':'Cash needed'}</th><th>${MOB?'Ready':'Ready by'}</th></tr>${ms}</table>`;
-  $('tlNote').textContent=`Assumes ${usd(chk)} saved from each paycheck, savings earn nothing, and prices, rates and income stay as entered. Green cells reach the target. Closing costs of ${pc(Q.close,0)} are included in the cash needed.`;
+  const first=ms.find(m=>aff(m,dpn)>=tgt);
+  ms.forEach((m,i)=>{const v=aff(m,dpn),x=L+i*bw+bw*.15,hit=v>=tgt;
+    g+=`<rect x="${x.toFixed(1)}" y="${Y(v).toFixed(1)}" width="${(bw*.7).toFixed(1)}" height="${(Y(0)-Y(v)).toFixed(1)}" rx="3" fill="${hit?'#0a7a4b':'#2E3DA0'}"/>`;
+    if(m===0||m===first||m===N)g+=`<text x="${(x+bw*.35).toFixed(1)}" y="${(Y(v)-5).toFixed(1)}" text-anchor="middle" font-size="${FS}" font-weight="500" fill="#0B1030">${usdK(Math.min(v,cap(dpn)))}</text>`;
+    if(m%(N>48?24:12)===0)g+=`<text x="${(x+bw*.35).toFixed(1)}" y="${H-8}" text-anchor="${m===0?'start':m===N?'end':'middle'}" font-size="${FS}" fill="#4B4D66">${m===0?'Now':dt(m)}</text>`});
+  g+=`<line x1="${L}" x2="${W-R}" y1="${Y(tgt)}" y2="${Y(tgt)}" stroke="#0B1030" stroke-width="1.5" stroke-dasharray="5 4"/><text x="${L+4}" y="${Y(tgt)-5}" font-size="${FS}" font-weight="500" fill="#0B1030">Target ${usdK(tgt)}</text>`;
+  $('tlChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Price we can afford every three months" style="width:100%;height:auto;display:block">${g}</svg><div class="legend2">Each bar is the price we can afford every ${SP} months at ${pc(dpn,0)} down. Green bars reach the target.</div>`;
+  /* tables */
+  const rows=[0,3,6,12,18,24,36].map(m=>{const c=DPS.slice(1).map(d=>{const v=aff(m,d);return `<td class="${v>=tgt?'tlHit':''}">${v>=100000?usdM(Math.floor(v/1000)*1000):'&ndash;'}</td>`}).join('');
+    return `<tr><td>${m?dt(m):'Now'}<small>${m?yrs(m):'start'}</small></td><td>${usdM(Q.sav+m*mo)}</td>${c}</tr>`}).join('');
+  const mt=DPS.map(d=>{const m=mFor(d),n=need(d);return `<tr><td>${d}% down</td><td>${usdM(n)}</td><td>${m===0?'Now':m>0&&m<=600?dt(m)+' <small>'+yrs(m)+'</small>':'<span class="neg">Income too low</span>'}</td></tr>`}).join('');
+  $('tlTbl').innerHTML=`<table class="rtab"><tr><th>When</th><th>${MOB?'Saved':'Savings'}</th><th>5% down</th><th>10% down</th><th>20% down</th></tr>${rows}</table>
+  <table class="rtab" style="margin-top:14px"><tr><th>${usdM(tgt)} home</th><th>${MOB?'Cash':'Cash needed'}</th><th>${MOB?'Ready':'Ready by'}</th></tr>${mt}</table>`;
+  $('tlNote').textContent=`Assumes ${usd(mo)} saved each month by both of you together, savings earn nothing, and prices, rates and income stay as entered. Green cells reach the target. Cash needed includes ${pc(Q.close,0)} closing costs.`;
 }
+
 /* ---------- affordability ---------- */
 function renderAf(){
   params();
