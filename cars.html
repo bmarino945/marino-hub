@@ -407,6 +407,9 @@ td.sel,th.sel{background:var(--sel)}
 .btn:not(.pri):not(.hl):not(.ghost).on{background:var(--hl);color:#2A1700;box-shadow:none}
 .saveBtn.on{background:rgba(168,31,59,.1)!important;color:var(--neg)!important;box-shadow:inset 0 0 0 1.5px rgba(168,31,59,.4)!important}
 .svFoot .btn.pri{box-shadow:none}
+.mailBtn{display:inline-flex;align-items:center;justify-content:center;gap:7px}
+.mailBtn .hrt{width:18px;height:18px;flex:none}
+@media (max-width:800px){.tile .mailBtn span,.pk .mailBtn span{display:none}.tile .mailBtn,.pk .mailBtn{padding:0 11px}}
 
 /* ---- compact layout (shared): slim hero, filters in a side column, compact list cards ---- */
 .hero{padding:22px 0 26px}
@@ -640,6 +643,27 @@ td.sel,th.sel{background:var(--sel)}
  #afTable,#sens{padding:14px 12px!important}
  #sens .rtab th,#sens .rtab td{padding:0 5px!important}
  #sens .rtab th:first-child,#sens .rtab td:first-child{width:29%;padding-left:2px!important}
+}
+@media (max-width:800px){
+ /* savings bar rides in the pinned inputs card: one line, input + the number */
+ #inputs .cashBar{flex-direction:row;align-items:center;gap:8px;margin:6px 0 0;padding:6px 10px;border-radius:10px}
+ #inputs .cashBar .cashIn{width:104px;flex:0 0 104px}
+ #inputs .cashBar .cashIn label{font-size:11px}
+ #inputs .cashOut{flex:1;min-width:0;gap:0}
+ #inputs .cashBig span{font-size:11px;line-height:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ #inputs .cashBig b{font-size:20px;line-height:24px}
+ #inputs .cashBig em{display:none}
+ #inputs .cashDet{display:none}
+ #inputs.open .cashDet{display:flex}
+ #cashTbl{padding:16px 10px!important}
+ #cashTbl .rtab th:first-child,#cashTbl .rtab td:first-child{width:14%}
+ #cashTbl .rtab th:last-child,#cashTbl .rtab td:last-child{display:none}
+ #cashTbl .rtab+.rtab th:last-child,#cashTbl .rtab+.rtab td:last-child{display:table-cell}
+ #cashTbl .rtab+.rtab th:first-child,#cashTbl .rtab+.rtab td:first-child{width:30%}
+ #cashTbl .note{padding:0 4px}
+ #cashSub{display:none}
+ #map{height:calc(100vh - var(--nav) - 150px);min-height:360px;border-radius:14px}
+ .vseg{margin-left:8px}
 }
 
 </style>
@@ -894,7 +918,16 @@ function makeSaved(cfg){
     }
   }catch(e){}
   setTimeout(refresh,0);
-  return {btn:id=>{const on=ids.includes(String(id));return '<button class="btn press saveBtn'+(on?' on':'')+'" data-save="'+esc(id)+'" aria-pressed="'+on+'">'+heart+'<span>'+(on?'Saved':'Save')+'</span></button>'},refresh,toggle};
+  const env='<svg class="hrt" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.500h16v11H4zM4.500 7l7.500 6 7.500-6" fill="none" stroke="currentColor" stroke-width="1.800" stroke-linejoin="round"/></svg>';
+  document.addEventListener('click',e=>{
+    const m=e.target.closest('[data-mail]');if(!m)return;
+    e.preventDefault();e.stopPropagation();
+    const id=m.dataset.mail,o=cfg.get(id);if(!o)return;const i=cfg.info(o);
+    const to=(document.getElementById('svMail')&&document.getElementById('svMail').value.trim())||mail||cfg.email;
+    const body=['Marino '+cfg.one,'',i.title+' - '+i.price,i.sub,i.url,'','On the site: '+location.href.split('#')[0]+'#saved='+encodeURIComponent(id)].join('\n');
+    location.href='mailto:'+encodeURIComponent(to).replace('%40','@')+'?subject='+encodeURIComponent('Marino '+cfg.one+': '+i.title+' '+i.price)+'&body='+encodeURIComponent(body);
+  },true);
+  return {mail:id=>'<button class="btn press mailBtn" data-mail="'+esc(id)+'" aria-label="Email this '+cfg.one+'">'+env+'<span>Email</span></button>',btn:id=>{const on=ids.includes(String(id));return '<button class="btn press saveBtn'+(on?' on':'')+'" data-save="'+esc(id)+'" aria-pressed="'+on+'">'+heart+'<span>'+(on?'Saved':'Save')+'</span></button>'},refresh,toggle};
 }
 
 ;document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.fbtn');var t=document.querySelector('.tool.open,#inputs.open');var rst=function(x){x.classList.remove('open');var y=x.querySelector('.fbtn');y.textContent=y.dataset.l||'Filters';y.setAttribute('aria-expanded','false')};if(b){var tool=b.closest('.tool,#inputs');if(t&&t!==tool)rst(t);var o=tool.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Done':(b.dataset.l||'Filters');return}if(t&&!e.target.closest('.tool,#inputs'))rst(t)});
@@ -974,7 +1007,7 @@ function card(c,ix){
       <div class="facts"><span><b>${c.miles.toLocaleString()}</b> mi</span><span><b>${c.drive}</b></span><span class="mpg"><b>${mpgTxt(c)}</b></span><span class="full">${c.color}${c.cargo?` &middot; <b>${c.cargo}</b> cu ft cargo`:''}</span></div><div class="chips">${chips}</div>
       <div class="sub">${where}</div>
       <div class="money">${big}<div class="rows">${rows}</div></div>
-      <div class="acts"><button class="btn pri press" data-open="${c.id}">Details</button>${pickBtn(c,'On shortlist','Shortlist')}${Saved.btn(c.id)}</div>
+      <div class="acts"><button class="btn pri press" data-open="${c.id}">Details</button>${pickBtn(c,'On shortlist','Shortlist')}${Saved.btn(c.id)}${Saved.mail(c.id)}</div>
     </div></article>`;
 }
 function pickBtn(c,onTxt,offTxt,re){
@@ -1048,7 +1081,7 @@ function paint(el,x,why,fig,line){
     <div class="fb"><div><div class="fig"></div><div class="why"></div></div><div><div class="nm" data-open="${c.id}">${name(c)}</div><div class="sub">${c.trim}, ${dealerName(c)}, ${c.city}</div></div><div class="sub line"></div><div class="acts"></div></div>`;
   }
   el.querySelector('.why').textContent=why;setTxt(el.querySelector('.fig'),fig);el.querySelector('.line').innerHTML=line;
-  el.querySelector('.acts').innerHTML=`<button class="btn pri press" data-open="${c.id}">Details</button>${pickBtn(c,'On shortlist','Shortlist')}${Saved.btn(c.id)}`;
+  el.querySelector('.acts').innerHTML=`<button class="btn pri press" data-open="${c.id}">Details</button>${pickBtn(c,'On shortlist','Shortlist')}${Saved.btn(c.id)}${Saved.mail(c.id)}`;
 }
 function openCar(id,o){
   o=o||{};const wasOpen=isOpen();
@@ -1058,7 +1091,7 @@ function openCar(id,o){
   const row=(l,f)=>`<tr><td>${l}</td>${['cash','down','min'].map(m=>`<td class="${m===S.mode?'sel':''}">${f(ks[m],m)}</td>`).join('')}</tr>`;
   const nonVeh=k.otd-k.veh, pv=k.fin*(k.veh/k.otd)/k.n, pf=k.fin*(nonVeh/k.otd)/k.n, pi=k.interest/k.n, tot=k.pmt||1;
   const i1=k.fin*k.r,pmax=Math.max(...sc.map(r=>r.p+r.i),1);
-  $('modal').innerHTML=`<div class="mhead"><div><h2>${name(c)} ${c.trim}</h2><div class="sub">${c.src==='ent'?locTxt(c):c.dealer+', '+locTxt(c)} &middot; ${c.new?'New &middot; ':''}${c.status}${c.cpo?' &middot; Certified pre-owned':''} &middot; VIN ${c.id}</div><div style="margin-top:10px">${Saved.btn(c.id)}</div></div><div class="mnav"><button class="x press" data-step="-1" aria-label="Previous car"${pos.p?'':' disabled'}>${ico('left')}</button><button class="x press" data-step="1" aria-label="Next car"${pos.n?'':' disabled'}>${ico('right')}</button><button class="x press" data-close aria-label="Close">${ico('x')}</button></div></div>
+  $('modal').innerHTML=`<div class="mhead"><div><h2>${name(c)} ${c.trim}</h2><div class="sub">${c.src==='ent'?locTxt(c):c.dealer+', '+locTxt(c)} &middot; ${c.new?'New &middot; ':''}${c.status}${c.cpo?' &middot; Certified pre-owned':''} &middot; VIN ${c.id}</div><div style="margin-top:10px">${Saved.btn(c.id)}${Saved.mail(c.id)}</div></div><div class="mnav"><button class="x press" data-step="-1" aria-label="Previous car"${pos.p?'':' disabled'}>${ico('left')}</button><button class="x press" data-step="1" aria-label="Next car"${pos.n?'':' disabled'}>${ico('right')}</button><button class="x press" data-close aria-label="Close">${ico('x')}</button></div></div>
   <div class="mbody${wasOpen&&!o.quiet?' swap':''}"><div>
     ${c.img?`<img class="ph2" alt="${name(c)}" src="${c.img}">`:''}${c.rep?'<div class="note">Photo shows a similar car; this one is still in certification.</div>':''}
     <div class="sec"><h3>Spec sheet</h3><div class="specs">
