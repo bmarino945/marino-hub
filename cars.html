@@ -618,6 +618,22 @@ td.sel,th.sel{background:var(--sel)}
  .tbl .note,.note{font-size:11px!important;line-height:1.35}
  .bars .bar{font-size:12px}
  html,body{overflow-x:clip}
+ /* Apple-style tables: one line per row, one height, figures right-aligned in their column */
+ .tbl .rtab th,.tbl .rtab td{white-space:nowrap!important;vertical-align:middle!important;text-align:right;font-variant-numeric:tabular-nums;height:34px;padding:0 3px!important;line-height:1.2;border-bottom:1px solid var(--line-2,#e6e4df)}
+ .tbl .rtab th{height:34px;font-size:11px!important;font-weight:500;letter-spacing:.01em}
+ .tbl .rtab th:first-child,.tbl .rtab td:first-child{text-align:left;width:25%}
+ #sens .rtab th:first-child,#sens .rtab td:first-child{width:30%}
+ .tbl .rtab tr:last-child td{border-bottom:0}
+ .tbl .rtab td{font-weight:500}
+ .tbl .rtab td:first-child{font-weight:400}
+ .rtab td.best,.rtab th.best{background:var(--sel)}
+ .verdict{padding:10px 14px!important;margin:8px 0!important;border-radius:16px}
+ .verdict h2{font-size:15px!important;line-height:1.25;margin:0}
+ .verdict p{font-size:12px!important;line-height:1.35;margin:3px 0 0!important}
+ #afTable .pageTitle .sub,#sensSub,#barSub{display:none}
+ #v-afford .wrap.page{padding-top:0!important}
+ #v-afford .band{padding:4px 0 6px!important}
+ .verdict{margin:10px 0 8px!important}
 }
 
 </style>
