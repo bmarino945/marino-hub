@@ -692,6 +692,41 @@ td.sel,th.sel{background:var(--sel)}
  #sens .rtab th:first-child,#sens .rtab td:first-child{width:28%}
  .tool>.seg1 .railSeg button{padding:0 8px!important;font-size:13px}
  .tool>.seg1 .railSeg{gap:2px}
+ /* Affordability: numbers pinned under the header, tables small and clean */
+ #v-afford .band p{display:none}
+ #v-afford .band h1{font-size:20px;margin:0}
+ #v-afford .band{padding:6px 0 10px}
+ .afgrid{display:contents}
+ .afgrid>div{display:contents}
+ .verdict{font-size:13px;line-height:1.4;padding:12px 14px!important;margin:10px 0}
+ .verdict h2,.verdict h3,.verdict b:first-child{font-size:15px;line-height:1.25}
+ #inputs{position:sticky;top:var(--nav);z-index:30;margin:0 -16px 10px!important;padding:6px 16px 8px!important;border-radius:0!important;width:calc(100% + 32px);box-sizing:border-box;box-shadow:0 6px 14px rgba(20,24,60,.08);background:var(--card,#fff)}
+ #inputs .fh{display:none}
+ #inputs>.fh:nth-child(2){display:block;font-size:13px;line-height:30px;margin:0;padding:0}
+ #inputs .fld2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 6px}
+ #inputs .field{gap:2px;min-width:0}
+ #inputs .field label{font-size:11px;line-height:13px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ #inputs .chipIn{height:32px;padding:0 6px;gap:2px}
+ #inputs .chipIn input{font-size:13px;min-width:0;width:100%;padding:0}
+ #inputs .chipIn i{font-size:12px}
+ #inputs:not(.open) .chipIn i{display:none}
+ #inputs.open .chipIn input{font-size:15px}
+ #inputs:not(.open)>.fld2:nth-child(n+4),#inputs:not(.open)>.fld2:nth-child(3) .field:nth-child(n+5){display:none}
+ #inputs .fbtn{display:inline-flex;position:absolute;right:16px;top:6px;height:30px;padding:0 14px;font-size:13px;border-radius:10px}
+ #inputs.open{max-height:calc(100vh - var(--nav) - 70px);overflow-y:auto}
+ #inputs.open>.fh{display:block;font-size:12px;line-height:20px;margin:10px 0 4px}
+ #inputs.open>.fh:nth-child(2){margin-top:0;line-height:30px;font-size:13px}
+ #inputs.open .fld2{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #inputs.open .field label{white-space:normal}
+ .card.panel{padding:12px 10px!important}
+ .pageTitle h2{font-size:15px!important}
+ .pageTitle .sub,#barSub,#sensSub{font-size:12px!important;line-height:1.35}
+ .tbl .rtab th,.tbl .rtab td{font-size:11px!important;padding:5px 2px!important}
+ .tbl .rtab th:first-child,.tbl .rtab td:first-child{font-size:11px!important}
+ .rtab .big2,.rtab td .big2{font-size:12px!important}
+ .tbl .note,.note{font-size:11px!important;line-height:1.35}
+ .bars .bar{font-size:12px}
+ html,body{overflow-x:clip}
 }
 
 </style>
@@ -883,12 +918,13 @@ td.sel,th.sel{background:var(--sel)}
       <div class="afgrid">
         <div>
           <section class="card" id="inputs">
+            <button type="button" class="fbtn" data-l="More" aria-expanded="false">More</button>
             <div class="fh">Incomes and credit</div>
             <div class="fld2">
-              <div class="field"><label for="wInc">Wife's income</label><div class="chipIn"><i>$</i><input id="wInc" inputmode="numeric" value="165,000"></div></div>
-              <div class="field"><label for="bInc">Brandon's income</label><div class="chipIn"><i>$</i><input id="bInc" inputmode="numeric" value="240,000"></div></div>
-              <div class="field"><label for="wSc">Wife's score</label><div class="chipIn"><input id="wSc" inputmode="numeric" value="750"></div></div>
-              <div class="field"><label for="bSc">Brandon's score</label><div class="chipIn"><input id="bSc" inputmode="numeric" value="600"></div></div>
+              <div class="field"><label for="wInc">Wife income</label><div class="chipIn"><i>$</i><input id="wInc" inputmode="numeric" value="165,000"></div></div>
+              <div class="field"><label for="bInc">Brandon income</label><div class="chipIn"><i>$</i><input id="bInc" inputmode="numeric" value="240,000"></div></div>
+              <div class="field"><label for="wSc">Wife score</label><div class="chipIn"><input id="wSc" inputmode="numeric" value="750"></div></div>
+              <div class="field"><label for="bSc">Brandon score</label><div class="chipIn"><input id="bSc" inputmode="numeric" value="600"></div></div>
               <div class="field"><label for="bTgt">Brandon's score goal</label><div class="chipIn"><input id="bTgt" inputmode="numeric" value="680"></div></div>
               <div class="field"><label for="debts">Other monthly debts</label><div class="chipIn"><i>$</i><input id="debts" inputmode="numeric" value="700"></div></div>
             </div>
@@ -1160,7 +1196,7 @@ function makeSaved(cfg){
   return {btn:id=>{const on=ids.includes(String(id));return '<button class="btn press saveBtn'+(on?' on':'')+'" data-save="'+esc(id)+'" aria-pressed="'+on+'">'+heart+'<span>'+(on?'Saved':'Save')+'</span></button>'},refresh,toggle};
 }
 
-;document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.fbtn');var t=document.querySelector('.tool.open');if(b){var tool=b.closest('.tool');var o=tool.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Done':'Filters';return}if(t&&!e.target.closest('.tool')){t.classList.remove('open');var x=t.querySelector('.fbtn');x.textContent='Filters';x.setAttribute('aria-expanded','false')}});
+;document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.fbtn');var t=document.querySelector('.tool.open,#inputs.open');var rst=function(x){x.classList.remove('open');var y=x.querySelector('.fbtn');y.textContent=y.dataset.l||'Filters';y.setAttribute('aria-expanded','false')};if(b){var tool=b.closest('.tool,#inputs');if(t&&t!==tool)rst(t);var o=tool.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Done':(b.dataset.l||'Filters');return}if(t&&!e.target.closest('.tool,#inputs'))rst(t)});
 
 const Saved=makeSaved({key:'marinoHousesSaved',noun:'homes',one:'home',email:'jbmarino24@gmail.com',get:id=>HOUSES.find(h=>h.id===id),info:h=>({title:nm(h)+' '+h.zip,price:usd(h.price),sub:h.region+' · '+h.beds+' bd · '+h.baths+' ba · '+(h.sqft?h.sqft.toLocaleString()+' sqft':''),url:h.url,img:h.img})});
 const KEEP=['reg','sort','appr','minAvg','minBeds','qOnly','noNew','rail2','afReg'];

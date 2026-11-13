@@ -583,6 +583,41 @@ td.sel,th.sel{background:var(--sel)}
  #sens .rtab th:first-child,#sens .rtab td:first-child{width:28%}
  .tool>.seg1 .railSeg button{padding:0 8px!important;font-size:13px}
  .tool>.seg1 .railSeg{gap:2px}
+ /* Affordability: numbers pinned under the header, tables small and clean */
+ #v-afford .band p{display:none}
+ #v-afford .band h1{font-size:20px;margin:0}
+ #v-afford .band{padding:6px 0 10px}
+ .afgrid{display:contents}
+ .afgrid>div{display:contents}
+ .verdict{font-size:13px;line-height:1.4;padding:12px 14px!important;margin:10px 0}
+ .verdict h2,.verdict h3,.verdict b:first-child{font-size:15px;line-height:1.25}
+ #inputs{position:sticky;top:var(--nav);z-index:30;margin:0 -16px 10px!important;padding:6px 16px 8px!important;border-radius:0!important;width:calc(100% + 32px);box-sizing:border-box;box-shadow:0 6px 14px rgba(20,24,60,.08);background:var(--card,#fff)}
+ #inputs .fh{display:none}
+ #inputs>.fh:nth-child(2){display:block;font-size:13px;line-height:30px;margin:0;padding:0}
+ #inputs .fld2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 6px}
+ #inputs .field{gap:2px;min-width:0}
+ #inputs .field label{font-size:11px;line-height:13px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ #inputs .chipIn{height:32px;padding:0 6px;gap:2px}
+ #inputs .chipIn input{font-size:13px;min-width:0;width:100%;padding:0}
+ #inputs .chipIn i{font-size:12px}
+ #inputs:not(.open) .chipIn i{display:none}
+ #inputs.open .chipIn input{font-size:15px}
+ #inputs:not(.open)>.fld2:nth-child(n+4),#inputs:not(.open)>.fld2:nth-child(3) .field:nth-child(n+5){display:none}
+ #inputs .fbtn{display:inline-flex;position:absolute;right:16px;top:6px;height:30px;padding:0 14px;font-size:13px;border-radius:10px}
+ #inputs.open{max-height:calc(100vh - var(--nav) - 70px);overflow-y:auto}
+ #inputs.open>.fh{display:block;font-size:12px;line-height:20px;margin:10px 0 4px}
+ #inputs.open>.fh:nth-child(2){margin-top:0;line-height:30px;font-size:13px}
+ #inputs.open .fld2{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #inputs.open .field label{white-space:normal}
+ .card.panel{padding:12px 10px!important}
+ .pageTitle h2{font-size:15px!important}
+ .pageTitle .sub,#barSub,#sensSub{font-size:12px!important;line-height:1.35}
+ .tbl .rtab th,.tbl .rtab td{font-size:11px!important;padding:5px 2px!important}
+ .tbl .rtab th:first-child,.tbl .rtab td:first-child{font-size:11px!important}
+ .rtab .big2,.rtab td .big2{font-size:12px!important}
+ .tbl .note,.note{font-size:11px!important;line-height:1.35}
+ .bars .bar{font-size:12px}
+ html,body{overflow-x:clip}
 }
 
 </style>
@@ -840,7 +875,7 @@ function makeSaved(cfg){
   return {btn:id=>{const on=ids.includes(String(id));return '<button class="btn press saveBtn'+(on?' on':'')+'" data-save="'+esc(id)+'" aria-pressed="'+on+'">'+heart+'<span>'+(on?'Saved':'Save')+'</span></button>'},refresh,toggle};
 }
 
-;document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.fbtn');var t=document.querySelector('.tool.open');if(b){var tool=b.closest('.tool');var o=tool.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Done':'Filters';return}if(t&&!e.target.closest('.tool')){t.classList.remove('open');var x=t.querySelector('.fbtn');x.textContent='Filters';x.setAttribute('aria-expanded','false')}});
+;document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.fbtn');var t=document.querySelector('.tool.open,#inputs.open');var rst=function(x){x.classList.remove('open');var y=x.querySelector('.fbtn');y.textContent=y.dataset.l||'Filters';y.setAttribute('aria-expanded','false')};if(b){var tool=b.closest('.tool,#inputs');if(t&&t!==tool)rst(t);var o=tool.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Done':(b.dataset.l||'Filters');return}if(t&&!e.target.closest('.tool,#inputs'))rst(t)});
 
 const Saved=makeSaved({key:'marinoCarsSaved',noun:'cars',one:'car',email:'jbmarino24@gmail.com',get:id=>CARS.find(c=>c.id===id),info:c=>({title:name(c)+' '+c.trim,price:usd(c.price)+' listed',sub:(c.src==='ent'?locTxt(c):dealerName(c)+', '+locTxt(c))+' · '+c.miles.toLocaleString()+' mi',url:c.url,img:c.img})});
 const INP=['down','mind','apr','disc','budget','bmin','miles','gas'],CHK=['discOn','inBudget','heatedOnly'],KEEP=['mode','show','term','src','make','cond','sort','picked'];
