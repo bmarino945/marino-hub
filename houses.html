@@ -743,6 +743,12 @@ td.sel,th.sel{background:var(--sel)}
  #v-afford .wrap.page{padding-top:0!important}
  #v-afford .band{padding:4px 0 6px!important}
  .verdict{margin:10px 0 8px!important}
+ .tbl .rtab th,.tbl .rtab td{padding:0 7px!important}
+ .tbl .rtab th:first-child,.tbl .rtab td:first-child{padding-left:2px!important;padding-right:4px!important}
+ .tbl .rtab th:last-child,.tbl .rtab td:last-child{padding-right:4px!important}
+ #afTable,#sens{padding:14px 12px!important}
+ #sens .rtab th,#sens .rtab td{padding:0 5px!important}
+ #sens .rtab th:first-child,#sens .rtab td:first-child{width:29%;padding-left:2px!important}
 }
 
 </style>
@@ -1445,12 +1451,12 @@ function renderAf(){
   }
   $('verdict').innerHTML=v;
   const cols=res.map(r=>`<th class="${r.a.id===best.a.id&&oks.length?'best':''}">${sn(r.a.name)}<small>${r.a.sub}</small></th>`).join('');
-  const LB={'Highest price':'Max price','Largest loan':'Max loan','Payment at target':'Payment','Debt-to-income':'DTI','Qualifies at target':'Qualifies','Mortgage insurance':'Mtg insurance','Interest over 30 years':'30-yr interest'};
+  const LB={'Highest price':'Max price','Largest loan':'Max loan','Payment at target':'Payment','Debt-to-income':'DTI','Qualifies at target':'Qualifies','Mortgage insurance':'PMI','Interest over 30 years':'Interest','Cash to close':'Cash in'};
   const T=(l,f)=>`<tr><td>${MOB?(LB[l]||l):l}</td>${res.map(r=>`<td class="${r.a.id===best.a.id&&oks.length?'best':''}${f.no&&f.no(r)?' no':''}">${f.f(r)}</td>`).join('')}</tr>`;
   const cash=tgt*(Q.dp+Q.close)/100;
   $('afTable').innerHTML=`<div class="pageTitle"><div><h2>Rate, price and payment by approach</h2><div class="sub">Target ${usd(tgt)}, ${pc(Q.dp,0)} down, ${S.afReg}. The shaded column is the best option.</div></div></div>
   <table class="rtab" style="margin-top:12px"><tr><th></th>${cols}</tr>
-  ${T('Program',{f:r=>{const x=r.b?r.b.prog:r.at.elig?r.at.prog+(MOB?'':'<br><span class="sub">not at this price</span>'):'None eligible';return MOB?x.replace('Conventional','Conv.'):x},no:r=>!r.b})}
+  ${T('Program',{f:r=>{const x=r.b?r.b.prog:r.at.elig?r.at.prog+(MOB?'':'<br><span class="sub">not at this price</span>'):'None eligible';return MOB?x.replace('Conventional','Conv.').replace(' 30-yr',''):x},no:r=>!r.b})}
   ${T('Rate',{f:r=>r.at.elig?`<span class="big2">${pc(r.at.rate)}</span>`:'&ndash;'})}
   ${T('Highest price',{f:r=>r.mp?`<span class="big2">${usdM(r.mp)}</span>`:'None',no:r=>!r.mp})}
   ${T('Largest loan',{f:r=>r.mp?usdM(r.mp*(1-Q.dp/100)):'&ndash;'})}
@@ -1466,7 +1472,7 @@ function renderAf(){
   $('bars').innerHTML=res.map(r=>`<div class="bar"><span>${r.a.name}</span><div class="tr"><div class="fl${r.a.id===best.a.id&&oks.length?' hl':''}" style="width:${r.mp/mx*100}%"></div><div class="tg" style="left:${tgt/mx*100}%"></div></div><span class="v">${r.mp?usdK(r.mp):'None'}</span></div>`).join('');
   const sc=[580,600,620,640,660,680,700,720,740,760];
   const row=(lab,a,cl)=>{const l=evalA(a,tgt,hh),b=bestOf(l),at=attempt(l),mp=Math.max(maxP(a,'conv'),maxP(a,'fha'));
-    return `<tr class="${cl||''}"><td>${MOB?lab.replace('Both, Brandon at ','Both, '):lab}</td><td>${at.elig?at.prog:'None eligible'}</td><td>${at.elig?pc(at.rate):'&ndash;'}</td><td>${at.elig?usd(at.pay):'&ndash;'}</td><td>${mp?usdM(mp):'None'}</td><td class="${b?'pos':'neg'}">${b?'Yes':'No'}</td></tr>`};
+    return `<tr class="${cl||''}"><td>${MOB?lab.replace('Both, Brandon at ','Both, ').replace(' (today)',' now'):lab}</td><td>${at.elig?at.prog:'None eligible'}</td><td>${at.elig?pc(at.rate):'&ndash;'}</td><td>${at.elig?usd(at.pay):'&ndash;'}</td><td>${mp?usdM(mp):'None'}</td><td class="${b?'pos':'neg'}">${b?'Yes':'No'}</td></tr>`};
   const rows=[row('Wife alone ('+Math.round(Q.ws)+')',res[0].a,'sel'),...sc.map(s=>{const m=Math.min(Q.ws,s);return row('Both, Brandon at '+s+(s===Math.round(Q.bs)?' (today)':''),{inc:Q.W+Q.B,sElig:m,sPrice:m},s===Math.round(Q.bs)?'sel':'')})];
   $('sensSub').textContent=`Combined income, lowest score used, at the ${usd(tgt)} target. Shows what each score step buys.`;
   $('sens').innerHTML=`<table class="rtab"><tr><th></th><th>Program</th><th>Rate</th><th>${MOB?'Payment':'Payment at target'}</th><th>${MOB?'Max price':'Highest price'}</th><th>Qualifies</th></tr>${rows.join('')}</table>`;
