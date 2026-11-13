@@ -676,6 +676,22 @@ td.sel,th.sel{background:var(--sel)}
  .tool.open>.grow{display:none!important}
  .bhead p{display:none}
  #lineup>.bhead{margin-bottom:6px}
+ /* tables fit the screen: no sideways scroll */
+ .tbl{overflow-x:visible}
+ .tbl .rtab{width:100%;min-width:0!important;table-layout:fixed}
+ .tbl .rtab th,.tbl .rtab td{padding:7px 2px!important;font-size:12px;line-height:1.3;word-break:normal;overflow-wrap:normal;vertical-align:top}
+ #afTable .rtab tr:nth-child(2) td{overflow-wrap:anywhere;hyphens:auto}
+ #afTable,#sens{padding:16px 10px!important}
+ #afTable .pageTitle,#sens .pageTitle,#afTable .note{padding:0 4px}
+ .tbl .rtab th:first-child,.tbl .rtab td:first-child{padding-left:0!important;font-size:12px}
+ .rtab th{font-size:12px}
+ .rtab th small,.rtab .sub{display:none}
+ .rtab td .big2{font-size:12px}
+ #afTable .rtab th:first-child,#afTable .rtab td:first-child{width:19%}
+ #sens .rtab th:nth-child(2),#sens .rtab td:nth-child(2){display:none}
+ #sens .rtab th:first-child,#sens .rtab td:first-child{width:28%}
+ .tool>.seg1 .railSeg button{padding:0 8px!important;font-size:13px}
+ .tool>.seg1 .railSeg{gap:2px}
 }
 
 </style>
@@ -1151,6 +1167,8 @@ const KEEP=['reg','sort','appr','minAvg','minBeds','qOnly','noNew','rail2','afRe
 const $=id=>document.getElementById(id);
 const num=id=>{const v=parseFloat(String($(id).value).replace(/[^0-9.\-]/g,''));return isFinite(v)?v:0};
 const usd=n=>'$'+Math.round(n).toLocaleString('en-US');
+const MOB=matchMedia('(max-width:800px)').matches;
+const usdM=n=>{if(!MOB)return usd(n);const t=x=>String(+x.toFixed(3));return n>=1e6?'$'+t(n/1e6)+'M':'$'+String(+(n/1e3).toFixed(1))+'K'};
 const usdK=n=>n>=999500?'$'+(n/1e6).toFixed(2)+'M':'$'+Math.round(n/1e3)+'K';
 const pc=(n,d=2)=>n.toFixed(d)+'%';
 const ico=n=>`<svg class="i"><use href="#i-${n}"/></svg>`;
@@ -1378,23 +1396,23 @@ function renderAf(){
   const cash=tgt*(Q.dp+Q.close)/100;
   $('afTable').innerHTML=`<div class="pageTitle"><div><h2>Rate, price and payment by approach</h2><div class="sub">Target ${usd(tgt)}, ${pc(Q.dp,0)} down, ${S.afReg}. The shaded column is the best option.</div></div></div>
   <table class="rtab" style="margin-top:12px"><tr><th></th>${cols}</tr>
-  ${T('Program',{f:r=>r.b?r.b.prog:r.at.elig?r.at.prog+'<br><span class="sub">not at this price</span>':'None eligible',no:r=>!r.b})}
+  ${T('Program',{f:r=>{const x=r.b?r.b.prog:r.at.elig?r.at.prog+'<br><span class="sub">not at this price</span>':'None eligible';return MOB?x.replace('Conventional','Conv.'):x},no:r=>!r.b})}
   ${T('Rate',{f:r=>r.at.elig?`<span class="big2">${pc(r.at.rate)}</span>`:'&ndash;'})}
-  ${T('Highest price',{f:r=>r.mp?`<span class="big2">${usd(r.mp)}</span>`:'None',no:r=>!r.mp})}
-  ${T('Largest loan',{f:r=>r.mp?usd(r.mp*(1-Q.dp/100)):'&ndash;'})}
+  ${T('Highest price',{f:r=>r.mp?`<span class="big2">${usdM(r.mp)}</span>`:'None',no:r=>!r.mp})}
+  ${T('Largest loan',{f:r=>r.mp?usdM(r.mp*(1-Q.dp/100)):'&ndash;'})}
   ${T('Payment at target',{f:r=>r.at.elig?`<span class="big2">${usd(r.at.pay)}</span>`:'&ndash;'})}
   ${T('Debt-to-income',{f:r=>r.at.elig?Math.round(r.at.dti*100)+'%':'&ndash;'})}
   ${T('Qualifies at target',{f:r=>r.b?'Yes':(r.at.why||'No'),no:r=>!r.b})}
   ${T('Mortgage insurance',{f:r=>r.at.elig?(r.at.mi?usd(r.at.mi)+' / mo':'None'):'&ndash;'})}
-  ${T('Interest over 30 years',{f:r=>r.at.elig?usd(r.at.pi*360-r.at.financed):'&ndash;'})}
-  ${T('Cash to close',{f:r=>usd(cash)})}
+  ${T('Interest over 30 years',{f:r=>r.at.elig?usdM(r.at.pi*360-r.at.financed):'&ndash;'})}
+  ${T('Cash to close',{f:r=>usdM(cash)})}
   </table><div class="note">Payment includes principal, interest, property tax (${pc(Q.tax)}), insurance (${pc(Q.ins)}) and mortgage insurance. Interest over 30 years assumes no extra payments and no refinance.</div>`;
   const mx=Math.max(...res.map(r=>r.mp),tgt)*1.08||1;
   $('barSub').textContent=`At ${pc(Q.dp,0)} down, ${pc(Q.convDti*100,0)} DTI conventional and ${pc(Q.fhaDti*100,0)} FHA, after ${usd(Q.debts)} of other monthly debts.`;
   $('bars').innerHTML=res.map(r=>`<div class="bar"><span>${r.a.name}</span><div class="tr"><div class="fl${r.a.id===best.a.id&&oks.length?' hl':''}" style="width:${r.mp/mx*100}%"></div><div class="tg" style="left:${tgt/mx*100}%"></div></div><span class="v">${r.mp?usdK(r.mp):'None'}</span></div>`).join('');
   const sc=[580,600,620,640,660,680,700,720,740,760];
   const row=(lab,a,cl)=>{const l=evalA(a,tgt,hh),b=bestOf(l),at=attempt(l),mp=Math.max(maxP(a,'conv'),maxP(a,'fha'));
-    return `<tr class="${cl||''}"><td>${lab}</td><td>${at.elig?at.prog:'None eligible'}</td><td>${at.elig?pc(at.rate):'&ndash;'}</td><td>${at.elig?usd(at.pay):'&ndash;'}</td><td>${mp?usd(mp):'None'}</td><td class="${b?'pos':'neg'}">${b?'Yes':'No'}</td></tr>`};
+    return `<tr class="${cl||''}"><td>${lab}</td><td>${at.elig?at.prog:'None eligible'}</td><td>${at.elig?pc(at.rate):'&ndash;'}</td><td>${at.elig?usd(at.pay):'&ndash;'}</td><td>${mp?usdM(mp):'None'}</td><td class="${b?'pos':'neg'}">${b?'Yes':'No'}</td></tr>`};
   const rows=[row('Wife alone ('+Math.round(Q.ws)+')',res[0].a,'sel'),...sc.map(s=>{const m=Math.min(Q.ws,s);return row('Both, Brandon at '+s+(s===Math.round(Q.bs)?' (today)':''),{inc:Q.W+Q.B,sElig:m,sPrice:m},s===Math.round(Q.bs)?'sel':'')})];
   $('sensSub').textContent=`Combined income, lowest score used, at the ${usd(tgt)} target. Shows what each score step buys.`;
   $('sens').innerHTML=`<table class="rtab"><tr><th></th><th>Program</th><th>Rate</th><th>Payment at target</th><th>Highest price</th><th>Qualifies</th></tr>${rows.join('')}</table>`;

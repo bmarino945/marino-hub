@@ -567,6 +567,22 @@ td.sel,th.sel{background:var(--sel)}
  .tool.open>.grow{display:none!important}
  .bhead p{display:none}
  #lineup>.bhead{margin-bottom:6px}
+ /* tables fit the screen: no sideways scroll */
+ .tbl{overflow-x:visible}
+ .tbl .rtab{width:100%;min-width:0!important;table-layout:fixed}
+ .tbl .rtab th,.tbl .rtab td{padding:7px 2px!important;font-size:12px;line-height:1.3;word-break:normal;overflow-wrap:normal;vertical-align:top}
+ #afTable .rtab tr:nth-child(2) td{overflow-wrap:anywhere;hyphens:auto}
+ #afTable,#sens{padding:16px 10px!important}
+ #afTable .pageTitle,#sens .pageTitle,#afTable .note{padding:0 4px}
+ .tbl .rtab th:first-child,.tbl .rtab td:first-child{padding-left:0!important;font-size:12px}
+ .rtab th{font-size:12px}
+ .rtab th small,.rtab .sub{display:none}
+ .rtab td .big2{font-size:12px}
+ #afTable .rtab th:first-child,#afTable .rtab td:first-child{width:19%}
+ #sens .rtab th:nth-child(2),#sens .rtab td:nth-child(2){display:none}
+ #sens .rtab th:first-child,#sens .rtab td:first-child{width:28%}
+ .tool>.seg1 .railSeg button{padding:0 8px!important;font-size:13px}
+ .tool>.seg1 .railSeg{gap:2px}
 }
 
 </style>
