@@ -425,6 +425,7 @@ td.sel,th.sel{background:var(--sel)}
 .bhead h2{font-size:22px}
 .lay{display:grid;grid-template-columns:288px minmax(0,1fr);gap:26px;align-items:start;padding-top:22px}
 .mainCol{min-width:0}
+.fbtn{display:none}
 .mainCol .block:first-child{padding-top:0}
 .picks{gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 .pk .fph{aspect-ratio:16/7;max-height:128px}
@@ -553,6 +554,19 @@ td.sel,th.sel{background:var(--sel)}
  .stats{margin-top:10px;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 12px}
  .stat b{font-size:16px;line-height:20px}.stat span{font-size:12px}
  #picksBlock{display:none}
+ /* filters: one sticky row (the first filter + a Filters button); the rest opens under it */
+ .tool{position:sticky!important;top:var(--nav);z-index:30;display:flex!important;flex-wrap:wrap;align-items:center;gap:8px;margin:0 -16px 8px!important;padding:8px 16px!important;width:calc(100% + 32px)!important;max-width:calc(100% + 32px)!important;box-sizing:border-box;border-radius:0!important;box-shadow:0 6px 14px rgba(20,24,60,.08)}
+ .tool>.seg1{overflow:hidden;order:1;flex:1 1 calc(100% - 100px)!important;min-width:0;width:auto!important;grid-column:auto!important}
+ .tool>.seg1 .railSeg{width:100%!important;max-width:100%;flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none;gap:4px;padding:3px!important}
+ .tool>.seg1 .railSeg::-webkit-scrollbar{display:none}
+ .tool>.seg1 .railSeg button{flex:0 0 auto!important;height:32px;padding:0 12px!important;white-space:nowrap;width:auto}
+ .fbtn{display:inline-flex;align-items:center;order:2;flex:0 0 auto;height:38px;padding:0 16px;border-radius:12px;border:0;font:inherit;font-size:14px;font-weight:500;background:var(--accent);color:#fff;cursor:pointer}
+ .tool:not(.open)>*:not(.fbtn):not(.seg1){display:none!important}
+ .tool.open{max-height:calc(100vh - var(--nav) - 76px);overflow-y:auto}
+ .tool.open>*:not(.fbtn):not(.seg1){order:3;flex:1 1 calc(50% - 8px);grid-column:auto!important;min-width:0}
+ .tool.open>.grow{display:none!important}
+ .bhead p{display:none}
+ #lineup>.bhead{margin-bottom:6px}
 }
 
 </style>
@@ -606,7 +620,8 @@ td.sel,th.sel{background:var(--sel)}
       <div class="lay">
       <aside class="side">
         <div class="card tool">
-          <div class="field"><span class="l sr">Source</span><div class="railSeg seg" id="src"></div></div>
+          <button type="button" class="fbtn" aria-expanded="false">Filters</button>
+          <div class="field seg1"><span class="l sr">Source</span><div class="railSeg seg" id="src"></div></div>
           <div class="field"><label class="sr" for="make">Make</label><select class="sel" id="make"></select></div>
           <div class="field"><label class="sr" for="cond">Condition</label><select class="sel" id="cond"><option value="all">New and used</option><option value="new">New only</option><option value="used">Used only</option></select></div>
           <div class="field"><label for="sort">Sort by</label><select class="sel" id="sort">
@@ -808,6 +823,8 @@ function makeSaved(cfg){
   setTimeout(refresh,0);
   return {btn:id=>{const on=ids.includes(String(id));return '<button class="btn press saveBtn'+(on?' on':'')+'" data-save="'+esc(id)+'" aria-pressed="'+on+'">'+heart+'<span>'+(on?'Saved':'Save')+'</span></button>'},refresh,toggle};
 }
+
+;document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.fbtn');var t=document.querySelector('.tool.open');if(b){var tool=b.closest('.tool');var o=tool.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Done':'Filters';return}if(t&&!e.target.closest('.tool')){t.classList.remove('open');var x=t.querySelector('.fbtn');x.textContent='Filters';x.setAttribute('aria-expanded','false')}});
 
 const Saved=makeSaved({key:'marinoCarsSaved',noun:'cars',one:'car',email:'jbmarino24@gmail.com',get:id=>CARS.find(c=>c.id===id),info:c=>({title:name(c)+' '+c.trim,price:usd(c.price)+' listed',sub:(c.src==='ent'?locTxt(c):dealerName(c)+', '+locTxt(c))+' · '+c.miles.toLocaleString()+' mi',url:c.url,img:c.img})});
 const INP=['down','mind','apr','disc','budget','bmin','miles','gas'],CHK=['discOn','inBudget','heatedOnly'],KEEP=['mode','show','term','src','make','cond','sort','picked'];
