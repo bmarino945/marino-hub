@@ -474,20 +474,66 @@ td.sel,th.sel{background:var(--sel)}
 .tmod p{margin:0 0 8px;font-size:var(--fs-14);line-height:1.5}
 @media (max-width:800px){.tg{grid-template-columns:minmax(0,1fr)}.tmod{grid-template-columns:110px minmax(0,1fr)}.tnote{font-size:14px}.tgh{font-size:17px}}
 
-/* savings bar: what cash and income buy together (sits in the pinned inputs card) */
-.cashBar{display:flex;flex-direction:column;gap:10px;margin:14px 0 4px;padding:14px;border-radius:14px;background:var(--sel,#eef0fb)}
-.cashBar .cashIn{width:100%}
-.cashOut{display:flex;flex-direction:column;gap:6px}
-.cashBig span{display:block;font-size:12px;color:var(--ink-2)}
-.cashBig b{display:block;font-size:28px;line-height:1.1;font-weight:500;letter-spacing:-.015em;font-variant-numeric:tabular-nums}
-.cashBig em{font-style:normal;font-size:12px;color:var(--ink-2)}
-.cashDet{display:flex;flex-direction:column;gap:2px;font-size:13px;color:var(--ink-2)}
-.cashDet b{color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums}
 @media (min-width:1181px){
  .afgrid>div:first-child{position:sticky;top:calc(var(--nav,64px) + 14px);max-height:calc(100vh - var(--nav,64px) - 28px);overflow:auto;scrollbar-width:thin}
 }
-#cashTbl .rtab tr.sel td{background:var(--sel,#eef0fb)}
-#cashTbl .rtab tr.cur td:first-child{font-weight:600}
+
+/* savings over time */
+.sv{padding:26px 28px 22px}
+.svTop{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:14px}
+.svWhen{font-size:var(--fs-14);font-weight:500;color:var(--ink)}
+.svWhen span{margin-left:8px;color:var(--ink-2);font-weight:400}
+.svBig{font-size:var(--fs-44);line-height:1.05;font-weight:500;letter-spacing:-.02em;margin-top:4px}
+.svBig small{font-size:var(--fs-16);font-weight:400;color:var(--ink-2);margin-left:8px;letter-spacing:0}
+.svBuy{margin-top:6px;font-size:var(--fs-16);color:var(--ink-2)}
+.svBuy b{color:var(--ink);font-weight:600}
+.svBuy em{font-style:normal;margin-left:8px;font-size:var(--fs-13);color:var(--warn)}
+.svGoals{display:flex;gap:10px;flex-wrap:wrap}
+.gchip{display:flex;flex-direction:column;gap:1px;min-width:118px;padding:10px 14px;border-radius:14px;background:var(--fill);transition:background 200ms,color 200ms}
+.gchip span{font-size:var(--fs-12);color:var(--ink-2);font-weight:500}
+.gchip b{font-size:var(--fs-18);font-weight:500}
+.gchip em{font-style:normal;font-size:var(--fs-13);color:var(--ink)}
+.gchip.pri{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.gchip.hit{background:rgba(19,121,91,.12)}
+.gchip.hit em{color:var(--pos);font-weight:600}
+.gchip.no em{color:var(--neg)}
+#svChart{cursor:ew-resize;user-select:none}
+.svT{display:block;-webkit-appearance:none;appearance:none;height:28px;margin:4px 0 0;background:transparent;cursor:pointer}
+.svT::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:var(--fill)}
+.svT::-moz-range-track{height:6px;border-radius:3px;background:var(--fill)}
+.svT::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-8px;border-radius:50%;background:var(--ink);border:3px solid var(--card);box-shadow:0 1px 4px rgba(11,16,48,.35)}
+.svT::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid var(--card);box-shadow:0 1px 4px rgba(11,16,48,.35)}
+.svT:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+.svIn{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 20px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line-2)}
+.svBumps{margin-top:18px}
+.svBh{font-size:var(--fs-13);font-weight:500;color:var(--ink-2);margin:0 0 8px 2px}
+.bump{display:grid;grid-template-columns:minmax(0,190px) minmax(0,170px) minmax(0,190px) 40px;gap:10px;align-items:center;margin-bottom:8px}
+.bump .chipIn input[type=month]{font:inherit;font-weight:500;color:var(--ink)}
+.bumpDel{width:40px;height:40px;border:0;border-radius:var(--r-ctl);background:transparent;color:var(--ink-2);font-size:22px;line-height:1;cursor:pointer}
+.bumpDel:hover{background:var(--fill-hover);color:var(--neg)}
+.bumpAdd{flex:none;margin-top:2px;color:var(--accent)}
+.sv>.legend2{margin-top:14px}
+.afMore{margin-top:24px}
+.afMore>summary{list-style:none;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:18px 24px;border-radius:var(--r-card);background:var(--card);box-shadow:var(--sh);cursor:pointer}
+.afMore>summary::-webkit-details-marker{display:none}
+.afMore>summary b{font-size:var(--fs-18);font-weight:500}
+.afMore>summary b::before{content:'+';display:inline-block;width:18px;color:var(--ink-2)}
+.afMore[open]>summary b::before{content:'\2212'}
+.afMore>summary span{font-size:var(--fs-14);color:var(--ink-2)}
+.afMore[open]>summary{margin-bottom:20px}
+@media (max-width:800px){
+ .sv{padding:18px 16px 16px}
+ .svBig{font-size:var(--fs-36)}
+ .svTop{gap:14px}
+ .svGoals{width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px}
+ .gchip{min-width:0;padding:8px 10px}
+ .svIn{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .bump{grid-template-columns:minmax(0,1fr) minmax(0,1.7fr) 36px;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--line-2)}
+ .bump .sel{grid-column:1/-1}
+ .bump .chipIn input[type=month]{font-size:15px}
+ .bumpDel{width:36px}
+ .afMore>summary{padding:16px 18px}
+}
 
 /* map view */
 .vseg{display:inline-flex;margin-left:12px;background:var(--sel,#eef0fb);border-radius:10px;padding:2px;vertical-align:middle}
@@ -511,15 +557,6 @@ td.sel,th.sel{background:var(--sel)}
 .mpl button{background:var(--deep,#1b1f4b);color:#fff}
 
 #map.dots .pin{font-size:0;padding:0;width:12px;height:12px;border-width:2px;box-shadow:0 1px 3px rgba(20,24,60,.4)}
-
-.tlIn{display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap;margin:8px 0 14px}
-.tlIn .field{width:230px}
-.tlHead b{display:block;font-size:28px;line-height:1.1;font-weight:500;letter-spacing:-.015em}
-.tlHead span{font-size:13px;color:var(--ink-2)}
-#tlTbl .rtab td small{display:block;font-size:12px;color:var(--ink-2);font-weight:400}
-#tlTbl .rtab td.tlHit{color:var(--pos,#0a7a4b);font-weight:600}
-
-#tlChart .legend2{margin-top:6px}
 
 /* ---- saved list (shared by the car and house pages) ---- */
 .saveBtn{display:inline-flex;align-items:center;justify-content:center;gap:7px}
@@ -1520,7 +1557,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="heroL">
         <h1 class="hin" style="--i:0">Finding our next family home</h1>
         <p class="lede hin" style="--i:1" id="lede"></p>
-        <div class="ctas hin" style="--i:2"><button class="btn hl press" data-jump="lineup">Browse the homes</button><button class="btn ghost press" data-view="afford">What we qualify for</button></div>
+        <div class="ctas hin" style="--i:2"><button class="btn hl press" data-jump="lineup">Browse the homes</button><button class="btn ghost press" data-view="afford">When we can buy</button></div>
         <div class="stats hin" style="--i:3">
           <div class="stat ringStat"><div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="16"/><circle class="arc" id="hArc" cx="60" cy="60" r="48" fill="none" stroke="var(--hl)" stroke-width="16" stroke-linecap="round" stroke-dasharray="0 302"/></svg></div><div><b id="hN"></b><span id="hCap"></span></div></div>
           <div class="stat"><b id="sMed"></b><span>median list price</span></div>
@@ -1674,8 +1711,22 @@ svg.leaflet-image-layer.leaflet-interactive path {
   </section>
 
   <section class="view" id="v-afford" hidden>
-    <div class="band"><div class="wrap"><h1>What we qualify for</h1><p>Four ways to apply with both incomes and credit scores, compared on rate, price and payment.</p></div></div>
+    <div class="band"><div class="wrap"><h1>When we can buy</h1><p>Our savings over time against the cash each down payment needs.</p></div></div>
     <div class="wrap page">
+      <section class="card sv" id="svCard">
+        <div class="svTop"><div class="svRead" id="svRead"></div><div class="svGoals" id="svGoals"></div></div>
+        <div id="svChart"></div>
+        <input type="range" id="svT" class="svT" min="0" max="104" step="1" value="0" aria-label="Move through time">
+        <div class="svIn">
+          <div class="field"><label for="sav">Saved today</label><div class="chipIn"><i>$</i><input id="sav" inputmode="numeric" value="30,000"></div></div>
+          <div class="field"><label for="wksv">Saved per week</label><div class="chipIn"><i>$</i><input id="wksv" inputmode="numeric" value="1,000"></div></div>
+          <div class="field"><label for="tgt">Target price</label><div class="chipIn"><i>$</i><input id="tgt" inputmode="numeric" value="950,000"></div></div>
+          <div class="field"><label for="dp">Down payment</label><div class="chipIn"><input id="dp" inputmode="decimal" value="20"><i>%</i></div></div>
+        </div>
+        <div class="svBumps"><div class="svBh">Bonuses and changes</div><div id="bumps"></div><button type="button" class="btn press bumpAdd" id="bumpAdd">+ Add a bonus or change</button></div>
+        <div class="legend2">Savings earn no interest here. Cash needed is the down payment plus closing costs.</div>
+      </section>
+      <details class="afMore" id="afMore"><summary><b>Loan details</b><span>Incomes and credit, rate and payment by approach, credit score steps</span></summary>
       <div class="verdict" id="verdict"></div>
       <div class="afgrid">
         <div>
@@ -1690,14 +1741,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
               <div class="field"><label for="bTgt">Brandon's score goal</label><div class="chipIn"><input id="bTgt" inputmode="numeric" value="680"></div></div>
               <div class="field"><label for="debts">Other monthly debts</label><div class="chipIn"><i>$</i><input id="debts" inputmode="numeric" value="700"></div></div>
             </div>
-            <div class="cashBar" id="cashBar">
-              <div class="field cashIn"><label for="sav">Savings</label><div class="chipIn"><i>$</i><input id="sav" inputmode="numeric" value="30,000"></div></div>
-              <div class="cashOut" id="cashOut"></div>
-            </div>
             <div class="fh">The home</div>
             <div class="fld2">
-              <div class="field"><label for="tgt">Target price</label><div class="chipIn"><i>$</i><input id="tgt" inputmode="numeric" value="950,000"></div></div>
-              <div class="field"><label for="dp">Down payment</label><div class="chipIn"><input id="dp" inputmode="decimal" value="20"><i>%</i></div></div>
               <div class="field full"><label for="afReg">Region (sets loan limits and tax)</label><select class="sel" id="afReg"></select></div>
               <div class="field"><label for="taxPct">Property tax a year</label><div class="chipIn"><input id="taxPct" inputmode="decimal" value="1.6"><i>%</i></div></div>
               <div class="field"><label for="insPct">Insurance a year</label><div class="chipIn"><input id="insPct" inputmode="decimal" value="0.25"><i>%</i></div></div>
@@ -1714,12 +1759,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
           </section>
         </div>
         <div>
-          <section class="card panel" id="tlCard"><div class="pageTitle"><div><h2>When we can afford it</h2><div class="sub" id="tlSub"></div></div></div>
-            <div class="tlIn"><div class="field"><label for="mosv">Saved per month, together</label><div class="chipIn"><i>$</i><input id="mosv" inputmode="numeric" value="4,000"></div></div><div class="tlHead" id="tlHead"></div></div>
-            <div id="tlChart"></div><div class="tbl" id="tlTbl"></div><div class="note" id="tlNote"></div></section>
-          <section class="card panel" style="margin-top:20px"><div class="tbl" id="afTable"></div></section>
+          <section class="card panel"><div class="tbl" id="afTable"></div></section>
           <section class="card panel" style="margin-top:20px"><div class="pageTitle"><div><h2>Highest price each approach qualifies for</h2><div class="sub" id="barSub"></div></div></div><div class="bars" id="bars"></div><div class="legend2">Black line = target price. Gold bar = the best option.</div></section>
-          <section class="card panel" style="margin-top:20px"><div class="pageTitle"><div><h2>What our savings buy</h2><div class="sub" id="cashSub"></div></div></div><div class="tbl" id="cashTbl"></div></section>
         </div>
       </div>
       <section class="card panel" style="margin-top:20px"><div class="pageTitle"><div><h2>Brandon's score, step by step</h2><div class="sub" id="sensSub"></div></div></div><div class="tbl" id="sens"></div></section>
@@ -1848,6 +1889,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <li><b>Rates move daily.</b> Get a written estimate for each path.</li>
         </ul></div>
       </div>
+      </details>
     </div>
   </section>
 </main>
@@ -1878,9 +1920,9 @@ const TOWNS={"Annandale":{"t":"Annandale, New Jersey","b":"Annandale is an uninc
 const REGIONS=['Northern NJ','Central NJ','Southern NJ','Nassau County NY','Westchester NY','Pennsylvania'];
 const RI={'Northern NJ':{lim:1249125,fha:1249125,tax:2.2,hub:'NYC'},'Central NJ':{lim:1249125,fha:1249125,tax:1.6,hub:'NYC'},'Southern NJ':{lim:832750,fha:630200,tax:1.9,hub:'Philadelphia'},
  'Nassau County NY':{lim:1249125,fha:1249125,tax:1.7,hub:'NYC'},'Westchester NY':{lim:1249125,fha:1249125,tax:1.9,hub:'NYC'},'Pennsylvania':{lim:832750,fha:630200,tax:1.3,hub:'Philadelphia'}};
-const DEF={sav:'30,000',mosv:'4,000',wInc:'165,000',bInc:'240,000',wSc:'750',bSc:'600',bTgt:'680',debts:'700',tgt:'950,000',dp:'10',taxPct:'1.6',insPct:'0.25',hoa:'0',close:'3',base:'7.18',convDti:'45',fhaDti:'50'};
+const DEF={sav:'30,000',wksv:'1,000',wInc:'165,000',bInc:'240,000',wSc:'750',bSc:'600',bTgt:'680',debts:'700',tgt:'950,000',dp:'10',taxPct:'1.6',insPct:'0.25',hoa:'0',close:'3',base:'7.18',convDti:'45',fhaDti:'50'};
 const INP=Object.keys(DEF);
-const S={mode:'list',view:'homes',reg:'all',sort:'pay',appr:'best',minAvg:'7',minBeds:'3',ptype:'all',qOnly:false,noNew:false,rail2:false,afReg:'Central NJ'};
+const S={mode:'list',view:'homes',reg:'all',sort:'pay',appr:'best',minAvg:'7',minBeds:'3',ptype:'all',qOnly:false,noNew:false,rail2:false,afReg:'Central NJ',bumps:[],svW:null};
 /* Shared "Saved" list for the car and house pages. Inlined into each page at build (see build_dashboard.py).
    makeSaved({key, noun, email, get(id), info(obj)}) -> {btn(id), refresh(), toggle(id)} */
 function makeSaved(cfg){
@@ -2001,7 +2043,7 @@ const med=a=>{const s=[...a].sort((x,y)=>x-y);return s.length?(s.length%2?s[s.le
 let Q={};
 function params(){
   const ri=RI[S.afReg]||RI['Central NJ'];
-  Q={sav:num('sav'),mo:num('mosv'),W:num('wInc'),B:num('bInc'),ws:num('wSc'),bs:num('bSc'),bt:num('bTgt'),debts:num('debts'),tgt:num('tgt'),dp:Math.min(Math.max(num('dp'),0),100),
+  Q={sav:num('sav'),wk:num('wksv'),W:num('wInc'),B:num('bInc'),ws:num('wSc'),bs:num('bSc'),bt:num('bTgt'),debts:num('debts'),tgt:num('tgt'),dp:Math.min(Math.max(num('dp'),0),100),
      tax:num('taxPct'),ins:num('insPct'),hoa:num('hoa'),close:num('close'),base:num('base'),convDti:num('convDti')/100,fhaDti:num('fhaDti')/100,lim:ri.lim,fhaLim:ri.fha};
 }
 const pmt=(L,r,n=360)=>L<=0?0:r>0?L*r/(1-Math.pow(1+r,-n)):L/n;
@@ -2234,68 +2276,99 @@ function hide(){const s=$('scrim');if(!s.classList.contains('show'))return;docum
 function incomePrice(dp,cur){
   const keep=Q.dp;Q.dp=dp;let m=0;cur.forEach(r=>{m=Math.max(m,maxP(r.a,'conv'),maxP(r.a,'fha'))});Q.dp=keep;return m;
 }
-function payAt(p,dp,cur){
-  const keep=Q.dp;Q.dp=dp;const hh=hg(p);let best=null;cur.forEach(r=>{const b=bestOf(evalA(r.a,p,hh));if(b&&(!best||b.pay<best.pay))best=b});Q.dp=keep;return best;
+/* ---------- savings over time: weekly savings, bonuses and changes, goal dates ---------- */
+let SVC=null;
+const wkDate=w=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+7*w);return d};
+const mon=d=>d.toLocaleDateString('en-US',{month:'short',year:'numeric'});
+const ahead=w=>{if(w<=0)return 'Today';const m=Math.round(w*12/52);if(m<1)return w+(w>1?' weeks':' week')+' from now';const y=Math.floor(m/12),r=m%12;return (y?y+' yr'+(r?' '+r+' mo':''):r+' mo')+' from now'};
+const nextYM=()=>{const d=new Date();d.setMonth(d.getMonth()+1);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')};
+function bumpList(){
+  return (S.bumps||[]).map(b=>{const raw=String(b.a==null?'':b.a).replace(/[^0-9.]/g,'');return {t:b.t,raw,a:parseFloat(raw)||0,m:b.m}})
+    .filter(b=>b.raw!==''&&/^\d{4}-\d{2}$/.test(b.m||'')).map(b=>({...b,start:new Date(+b.m.slice(0,4),+b.m.slice(5)-1,1)}));
 }
-function renderCash(res,tgt){
-  const cur=res.filter(r=>r.a.id!=='imp'),sav=Q.sav,gm=(Q.W+Q.B)/12;
-  const ladder=[3.5,5,10,15,20,25].map(d=>{
-    const cashP=sav/((d+Q.close)/100),incP=incomePrice(d,cur),ok=Math.floor(Math.min(cashP,incP)/1000)*1000;
-    const b=ok>=100000?payAt(ok,d,cur):null;
-    return {d,cashP,incP,ok,pay:b?b.pay:null,lim:cashP<incP?'Savings':'Income',prog:b?(b.key==='fha'?'FHA':'Conv.'):'-'};
-  });
-  const best=ladder.reduce((m,r)=>r.ok>m.ok?r:m,ladder[0]);
-  const cpP=sav/((Q.dp+Q.close)/100),incNow=Math.max(...cur.map(r=>r.mp)),now=Math.floor(Math.min(cpP,incNow)/1000)*1000;
-  const lim=cpP<incNow?'savings':'income';
-  $('cashOut').innerHTML=`<div class="cashBig"><span>Can afford at ${pc(Q.dp,0)} down</span><b>${usd(now)}</b><em>limited by ${lim}</em></div>
-    <div class="cashDet"><span>Savings cover <b>${usdM(cpP)}</b></span><span>Income allows <b>${usdM(incNow)}</b></span><span>Income <b>${usd(gm)}</b> / mo</span></div>`;
-  const cm=(l,v)=>`<tr><td>${l}</td><td>${v}</td></tr>`;
-  const rowsL=ladder.map(r=>`<tr class="${r.d===best.d?'sel':''}${Math.abs(r.d-Q.dp)<.01?' cur':''}"><td>${pc(r.d,r.d%1?1:0)}</td><td>${usdM(r.cashP)}</td><td>${usdM(r.incP)}</td><td><span class="big2">${r.ok>=100000?usdM(r.ok):'None'}</span></td><td>${r.pay?usd(r.pay):'&ndash;'}</td><td>${r.lim}</td></tr>`).join('');
-  const mx=(g,dti)=>Math.max(0,Math.round(g*dti-Q.debts));
-  $('cashSub').textContent=`Starting with ${usd(sav)} for the down payment and ${pc(Q.close,0)} closing costs. The shaded row buys the most.`;
-  $('cashTbl').innerHTML=`<table class="rtab"><tr><th>${MOB?'Down':'Down payment'}</th><th>${MOB?'Cash buys':'Savings cover'}</th><th>${MOB?'Income':'Income allows'}</th><th>${MOB?'Afford':'Can afford'}</th><th>Payment</th><th>Limit</th></tr>${rowsL}</table>
-  <table class="rtab" style="margin-top:14px"><tr><th>Monthly income</th><th>Gross</th><th>${MOB?'Max pay':'Max housing payment'}</th></tr>
-  ${cm('Wife',usd(Q.W/12)).replace('</td></tr>','</td><td>'+usd(mx(Q.W/12,Q.convDti))+'</td></tr>')}
-  ${cm('Brandon',usd(Q.B/12)).replace('</td></tr>','</td><td>'+usd(mx(Q.B/12,Q.convDti))+'</td></tr>')}
-  ${cm('Together',usd(gm)).replace('</td></tr>','</td><td>'+usd(mx(gm,Q.convDti))+'</td></tr>')}</table>
-  <div class="note">Gross income before tax. Max housing payment is ${Math.round(Q.convDti*100)}% of gross minus ${usd(Q.debts)} of other debts, the conventional limit. All savings go to down payment and closing costs; lenders may also want a few months of payments in reserve, so a cushion lowers these prices.</div>`;
+function simulate(NW){
+  const bs=bumpList(),wks=bs.filter(b=>b.t==='wk').sort((a,b)=>a.start-b.start),one=bs.filter(b=>b.t!=='wk');
+  const bal=[Q.sav],marks=[];let v=Q.sav;
+  for(let w=1;w<=NW;w++){
+    const d0=wkDate(w-1),d1=wkDate(w);let rate=Q.wk;
+    wks.forEach(b=>{if(b.start<=d1)rate=b.a});
+    v+=rate;
+    one.forEach(b=>{
+      for(let Y=Math.max(b.start.getFullYear(),d0.getFullYear());Y<=d1.getFullYear();Y++){
+        const o=new Date(Y,b.start.getMonth(),1);
+        if((b.t==='once'?Y===b.start.getFullYear():true)&&o>d0&&o<=d1){v+=b.a;marks.push(w)}
+      }
+    });
+    bal.push(v);
+  }
+  return {bal,marks};
 }
-
-
-/* ---------- timeline: when monthly savings reach each price ---------- */
-function renderTL(cur,tgt){
-  const mo=Q.mo,DPS=[3.5,5,10,20],t0=new Date(),dpn=Math.max(Q.dp,3.5);
-  const dt=m=>new Date(t0.getFullYear(),t0.getMonth()+m,1).toLocaleDateString('en-US',{month:'short',year:'numeric'});
-  const capOf={};const cap=d=>capOf[d]!==undefined?capOf[d]:(capOf[d]=incomePrice(d,cur));
-  const aff=(m,d)=>Math.min((Q.sav+m*mo)/((d+Q.close)/100),cap(d));
-  const need=d=>tgt*(d+Q.close)/100;
-  const mFor=d=>{if(cap(d)<tgt)return -1;const n=need(d)-Q.sav;return n<=0?0:mo>0?Math.ceil(n/mo):-1};
-  const mm=mFor(dpn),ok=mm>=0&&mm<=600,N=ok?Math.min(96,Math.max(36,Math.ceil((mm+3)/12)*12)):36,SP=N>48?6:3,yrs=m=>m>=12?(m%12?Math.floor(m/12)+' yr '+m%12+' mo':Math.floor(m/12)+' yr'):m+' mo';
-  $('tlHead').innerHTML=mm===0?`<b>Ready now</b><span>${usd(tgt)} at ${pc(dpn,0)} down</span>`:ok?`<b>${dt(mm)}</b><span>${usd(tgt)} at ${pc(dpn,0)} down, in ${yrs(mm)}</span>`:`<b>Not reachable</b><span>${cap(dpn)<tgt?'income tops out near '+usdM(cap(dpn)):'raise the amount saved'}</span>`;
-  $('tlSub').textContent=`Starting with ${usd(Q.sav)} and adding ${usd(mo)} a month, together. Target ${usd(tgt)} at ${pc(dpn,0)} down.`;
-  /* chart: one bar per quarter or half year at the chosen down payment */
-  const W=MOB?360:700,H=230,L=MOB?46:62,R=8,T=18,B=28,FS=MOB?11:12;
-  const ms=[];for(let m=0;m<=N;m+=SP)ms.push(m);
-  const mx=Math.max(tgt*1.15,...ms.map(m=>aff(m,dpn)));
-  const step=[100e3,250e3,500e3,1e6].find(x=>mx/x<=5)||1e6,ymax=Math.ceil(mx/step)*step;
-  const bw=(W-L-R)/ms.length,Y=v=>T+(H-T-B)*(1-Math.min(v,ymax)/ymax);
+function renderSV(cur,tgt){
+  const capOf={},cap=d=>capOf[d]!==undefined?capOf[d]:(capOf[d]=incomePrice(d,cur));
+  SVC={cur,tgt,cap};
+  drawSV();
+}
+function drawSV(){
+  if(!SVC)return;
+  const {tgt,cap}=SVC,dpn=Math.max(Q.dp,3.5),MAXW=520;
+  const ds=[...new Set([5,10,20,dpn])].sort((a,b)=>a-b);
+  const full=simulate(MAXW);
+  const goals=ds.map(d=>{const need=tgt*(d+Q.close)/100,hit=full.bal.findIndex(v=>v>=need);return {d,need,hit:hit<0?null:hit,inc:cap(d)>=tgt,pri:d===dpn}});
+  const hits=goals.filter(g=>g.hit!==null).map(g=>g.hit);
+  const NW=hits.length?Math.min(MAXW,Math.max(104,Math.ceil((Math.max(...hits)+26)/26)*26)):260;
+  const bal=full.bal.slice(0,NW+1),marks=full.marks.filter(w=>w<=NW);
+  const pri=goals.find(g=>g.pri);
+  if(S.svW===null||S.svW===undefined)S.svW=pri.hit!==null&&pri.hit<=NW?pri.hit:52;
+  const cw=Math.min(Math.max(0,S.svW|0),NW);
+  const sl=$('svT');sl.max=NW;sl.value=cw;
+  /* readout */
+  const v=bal[cw],cashP=v/((dpn+Q.close)/100),cp=cap(dpn),buy=Math.floor(Math.min(cashP,cp)/1000)*1000;
+  $('svRead').innerHTML=`<div class="svWhen">${cw===0?'Today':mon(wkDate(cw))}<span>${cw===0?'':ahead(cw)}</span></div>
+    <div class="svBig">${usd(v)}<small>saved</small></div>
+    <div class="svBuy">${buy>=100000?`Buys up to <b>${usdM(buy)}</b> at ${pc(dpn,dpn%1?1:0)} down${cp<cashP?'<em>income limit</em>':''}`:`Not enough yet for a loan at ${pc(dpn,dpn%1?1:0)} down`}</div>`;
+  $('svGoals').innerHTML=goals.map(g=>{const done=g.hit!==null&&g.hit<=cw;
+    const when=!g.inc?'Income too low':g.hit===null?'Not within 10 years':g.hit===0?'Ready now':mon(wkDate(g.hit));
+    return `<div class="gchip${done&&g.inc?' hit':''}${g.pri?' pri':''}${g.inc?'':' no'}"><span>${pc(g.d,g.d%1?1:0)} down</span><b>${usdM(Math.round(g.need))}</b><em>${when}</em></div>`}).join('');
+  /* chart */
+  const host=$('svChart'),W=Math.max(300,Math.round(host.clientWidth||800)),H=MOB?230:300,L=MOB?46:60,R=MOB?8:14,T=14,B=28,FS=MOB?11:12;
+  const top=Math.max(...bal,...goals.map(g=>g.need))*1.08;
+  const step=[10e3,25e3,50e3,100e3,250e3,500e3,1e6].find(x=>top/x<=5)||1e6,ymax=Math.ceil(top/step)*step;
+  const X=w=>L+(W-L-R)*w/NW,Y=y=>T+(H-T-B)*(1-Math.max(0,y)/ymax),halo='paint-order:stroke;stroke:#FFFDF9;stroke-width:4px;stroke-linejoin:round';
   let g='';
-  for(let v=0;v<=ymax;v+=step)g+=`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="#dfe2ee"/><text x="${L-8}" y="${Y(v)+4}" text-anchor="end" font-size="${FS}" fill="#4B4D66">${v?usdK(v):'$0'}</text>`;
-  const first=ms.find(m=>aff(m,dpn)>=tgt);
-  ms.forEach((m,i)=>{const v=aff(m,dpn),x=L+i*bw+bw*.15,hit=v>=tgt;
-    g+=`<rect x="${x.toFixed(1)}" y="${Y(v).toFixed(1)}" width="${(bw*.7).toFixed(1)}" height="${(Y(0)-Y(v)).toFixed(1)}" rx="3" fill="${hit?'#0a7a4b':'#2E3DA0'}"/>`;
-    if(m===0||m===first||m===N)g+=`<text x="${(x+bw*.35).toFixed(1)}" y="${(Y(v)-5).toFixed(1)}" text-anchor="middle" font-size="${FS}" font-weight="500" fill="#0B1030">${usdK(Math.min(v,cap(dpn)))}</text>`;
-    if(m%(N>48?24:12)===0)g+=`<text x="${(x+bw*.35).toFixed(1)}" y="${H-8}" text-anchor="${m===0?'start':m===N?'end':'middle'}" font-size="${FS}" fill="#4B4D66">${m===0?'Now':dt(m)}</text>`});
-  g+=`<line x1="${L}" x2="${W-R}" y1="${Y(tgt)}" y2="${Y(tgt)}" stroke="#0B1030" stroke-width="1.5" stroke-dasharray="5 4"/><text x="${L+4}" y="${Y(tgt)-5}" font-size="${FS}" font-weight="500" fill="#0B1030">Target ${usdK(tgt)}</text>`;
-  $('tlChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Price we can afford every three months" style="width:100%;height:auto;display:block">${g}</svg><div class="legend2">Each bar is the price we can afford every ${SP} months at ${pc(dpn,0)} down. Green bars reach the target.</div>`;
-  /* tables */
-  const rows=[0,3,6,12,18,24,36].map(m=>{const c=DPS.slice(1).map(d=>{const v=aff(m,d);return `<td class="${v>=tgt?'tlHit':''}">${v>=100000?usdM(Math.floor(v/1000)*1000):'&ndash;'}</td>`}).join('');
-    return `<tr><td>${m?dt(m):'Now'}<small>${m?yrs(m):'start'}</small></td><td>${usdM(Q.sav+m*mo)}</td>${c}</tr>`}).join('');
-  const mt=DPS.map(d=>{const m=mFor(d),n=need(d);return `<tr><td>${d}% down</td><td>${usdM(n)}</td><td>${m===0?'Now':m>0&&m<=600?dt(m)+' <small>'+yrs(m)+'</small>':'<span class="neg">Income too low</span>'}</td></tr>`}).join('');
-  $('tlTbl').innerHTML=`<table class="rtab"><tr><th>When</th><th>${MOB?'Saved':'Savings'}</th><th>5% down</th><th>10% down</th><th>20% down</th></tr>${rows}</table>
-  <table class="rtab" style="margin-top:14px"><tr><th>${usdM(tgt)} home</th><th>${MOB?'Cash':'Cash needed'}</th><th>${MOB?'Ready':'Ready by'}</th></tr>${mt}</table>`;
-  $('tlNote').textContent=`Assumes ${usd(mo)} saved each month by both of you together, savings earn nothing, and prices, rates and income stay as entered. Green cells reach the target. Cash needed includes ${pc(Q.close,0)} closing costs.`;
+  for(let y=0;y<=ymax+1;y+=step)g+=`<line x1="${L}" x2="${W-R}" y1="${Y(y).toFixed(1)}" y2="${Y(y).toFixed(1)}" stroke="rgba(11,16,48,.08)"/><text x="${L-8}" y="${(Y(y)+4).toFixed(1)}" text-anchor="end" font-size="${FS}" fill="#4B4D66">${y?usdK(y):'$0'}</text>`;
+  const t0=new Date(),yearly=NW>156||W<600;
+  for(let m=1;m<=Math.floor(NW*12/52);m++){
+    const d=new Date(t0.getFullYear(),t0.getMonth()+m,1),mo=d.getMonth();
+    if(mo!==0&&(yearly||mo!==6))continue;
+    const w=(d-wkDate(0))/(7*864e5);if(w<8||w>NW-4)continue;
+    g+=`<line x1="${X(w).toFixed(1)}" x2="${X(w).toFixed(1)}" y1="${H-B}" y2="${H-B+4}" stroke="rgba(11,16,48,.25)"/><text x="${X(w).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="${FS}" fill="#4B4D66">${yearly?d.getFullYear():mon(d)}</text>`;
+  }
+  g+=`<text x="${L}" y="${H-8}" font-size="${FS}" fill="#4B4D66">Now</text>`;
+  goals.forEach(o=>{const done=o.hit!==null&&o.hit<=cw&&o.inc,c=done?'#13795B':o.inc?'#4B4D66':'#A81F3B';
+    g+=`<line x1="${L}" x2="${W-R}" y1="${Y(o.need).toFixed(1)}" y2="${Y(o.need).toFixed(1)}" stroke="${c}" stroke-opacity="${done?.9:.5}" stroke-width="${o.pri?1.6:1.1}" stroke-dasharray="5 4"/>`;
+    g+=`<text x="${W-R}" y="${(Y(o.need)-6).toFixed(1)}" text-anchor="end" font-size="${FS}" font-weight="${o.pri?600:500}" fill="${c}" style="${halo}">${pc(o.d,o.d%1?1:0)} down</text>`});
+  const pts=bal.map((y,w)=>X(w).toFixed(1)+','+Y(y).toFixed(1)).join(' ');
+  g+=`<defs><linearGradient id="svFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2E3DA0" stop-opacity=".16"/><stop offset="1" stop-color="#2E3DA0" stop-opacity="0"/></linearGradient></defs>`;
+  g+=`<polygon points="${X(0).toFixed(1)},${Y(0).toFixed(1)} ${pts} ${X(NW).toFixed(1)},${Y(0).toFixed(1)}" fill="url(#svFill)"/>`;
+  g+=`<polyline points="${pts}" fill="none" stroke="#2E3DA0" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+  [...new Set(marks)].forEach(w=>{g+=`<circle cx="${X(w).toFixed(1)}" cy="${Y(bal[w]).toFixed(1)}" r="4" fill="#FF9E0D" stroke="#FFFDF9" stroke-width="1.5"/>`});
+  goals.forEach(o=>{if(o.hit===null||o.hit>NW||!o.inc)return;const done=o.hit<=cw,x=X(o.hit),y=Y(o.need);
+    g+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="${done?'#13795B':'#FFFDF9'}" stroke="${done?'#FFFDF9':'#4B4D66'}" stroke-width="2"/>`;
+    if(o.hit>0&&W>=600)g+=`<text x="${(x-8).toFixed(1)}" y="${(y-9).toFixed(1)}" text-anchor="end" font-size="${FS}" font-weight="500" fill="${done?'#13795B':'#0B1030'}" style="${halo}">${mon(wkDate(o.hit))}</text>`});
+  g+=`<line x1="${X(cw).toFixed(1)}" x2="${X(cw).toFixed(1)}" y1="${T}" y2="${H-B}" stroke="#0B1030" stroke-opacity=".35"/><circle cx="${X(cw).toFixed(1)}" cy="${Y(bal[cw]).toFixed(1)}" r="6" fill="#0B1030" stroke="#FFFDF9" stroke-width="2"/>`;
+  host.innerHTML=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Savings over time against the cash each down payment needs" style="display:block;touch-action:pan-y">${g}</svg>`;
+  sl.style.marginLeft=L+'px';sl.style.width=`calc(100% - ${L+R}px)`;
+  host.dataset.l=L;host.dataset.r=R;host.dataset.nw=NW;
 }
+function renderBumps(){
+  const T={once:'Bonus, once',year:'Bonus, every year',wk:'New weekly amount'};
+  $('bumps').innerHTML=(S.bumps||[]).map((b,i)=>`<div class="bump" data-i="${i}">
+    <select class="sel" data-k="t" aria-label="Kind">${Object.entries(T).map(([k,v])=>`<option value="${k}"${b.t===k?' selected':''}>${v}</option>`).join('')}</select>
+    <div class="chipIn"><i>$</i><input data-k="a" inputmode="numeric" placeholder="${b.t==='wk'?'Per week':'Amount'}" aria-label="Amount" value="${b.a==null?'':b.a}"></div>
+    <div class="chipIn"><input data-k="m" type="month" aria-label="${b.t==='wk'?'Starting':'When'}" value="${b.m||''}"></div>
+    <button type="button" class="bumpDel press" aria-label="Remove">&times;</button></div>`).join('');
+}
+
 
 /* ---------- affordability ---------- */
 function renderAf(){
@@ -2314,7 +2387,7 @@ function renderAf(){
     v=MOB?`<h2>None reach ${usdM(tgt)}</h2><p>Top price ${usdM(top.mp)} (${sn(top.a.name)}). Lower the target or raise the down payment.</p>`:`<h2>No current approach reaches ${usd(tgt)}</h2><p>The highest price today is ${usd(top.mp)} with ${top.a.name}. Lower the target price, raise the down payment or reduce other monthly debts.</p>`;
   }
   $('verdict').innerHTML=v;
-  renderCash(cur,tgt);renderTL(cur,tgt);
+  renderSV(cur,tgt);
   const cols=res.map(r=>`<th class="${r.a.id===best.a.id&&oks.length?'best':''}">${sn(r.a.name)}<small>${r.a.sub}</small></th>`).join('');
   const LB={'Highest price':'Max price','Largest loan':'Max loan','Payment at target':'Payment','Debt-to-income':'DTI','Qualifies at target':'Qualifies','Mortgage insurance':'PMI','Interest over 30 years':'Interest','Cash to close':'Cash in'};
   const T=(l,f)=>`<tr><td>${MOB?(LB[l]||l):l}</td>${res.map(r=>`<td class="${r.a.id===best.a.id&&oks.length?'best':''}${f.no&&f.no(r)?' no':''}">${f.f(r)}</td>`).join('')}</tr>`;
@@ -2344,8 +2417,8 @@ function renderAf(){
 }
 
 /* ---------- shell ---------- */
-function save(){try{const o={};KEEP.forEach(k=>o[k]=S[k]);o.v=S.view;INP.forEach(k=>o['i_'+k]=$(k).value);localStorage.setItem('marinoHouse5',JSON.stringify(o))}catch(e){}}
-function load(){try{const o=JSON.parse(localStorage.getItem('marinoHouse5')||'{}');KEEP.forEach(k=>{if(o[k]!==undefined)S[k]=o[k]});if(o.v)S.view=o.v;INP.forEach(k=>{if(o['i_'+k]!==undefined)$(k).value=o['i_'+k]})}catch(e){}}
+function save(){try{const o={};KEEP.forEach(k=>o[k]=S[k]);o.v=S.view;o.bumps=S.bumps;INP.forEach(k=>o['i_'+k]=$(k).value);localStorage.setItem('marinoHouse5',JSON.stringify(o))}catch(e){}}
+function load(){try{const o=JSON.parse(localStorage.getItem('marinoHouse5')||'{}');KEEP.forEach(k=>{if(o[k]!==undefined)S[k]=o[k]});if(o.v)S.view=o.v;if(Array.isArray(o.bumps))S.bumps=o.bumps;INP.forEach(k=>{if(o['i_'+k]!==undefined)$(k).value=o['i_'+k]})}catch(e){}}
 function thumbs(){document.querySelectorAll('.railSeg').forEach(g=>{
   let t=g.querySelector('.thumb');if(!t){t=document.createElement('span');t.className='thumb';g.prepend(t)}
   const b=g.querySelector('button.on');if(!b||!b.offsetWidth){t.style.opacity=0;return}
@@ -2374,6 +2447,18 @@ function init(){
   INP.forEach(k=>{$(k).addEventListener('input',()=>render());$(k).addEventListener('blur',()=>{const n=parseFloat(String($(k).value).replace(/[^0-9.]/g,''));if(isFinite(n)&&!['dp','taxPct','insPct','close','base','convDti','fhaDti'].includes(k))$(k).value=n.toLocaleString('en-US')})});
   document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
   $('afReset').addEventListener('click',()=>{INP.forEach(k=>$(k).value=DEF[k]);S.afReg='Central NJ';render()});
+  renderBumps();
+  $('svT').addEventListener('input',e=>{S.svW=+e.target.value;drawSV()});
+  const scrub=e=>{const h=$('svChart'),r=h.getBoundingClientRect(),l=+h.dataset.l,rr=+h.dataset.r,nw=+h.dataset.nw;if(!nw)return;
+    S.svW=Math.round(Math.min(Math.max((e.clientX-r.left-l)/(r.width-l-rr),0),1)*nw);drawSV()};
+  $('svChart').addEventListener('pointerdown',e=>{scrub(e);const mv=ev=>scrub(ev),up=()=>{removeEventListener('pointermove',mv);removeEventListener('pointerup',up)};addEventListener('pointermove',mv);addEventListener('pointerup',up)});
+  $('bumpAdd').addEventListener('click',()=>{S.bumps=[...(S.bumps||[]),{t:'year',a:'',m:nextYM()}];renderBumps();save();drawSV();const ins=$('bumps').querySelectorAll('input[data-k=a]');ins[ins.length-1].focus()});
+  const bumpEdit=e=>{const row=e.target.closest('.bump'),k=e.target.dataset.k;if(!row||!k)return;const b=S.bumps[+row.dataset.i];b[k]=e.target.value;
+    if(k==='t'){const a=row.querySelector('input[data-k=a]');a.placeholder=b.t==='wk'?'Per week':'Amount'}save();drawSV()};
+  $('bumps').addEventListener('input',bumpEdit);$('bumps').addEventListener('change',bumpEdit);
+  $('bumps').addEventListener('focusout',e=>{if(e.target.dataset.k!=='a')return;const n=parseFloat(String(e.target.value).replace(/[^0-9.]/g,''));if(isFinite(n))e.target.value=n.toLocaleString('en-US')});
+  $('bumps').addEventListener('click',e=>{const d=e.target.closest('.bumpDel');if(!d)return;S.bumps.splice(+d.closest('.bump').dataset.i,1);renderBumps();save();drawSV()});
+  addEventListener('resize',()=>{if(S.view==='afford')drawSV()});
   document.addEventListener('click',e=>{
     if(e.target.closest('a[href]'))return;
     if(e.target===$('scrim')){hide();return}
