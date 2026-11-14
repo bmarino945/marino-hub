@@ -367,10 +367,10 @@ td.sel,th.sel{background:var(--sel)}
 /* ---- house search additions ---- */
 .hero{padding:48px 0 72px}
 .art{aspect-ratio:3/2;animation:rise 800ms var(--ease) 120ms both}
+.navSeg button{flex:0 0 auto}
 .tool .grow{flex:1}
 .tool .railSeg{flex-wrap:wrap;height:auto}
 .tool .field.wide{flex:1 1 100%}
-.tool .num{width:92px;height:36px;border-radius:var(--r-ctl);background:var(--fill);border:0;padding:0 10px;font-weight:500}
 .rgn{padding-top:56px}
 .rgn:first-of-type{padding-top:8px}
 .rgn .bhead{margin-bottom:16px}
@@ -400,87 +400,73 @@ td.sel,th.sel{background:var(--sel)}
 .tag.q{background:var(--pos);color:#fff;box-shadow:none}
 .tag.x{background:var(--neg);color:#fff;box-shadow:none}
 .tag.b{background:var(--hl);color:#2A1700;box-shadow:none}
-.rcard{padding:24px 26px}
-.rcard h3{font-size:var(--fs-20);margin-bottom:10px}
-.rcard ul{margin:0;padding-left:18px}
-.rcard li{margin:8px 0;font-size:var(--fs-16);line-height:1.55;max-width:70ch}
-.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:20px}
-.rtitle{margin:48px 0 16px;font-size:var(--fs-28);letter-spacing:-.015em}
-.rtitle:first-child{margin-top:0}
-.mkrow{display:flex;flex-wrap:wrap;gap:4px 18px;margin:10px 0 4px;font-size:var(--fs-14)}
-.mkrow span{color:var(--ink-2)}.mkrow b{color:var(--ink)}
-.inwhy{margin-top:10px;padding:10px 12px;background:var(--fill);border-radius:var(--r-ctl);font-size:var(--fs-14)}
-.afgrid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;align-items:start}
-.afgrid .card{padding:22px 24px}
-.fld2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
-.fld2 .field.full{grid-column:1/-1}
-.fh{font-size:var(--fs-16);font-weight:500;margin:18px 0 10px}
-.fh:first-child{margin-top:0}
-.rtab{width:100%;border-collapse:collapse}
-.rtab th,.rtab td{padding:9px 10px;text-align:right;white-space:normal;vertical-align:top;border-bottom:1px solid var(--line-2)}
-.rtab th:first-child,.rtab td:first-child{text-align:left;padding-left:0;width:19%;color:var(--ink-2);font-weight:500;font-size:var(--fs-14)}
-.rtab th{font-size:var(--fs-13);line-height:1.25;color:var(--ink)}
-.rtab th small{display:block;font-weight:400;color:var(--ink-2);font-size:var(--fs-12)}
-.rtab td.best,.rtab th.best{background:var(--sel)}
-.rtab td.no{color:var(--neg)}
-.rtab .big2{font-size:var(--fs-20);font-weight:500;letter-spacing:-.01em}
-.verdict{background:var(--deep);color:#fff;border-radius:var(--r-card);padding:22px 26px;margin-bottom:20px}
-.verdict h2{font-size:var(--fs-24);letter-spacing:-.01em}
-.verdict p{margin-top:8px;font-size:var(--fs-16);opacity:.88;max-width:80ch}
-.bars{display:flex;flex-direction:column;gap:10px;margin-top:8px}
-.bar{display:grid;grid-template-columns:170px minmax(0,1fr) 92px;gap:12px;align-items:center;font-size:var(--fs-14);font-weight:500}
-.bar .tr{position:relative;height:22px;background:var(--fill);border-radius:7px}
-.bar .fl{position:absolute;left:0;top:0;bottom:0;border-radius:7px;background:var(--accent);transition:width 420ms var(--ease)}
-.bar .fl.hl{background:var(--hl)}
-.bar .tg{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink)}
-.bar .v{text-align:right}
-.legend2{font-size:var(--fs-13);color:var(--ink-2);margin-top:10px}
-.expl{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:20px}
-.expl>div{background:var(--card);border-radius:var(--r-card);box-shadow:var(--sh);padding:22px 24px}
-.expl h3{font-size:var(--fs-18);margin-bottom:8px}
-.expl ul{margin:0;padding-left:18px}.expl li{margin:7px 0;font-size:var(--fs-14);line-height:1.55;max-width:66ch}
-.tbl{overflow-x:auto}
-@media (max-width:1180px){.afgrid{grid-template-columns:minmax(0,1fr)}}
-.afgrid>div{min-width:0}
-@media (max-width:800px){
- .dist{grid-template-columns:repeat(2,minmax(0,1fr))}
- .rgrid{grid-template-columns:1fr}.rcard{padding:20px}
- .bar{grid-template-columns:110px minmax(0,1fr) 76px;gap:8px;font-size:var(--fs-13)}
- .rtab{min-width:640px}
- .rgn .bhead h2{font-size:var(--fs-24)}
-}
-@media (max-width:800px){
- .tool .field:nth-child(2),.tool .field:nth-child(3){grid-column:1/-1}
- .tool .field:nth-child(4){grid-column:auto}
-}
 
-/* ---- town guide ---- */
-.tnote{font-size:var(--fs-16);color:var(--ink-2);margin:-6px 0 18px;max-width:70ch}
-.tgh{font-size:var(--fs-20);margin:28px 0 12px;letter-spacing:-.01em}
-.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.tcard{background:var(--card);border-radius:var(--r-card);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column}
-.timg{aspect-ratio:16/9;background:var(--fill);overflow:hidden}
-.timg img{width:100%;height:100%;object-fit:cover;display:block}
-.tnone{width:100%;height:100%;display:grid;place-items:center;font-size:var(--fs-44);font-weight:500;color:var(--accent);background:var(--sel)}
-.tb{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
-.tb h4{margin:0;font-size:var(--fs-18);font-weight:500;letter-spacing:-.01em}
-.tcnt{font-size:var(--fs-14);font-weight:500;color:var(--accent)}
-.tb p{margin:0;font-size:var(--fs-14);line-height:1.5;color:var(--ink)}
-.tfacts{display:flex;flex-direction:column;gap:2px;font-size:var(--fs-13);color:var(--ink-2);border-top:1px solid var(--line-2);padding-top:10px;margin-top:auto}
-.tfacts b{color:var(--ink)}
+/* ---- research: the six markets and the towns, as tables ---- */
+.mkt{width:100%;border-collapse:collapse}
+.mkt th,.mkt td{text-align:left;white-space:normal;vertical-align:top;padding:11px 20px 11px 0;font-weight:400;font-size:var(--fs-14);line-height:1.45;color:var(--ink-2)}
+.mkt th{font-size:var(--fs-13);font-weight:500;white-space:nowrap;padding-top:2px}
+.mkt td b{color:var(--ink)}
+.mkt td:first-child{white-space:nowrap;font-size:var(--fs-16);color:var(--ink)}
+.mkt td:nth-child(2),.mkt th:nth-child(2),.mkt td:nth-child(3),.mkt th:nth-child(3){text-align:right;white-space:nowrap}
+.mkt td:nth-child(2),.mkt td:nth-child(3){font-weight:500;color:var(--ink);font-size:var(--fs-16)}
+.mkt td:nth-child(4){width:24%}.mkt td:nth-child(5){width:22%}.mkt td:nth-child(6){width:30%}
+.mkt tr:last-child td{border-bottom:0}
+.sxB>.note{margin-top:12px;font-size:var(--fs-13)}
+.ttw{overflow-x:auto;padding-bottom:12px}
+.tt{width:100%;border-collapse:collapse}
+.tt th,.tt td{text-align:left;padding:6px 14px 6px 0;font-size:var(--fs-14);font-weight:400;white-space:nowrap;vertical-align:middle}
+.tt th{font-size:var(--fs-13);font-weight:500;color:var(--ink-2)}
+.tt td:nth-child(2),.tt th:nth-child(2),.tt td:nth-child(4),.tt th:nth-child(4){text-align:right}
+.tt .tn img,.tt .tn i{display:inline-block;width:44px;height:32px;border-radius:7px;object-fit:cover;vertical-align:middle;margin-right:12px;background:var(--fill)}
+.tt .tn i{background:var(--sel);color:var(--accent);font-style:normal;font-weight:500;text-align:center;line-height:32px}
+.tt .tn b{font-weight:500}
+.tt .tl{text-align:right}
+.tt .tl a{margin-left:10px;font-size:var(--fs-13)}
+.tt td:last-child,.tt th:last-child{padding-right:0}
+.tt tr:last-child td{border-bottom:0}
+/* the town block inside a home's detail view */
 .tlinks{display:flex;gap:16px;font-size:var(--fs-13);font-weight:500}
 .tmod{display:grid;grid-template-columns:160px minmax(0,1fr);gap:14px;align-items:start}
 .tmod img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-ctl)}
 .tmod p{margin:0 0 8px;font-size:var(--fs-14);line-height:1.5}
-@media (max-width:800px){.tg{grid-template-columns:minmax(0,1fr)}.tmod{grid-template-columns:110px minmax(0,1fr)}.tnote{font-size:14px}.tgh{font-size:17px}}
 
-@media (min-width:1181px){
- .afgrid>div:first-child{position:sticky;top:calc(var(--nav,64px) + 14px);max-height:calc(100vh - var(--nav,64px) - 28px);overflow:auto;scrollbar-width:thin}
-}
+/* ---- affordability: inputs beside the result ---- */
+.afgrid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:20px;align-items:start}
+.afgrid>*{min-width:0}
+.afgrid .card{padding:22px 24px}
+.fld2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
+.fld2 .field.full{grid-column:1/-1}
+.fh{font-size:var(--fs-16);font-weight:500;margin:18px 0 10px}
+#inputs>.fh:nth-child(2){margin-top:0}
+.rtab{width:100%;border-collapse:collapse}
+.rtab th,.rtab td{padding:9px 10px;text-align:right;white-space:normal;vertical-align:top;border-bottom:1px solid var(--line-2)}
+.rtab th:first-child,.rtab td:first-child{text-align:left;padding-left:0;color:var(--ink-2);font-weight:500;font-size:var(--fs-14)}
+.rtab th{font-size:var(--fs-13);line-height:1.25;color:var(--ink)}
+.rtab td.best,.rtab th.best{background:var(--sel)}
+.rtab td.no{color:var(--neg)}
+.rtab .big2{font-size:var(--fs-20);font-weight:500;letter-spacing:-.01em}
+#afTable .rtab th:first-child,#afTable .rtab td:first-child{width:32%}
+#afTable .rtab th:not(:first-child),#afTable .rtab td:not(:first-child){width:34%}
+.verdict{background:var(--deep);color:#fff;border-radius:var(--r-card);padding:22px 26px;margin-bottom:20px;display:flex;flex-direction:column;gap:18px}
+.verdict h2{font-size:var(--fs-24);letter-spacing:-.01em}
+.verdict p{margin-top:6px;font-size:var(--fs-14);opacity:.8}
+.vs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px 20px}
+.vs b{display:block;font-size:var(--fs-24);line-height:1.2;letter-spacing:-.015em;white-space:nowrap}
+.vs span{font-size:var(--fs-13);opacity:.75}
+.legend2{font-size:var(--fs-13);color:var(--ink-2);margin-top:10px}
+.tbl{overflow-x:auto}
+@media (max-width:1180px){.afgrid{grid-template-columns:minmax(0,1fr)}.vs{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
-/* savings over time */
-.sv{padding:26px 28px 22px}
-.svTop{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:14px}
+/* savings calculator */
+.sv{padding:24px 28px 22px;margin-top:20px}
+.svHd h2{font-size:var(--fs-20);line-height:28px}
+.svHd .sub{margin-top:2px}
+.svIn{display:grid;grid-template-columns:200px 200px minmax(0,1fr);gap:12px 20px;align-items:end;margin-top:16px}
+.svBumps{display:contents}
+#bumps{grid-column:1/-1;order:2}
+#bumps:empty{display:none}
+.bumpAdd{order:1;flex:none;justify-self:start;color:var(--accent)}
+.svTop{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin:20px 0 14px;padding-top:18px;border-top:1px solid var(--line-2)}
 .svWhen{font-size:var(--fs-14);font-weight:500;color:var(--ink)}
 .svWhen span{margin-left:8px;color:var(--ink-2);font-weight:400}
 .svBig{font-size:var(--fs-44);line-height:1.05;font-weight:500;letter-spacing:-.02em;margin-top:4px}
@@ -504,36 +490,11 @@ td.sel,th.sel{background:var(--sel)}
 .svT::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-8px;border-radius:50%;background:var(--ink);border:3px solid var(--card);box-shadow:0 1px 4px rgba(11,16,48,.35)}
 .svT::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid var(--card);box-shadow:0 1px 4px rgba(11,16,48,.35)}
 .svT:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
-.svIn{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 20px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line-2)}
-.svBumps{margin-top:18px}
-.svBh{font-size:var(--fs-13);font-weight:500;color:var(--ink-2);margin:0 0 8px 2px}
 .bump{display:grid;grid-template-columns:minmax(0,190px) minmax(0,170px) minmax(0,190px) 40px;gap:10px;align-items:center;margin-bottom:8px}
 .bump .chipIn input[type=month]{font:inherit;font-weight:500;color:var(--ink)}
 .bumpDel{width:40px;height:40px;border:0;border-radius:var(--r-ctl);background:transparent;color:var(--ink-2);font-size:22px;line-height:1;cursor:pointer}
 .bumpDel:hover{background:var(--fill-hover);color:var(--neg)}
-.bumpAdd{flex:none;margin-top:2px;color:var(--accent)}
 .sv>.legend2{margin-top:14px}
-.afMore{margin-top:24px}
-.afMore>summary{list-style:none;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:18px 24px;border-radius:var(--r-card);background:var(--card);box-shadow:var(--sh);cursor:pointer}
-.afMore>summary::-webkit-details-marker{display:none}
-.afMore>summary b{font-size:var(--fs-18);font-weight:500}
-.afMore>summary b::before{content:'+';display:inline-block;width:18px;color:var(--ink-2)}
-.afMore[open]>summary b::before{content:'\2212'}
-.afMore>summary span{font-size:var(--fs-14);color:var(--ink-2)}
-.afMore[open]>summary{margin-bottom:20px}
-@media (max-width:800px){
- .sv{padding:18px 16px 16px}
- .svBig{font-size:var(--fs-36)}
- .svTop{gap:14px}
- .svGoals{width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px}
- .gchip{min-width:0;padding:8px 10px}
- .svIn{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
- .bump{grid-template-columns:minmax(0,1fr) minmax(0,1.7fr) 36px;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--line-2)}
- .bump .sel{grid-column:1/-1}
- .bump .chipIn input[type=month]{font-size:15px}
- .bumpDel{width:36px}
- .afMore>summary{padding:16px 18px}
-}
 
 /* map view */
 .vseg{display:inline-flex;margin-left:12px;background:var(--sel,#eef0fb);border-radius:10px;padding:2px;vertical-align:middle}
@@ -555,8 +516,70 @@ td.sel,th.sel{background:var(--sel)}
 .mpl{display:flex;gap:8px;margin-top:8px}
 .mpl button,.mpl a{font:inherit;font-size:13px;font-weight:500;padding:6px 12px;border-radius:9px;border:0;background:var(--sel,#eef0fb);color:var(--deep,#1b1f4b);cursor:pointer;text-decoration:none}
 .mpl button{background:var(--deep,#1b1f4b);color:#fff}
-
 #map.dots .pin{font-size:0;padding:0;width:12px;height:12px;border-width:2px;box-shadow:0 1px 3px rgba(20,24,60,.4)}
+
+/* ---- phone ---- */
+@media (max-width:800px){
+ .dist{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tmod{grid-template-columns:110px minmax(0,1fr)}
+ /* markets and towns: one block per row, each fact labeled */
+ .mkt tr:first-child,.tt tr:first-child{display:none}
+ .mkt tr{display:block;padding:9px 0;border-bottom:1px solid var(--line-2)}
+ .mkt tr:last-child{border-bottom:0;padding-bottom:0}
+ .mkt td{display:block;border:0;padding:1px 0!important;text-align:left!important;width:auto!important;white-space:normal!important;font-size:13px!important;font-weight:400!important;color:var(--ink)!important}
+ .mkt td:first-child{font-size:15px!important}
+ .mkt td[data-l]::before{content:attr(data-l) ": ";color:var(--ink-2)}
+ .tt tr{display:block;padding:7px 0;border-bottom:1px solid var(--line-2)}
+ .tt td{display:inline;border:0;padding:0;font-size:12.5px;white-space:normal}
+ .tt td.tn{display:block;font-size:14px}
+ .tt .tn img,.tt .tn i,.tt td.tl{display:none}
+ .tt td[data-l]{margin-right:10px}
+ .tt td[data-l]::before{content:attr(data-l) " ";color:var(--ink-2)}
+ .ttw{overflow-x:visible;padding-bottom:6px}
+ /* affordability */
+ .afgrid{display:flex;flex-direction:column;gap:10px}
+ .verdict{padding:12px 14px;margin:0 0 10px;border-radius:14px;gap:10px}
+ .verdict h2{font-size:15px;line-height:1.3}
+ .verdict p{font-size:12px;margin-top:2px}
+ .vs{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 10px}
+ .vs b{font-size:16px}.vs span{font-size:11.5px;line-height:1.25;display:block}
+ #inputs{position:relative;padding:8px 12px 12px!important;border-radius:14px}
+ #inputs .fh{display:none}
+ #inputs>.fh:nth-child(2){display:block;font-size:13px;line-height:32px;margin:0;color:var(--ink-2)}
+ #inputs .fbtn{position:absolute;right:12px;top:9px;height:30px;padding:0 14px;font-size:13px;border-radius:10px}
+ #inputs .fld2{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 6px}
+ #inputs .field{gap:2px;min-width:0}
+ #inputs .field label{font-size:11.5px;line-height:14px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ #inputs:not(.open) label[data-s]{font-size:0}
+ #inputs:not(.open) label[data-s]::after{content:attr(data-s);font-size:11.5px}
+ #inputs .chipIn{height:34px;padding:0 8px;gap:2px}
+ #inputs .chipIn input{min-width:0;width:100%;padding:0}
+ #inputs:not(.open) .chipIn input{font-size:13px}
+ #inputs:not(.open) .chipIn i{display:none}
+ #inputs:not(.open)>.fld2:nth-child(n+4){display:none}
+ #inputs.open>.fh{display:block;font-size:13px;line-height:20px;margin:12px 0 6px;color:var(--ink-2)}
+ #inputs.open>.fh:nth-child(2){margin:0;line-height:32px}
+ #inputs.open .fld2{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 10px}
+ #inputs.open .field label{white-space:normal}
+ #afTable .rtab th:first-child,#afTable .rtab td:first-child{width:40%}
+ #afTable .rtab th:not(:first-child),#afTable .rtab td:not(:first-child){width:30%}
+ /* savings calculator */
+ .sv{padding:14px 14px 12px;margin-top:10px}
+ .svHd h2{font-size:16px;line-height:22px}.svHd .sub{font-size:12px}
+ .svIn{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 10px;margin-top:10px}
+ .bumpAdd{grid-column:1/-1;width:100%}
+ .svTop{gap:10px;margin:12px 0 8px;padding-top:12px}
+ .svBig{font-size:var(--fs-36)}
+ .svGoals{width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px}
+ .gchip{min-width:0;padding:8px 10px;border-radius:12px}
+ .bump{grid-template-columns:minmax(0,1fr) minmax(0,1.7fr) 36px;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--line-2)}
+ .bump .sel{grid-column:1/-1}
+ .bump .chipIn input[type=month]{font-size:15px}
+ .bumpDel{width:36px}
+ #map{height:calc(100vh - var(--nav) - 170px);min-height:340px;border-radius:14px}
+ .vseg{margin-left:8px}
+ .mapKey{margin:8px 2px 10px;gap:10px;font-size:12px}
+}
 
 /* ---- saved list (shared by the car and house pages) ---- */
 .saveBtn{display:inline-flex;align-items:center;justify-content:center;gap:7px}
@@ -685,184 +708,177 @@ td.sel,th.sel{background:var(--sel)}
  .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
 }
 
-/* ---- phone layout: compact, built for a small screen (shared by the car and house pages) ---- */
+/* ---- text sections (shared by the car and house pages) ----
+   Full-width cards: the title sits in a left rail, the facts run as short label and value rows on the right.
+   On a phone each section is a row that opens (saved.js toggles .shut). */
+.sxs{display:flex;flex-direction:column;gap:16px}
+.sx{background:var(--card);border-radius:var(--r-card);box-shadow:var(--sh);padding:26px 30px;display:grid;grid-template-columns:230px minmax(0,1fr);gap:8px 44px;align-items:start}
+.sxH h2{font-size:var(--fs-24);line-height:1.2;letter-spacing:-.015em}
+.sxH p{margin-top:6px;font-size:var(--fs-14);line-height:1.45;color:var(--ink-2)}
+.sxB{min-width:0}
+.ft{display:flex;flex-direction:column}
+.fr{display:grid;grid-template-columns:180px minmax(0,1fr);gap:2px 24px;padding:10px 0;border-bottom:1px solid var(--line-2);font-size:var(--fs-16);line-height:1.45}
+.ft>.fr:first-child{padding-top:2px}
+.ft>.fr:last-child{border-bottom:0;padding-bottom:2px}
+.fr>b{font-weight:500}
+.fr>span{color:var(--ink-2)}
+.fr>span b{color:var(--ink)}
+.srcs{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:var(--fs-14)}
+/* headline figures above a set of rows */
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+.fig1{background:var(--fill);border-radius:14px;padding:14px 16px}
+.fig1 b{display:block;font-size:var(--fs-28);line-height:1.15;letter-spacing:-.015em}
+.fig1 span{font-size:var(--fs-13);font-weight:500;color:var(--ink-2)}
+/* rows that open: one line each until tapped */
+.acc{border-bottom:1px solid var(--line-2)}
+.acc:last-of-type{border-bottom:0}
+.acc>summary{list-style:none;display:flex;align-items:baseline;gap:14px;padding:13px 0;cursor:pointer;font-size:var(--fs-16);font-weight:500;border-radius:8px;transition:color 150ms}
+.acc:first-child>summary{padding-top:2px}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary span{font-size:var(--fs-14);font-weight:400;color:var(--ink-2)}
+.acc>summary::after{content:"+";margin-left:auto;flex:none;width:20px;text-align:center;font-size:20px;line-height:1;font-weight:400;color:var(--ink-2)}
+.acc[open]>summary::after{content:"\2212"}
+@media (hover:hover) and (pointer:fine){.acc>summary:hover{color:var(--accent)}}
+.acc>.ft{padding:0 0 14px}
+.acc>.ft>.fr:first-child{padding-top:4px}
+.panel .acc:first-of-type{margin-top:18px;border-top:1px solid var(--line-2)}
+.panel .acc:first-of-type>summary{padding-top:13px}
 @media (max-width:800px){
- :root{--fs-20:17px;--fs-24:20px;--fs-28:22px;--fs-36:26px;--fs-44:28px;--fs-64:30px;--gut:14px;--nav:54px}
- body{font-size:14px;line-height:1.45}
- .btn{min-height:40px;font-size:14px;padding:0 14px}
- /* header and hero */
- .hero{padding:8px 0 22px}
- .heroIn{gap:16px}
- .heroR{margin:0}
- .art{border-radius:14px;aspect-ratio:16/9;max-height:176px}
- .hero h1{font-size:30px;line-height:1.1;letter-spacing:-.02em}
- .lede{font-size:14px;line-height:1.5;margin-top:10px;opacity:.88}
- .ctas{margin-top:16px;gap:8px}.ctas .btn{height:42px;font-size:14px}
- .stats{gap:14px 16px;margin-top:20px}
- .band{padding:22px 0 24px}.band h1{font-size:24px;line-height:1.15}.band p{font-size:14px;margin-top:6px}
- .block{padding-top:32px}
- .bhead{margin-bottom:12px}.bhead h2,.rgn .bhead h2{font-size:22px}
- .rgn{padding-top:28px}.rgn .bhead .rs{font-size:13px;gap:2px 12px}
- .count{font-size:13px}
- /* filters */
- .tool{padding:10px;gap:8px 10px}
- .tool .l,.tool label{font-size:12px}
- .railSeg button{min-height:36px;font-size:13px}
- /* compact list cards: photo left, the facts that decide on the right; tap the card for the rest */
- .grid{gap:10px}
- .tile.car{display:grid;grid-template-columns:104px minmax(0,1fr);column-gap:12px;row-gap:3px;align-items:start;padding:10px;border-radius:16px}
- .tile.car .ph{grid-column:1;grid-row:1/span 9;width:104px;aspect-ratio:1/1;border-radius:12px;align-self:start}
- .tile.car .ph img{border-radius:12px}
- .tile.car .cbody{display:contents}
- .tile.car .cbody>*{grid-column:2;min-width:0}
- .tile.car .tags{left:4px;top:4px;gap:3px}.tile.car .tags .tag{font-size:10px;padding:2px 6px}
- .tile.car .ttl{font-size:15px;line-height:1.25}
- .tile.car .sub{font-size:12.5px;line-height:1.35}
- .tile.car .facts{font-size:12.5px;gap:0 10px}
- .tile.car .facts .full,.tile.car .facts .mpg,.tile.car .chips,.tile.car .schl,.tile.car .dist,.tile.car .money .rows{display:none}
- .tile.car .money{padding-top:2px;margin-top:0;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
- .tile.car .money .cap{order:2;font-size:12px;line-height:1.2}
- .tile.car .big{font-size:22px;margin-top:0}
- .tile.car .acts{gap:6px;padding-top:4px!important;margin-top:2px!important}
- .tile.car .acts .btn{min-height:34px;height:34px;padding:0 12px;font-size:13px;flex:0 0 auto}
- .tile.car .acts .btn.pri,.tile.car .acts a.btn{display:none}
- .tile.car .pay{gap:6px;align-items:baseline}
- .tile.car .pay .price{font-size:20px}
- .tile.car .pay .mo{font-size:12.5px}.tile.car .pay .mo b{font-size:14px}
- .tile.car .qual{font-size:12px;line-height:1.3;margin:0}
- .tile.car .avg b{font-size:15px}
- .tile.car .avg .sub{font-size:12px}
- /* detail sheets and text pages */
- .mhead{padding:12px 14px}.mhead h2{font-size:18px}
- .mbody{padding:12px 14px 20px}
- .sec h3{font-size:16px}
- .rcard,.expl>div,.agrid>div{padding:16px}
- .rcard h3,.expl h3{font-size:16px;margin-bottom:6px}
- .rcard li,.expl li,.agrid li{font-size:14px;line-height:1.5;margin:6px 0}
- .rtitle{font-size:22px;margin:32px 0 12px}
- .rgrid{gap:12px}.expl{gap:12px}
- .verdict{padding:16px}.verdict h2{font-size:18px}.verdict p{font-size:14px}
- .foot{margin-top:40px}
- .svFab{height:42px;padding:0 14px}
- /* compact top: title, one line, the filters */
- .hero{padding:2px 0 12px}
- .heroR,.hero .lede,.hero .ctas,.hero .stat:nth-child(n+3){display:none}
- .hero h1{font-size:24px;margin:0}
- .stats{margin-top:10px;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 12px}
- .stat b{font-size:16px;line-height:20px}.stat span{font-size:12px}
+ .sxs{gap:8px}
+ .sx{display:block;padding:0;border-radius:14px}
+ .sxH{display:flex;align-items:center;gap:10px;padding:13px 14px;cursor:pointer}
+ .sxH h2{font-size:16px;letter-spacing:-.01em}
+ .sxH p{display:none}
+ .sxH::after{content:"\2212";margin-left:auto;font-size:20px;line-height:1;color:var(--ink-2)}
+ .sx.shut .sxH::after{content:"+"}
+ .sx.shut .sxB{display:none}
+ .sxB{padding:0 14px 12px}
+ .fr{grid-template-columns:minmax(0,1fr);gap:0;padding:8px 0;font-size:14px;line-height:1.4}
+ .figs{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:8px}
+ .fig1{padding:10px 12px;border-radius:12px}
+ .fig1 b{font-size:20px}.fig1 span{font-size:12px}
+ .acc>summary{padding:11px 0;font-size:14px;gap:8px}
+ .acc>summary span{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+ .panel .acc>summary span{display:none}
+ .acc>.ft{padding-bottom:8px}
+ .srcs{font-size:13px;gap:4px 14px}
+}
+
+/* ---- phone layout (shared by the car and house pages): laid out like an app ----
+   48px header, no hero, one sticky filter row, dense list cards, 56px tab bar. Content starts in the first 120px. */
+@media (max-width:800px){
+ :root{--fs-18:16px;--fs-20:17px;--fs-24:19px;--fs-28:20px;--fs-36:24px;--fs-44:26px;--fs-64:28px;--gut:12px;--nav:48px;--r-card:14px}
+ html,body{overflow-x:clip}
+ body{font-size:14px;line-height:1.4}
+ .btn{min-height:38px;height:38px;font-size:14px;padding:0 14px}
+ /* header: brand left, site switch right */
+ .lock{gap:8px}.lock .mk{width:26px;height:26px}
+ .lt b{font-size:16px}.lt span{margin-top:3px;font-size:9px;letter-spacing:.24em}
+ /* no hero on a phone: the list is the first screen */
+ .hero{display:none}
+ /* page title bar on the other tabs */
+ .band{padding:8px 0 10px;background:var(--deep)}
+ .band h1{font-size:17px;line-height:22px;letter-spacing:-.01em}
+ .band p{display:none}
+ .page{padding-top:10px}
+ .block{padding-top:10px}
+ /* list header: the count and the view switch on one line */
+ .bhead{margin-bottom:8px;gap:6px 12px}
+ .bhead h2{font-size:17px}
+ .bhead p{display:none}
+ #lineup>.bhead{margin:8px 0 6px;align-items:center}
+ #lineup>.bhead>div:first-child{display:none}
+ #lineup>.bhead .count{width:100%;justify-content:space-between;font-size:12.5px;min-height:30px}
+ .vseg{margin-left:8px}.vseg button{padding:4px 12px;font-size:12.5px}
  #picksBlock{display:none}
  /* filters: one sticky row (the first filter + a Filters button); the rest opens under it */
- .tool{position:sticky!important;top:var(--nav);z-index:30;display:flex!important;flex-wrap:wrap;align-items:center;gap:8px;margin:0 -16px 8px!important;padding:8px 16px!important;width:calc(100% + 32px)!important;max-width:calc(100% + 32px)!important;box-sizing:border-box;border-radius:0!important;box-shadow:0 6px 14px rgba(20,24,60,.08)}
- .tool>.seg1{overflow:hidden;order:1;flex:1 1 calc(100% - 100px)!important;min-width:0;width:auto!important;grid-column:auto!important}
- .tool>.seg1 .railSeg{width:100%!important;max-width:100%;flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none;gap:4px;padding:3px!important}
+ .tool{position:sticky!important;top:var(--nav);z-index:30;display:flex!important;flex-wrap:wrap;align-items:center;gap:6px;margin:0 -12px 8px!important;padding:6px 12px!important;width:calc(100% + 24px)!important;max-width:calc(100% + 24px)!important;box-sizing:border-box;border-radius:0!important;box-shadow:0 4px 12px rgba(20,24,60,.08)}
+ .tool .l,.tool label{font-size:12px}
+ .tool>.seg1{overflow:hidden;order:1;flex:1 1 calc(100% - 90px)!important;min-width:0;width:auto!important;grid-column:auto!important}
+ .tool>.seg1 .railSeg{width:100%!important;max-width:100%;flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none;gap:2px;padding:2px!important;height:auto}
  .tool>.seg1 .railSeg::-webkit-scrollbar{display:none}
- .tool>.seg1 .railSeg button{flex:0 0 auto!important;height:32px;padding:0 12px!important;white-space:nowrap;width:auto}
- .fbtn{display:inline-flex;align-items:center;order:2;flex:0 0 auto;height:38px;padding:0 16px;border-radius:12px;border:0;font:inherit;font-size:14px;font-weight:500;background:var(--accent);color:#fff;cursor:pointer}
+ .tool>.seg1 .railSeg button{flex:0 0 auto!important;min-height:30px;height:30px;padding:0 9px!important;white-space:nowrap;width:auto;font-size:13px}
+ .fbtn{display:inline-flex;align-items:center;order:2;flex:0 0 auto;height:34px;padding:0 14px;border-radius:10px;border:0;font:inherit;font-size:13px;font-weight:500;background:var(--accent);color:#fff;cursor:pointer}
  .tool:not(.open)>*:not(.fbtn):not(.seg1){display:none!important}
- .tool.open{max-height:calc(100vh - var(--nav) - 76px);overflow-y:auto}
+ .tool.open{max-height:calc(100vh - var(--nav) - 70px);overflow-y:auto;gap:8px}
  .tool.open>*:not(.fbtn):not(.seg1){order:3;flex:1 1 calc(50% - 8px);grid-column:auto!important;min-width:0}
  .tool.open>.grow{display:none!important}
- .bhead p{display:none}
- #lineup>.bhead{margin-bottom:6px}
- /* tables fit the screen: no sideways scroll */
+ .tool.open .railSeg button{min-height:34px}
+ .tool .sw{min-height:36px}
+ .qbar{height:38px!important;margin-bottom:8px!important;border-radius:12px!important}
+ .qbar input{font-size:15px}
+ /* region headers */
+ .rgn{padding-top:14px}
+ .rgn:first-of-type{padding-top:2px}
+ .rgn .bhead{margin-bottom:6px;gap:0 10px;align-items:baseline}
+ .rgn .bhead h2{font-size:16px;line-height:22px}
+ .rgn .bhead .rs{font-size:12px;gap:0 10px;font-weight:400}
+ .rgn .bhead .rs span:nth-child(n+4){display:none}
+ .emptyRg{padding:14px;font-size:13px}
+ /* list cards: photo left with the save heart on it, the deciding facts right; tap the card for the rest */
+ .grid{gap:8px}
+ .tile.car{position:relative;display:grid;grid-template-columns:84px minmax(0,1fr) auto;column-gap:10px;row-gap:1px;align-items:start;padding:8px;border-radius:14px}
+ .tile.car .ph{grid-column:1;grid-row:1/span 9;width:84px;aspect-ratio:1/1;border-radius:10px;align-self:start}
+ .tile.car .ph img{border-radius:10px}
+ .tile.car .ph .none{font-size:0}
+ .tile.car .cbody{display:contents}
+ .tile.car .cbody>*{grid-column:2/-1;min-width:0}
+ .tile.car .tags{left:3px;top:3px;right:3px;gap:2px}.tile.car .tags .tag{font-size:9.5px;padding:1px 5px;border-radius:5px}
+ .tile.car .tag.r{right:3px;bottom:3px;font-size:9.5px;padding:1px 5px}
+ .tile.car .ttl{font-size:14.5px;line-height:1.25}
+ .tile.car .sub{font-size:12px;line-height:1.3}
+ .tile.car .facts{font-size:12px;gap:0 9px;line-height:1.35}
+ .tile.car .facts .full,.tile.car .facts .mpg,.tile.car .chips,.tile.car .schl,.tile.car .dist,.tile.car .money .rows{display:none}
+ .tile.car .cbody>.money{grid-column:2;padding-top:1px;margin-top:0;display:flex;align-items:baseline;gap:5px;flex-wrap:wrap;align-self:center}
+ .tile.car .money .cap{order:2;font-size:11.5px;line-height:1.2}
+ .tile.car .big{font-size:19px;margin-top:0;line-height:1.2}
+ .tile.car .pay{gap:6px;align-items:baseline;flex-wrap:nowrap}
+ .tile.car .pay .price{font-size:17px;line-height:1.25}
+ .tile.car .pay .mo{font-size:12px;white-space:nowrap}.tile.car .pay .mo b{font-size:13.5px}
+ .tile.car .qual{font-size:11.5px;line-height:1.3;margin:0}
+ .tile.car .qual.y{display:none}
+ .tile.car .avg{gap:4px}
+ .tile.car .avg b{font-size:13.5px}
+ .tile.car .avg .sub{font-size:11.5px}
+ .tile.car .cbody>.acts{grid-column:3;gap:6px;padding:0!important;margin:0!important;align-self:center}
+ .tile.car .acts .btn{min-height:30px;height:30px;padding:0 10px;font-size:12.5px;border-radius:9px;flex:0 0 auto}
+ .tile.car .acts .btn.pri,.tile.car .acts a.btn,.tile.car .acts .mailBtn{display:none}
+ .tile.car .acts [data-pick].on{font-size:0;gap:0;width:30px;padding:0}
+ .tile.car .acts .saveBtn{position:absolute;left:60px;top:60px;width:28px;min-height:28px;height:28px;padding:0;border-radius:50%;font-size:0;gap:0;background:rgba(255,255,255,.94)!important;box-shadow:0 1px 4px rgba(11,16,48,.3)!important;color:var(--ink)}
+ .tile.car .acts .saveBtn.on{color:var(--neg)!important}
+ .tile.car .acts .saveBtn .hrt{width:16px;height:16px}
+ /* cards, panels and tables on the text tabs */
+ .card.panel{padding:12px!important}
+ .panel h2,.pageTitle h2{font-size:15px!important;line-height:20px}
+ .pageTitle .sub{display:none}
+ .note{font-size:12px!important;line-height:1.35}
+ .legend2{font-size:12px}
  .tbl{overflow-x:visible}
- .tbl .rtab{width:100%;min-width:0!important;table-layout:fixed}
- .tbl .rtab th,.tbl .rtab td{padding:7px 2px!important;font-size:12px;line-height:1.3;word-break:normal;overflow-wrap:normal;vertical-align:top}
- #afTable .rtab tr:nth-child(2) td{overflow-wrap:anywhere;hyphens:auto}
- #afTable,#sens{padding:16px 10px!important}
- #afTable .pageTitle,#sens .pageTitle,#afTable .note{padding:0 4px}
- .tbl .rtab th:first-child,.tbl .rtab td:first-child{padding-left:0!important;font-size:12px}
- .rtab th{font-size:12px}
- .rtab th small,.rtab .sub{display:none}
- .rtab td .big2{font-size:12px}
- #afTable .rtab th:first-child,#afTable .rtab td:first-child{width:19%}
- #sens .rtab th:nth-child(2),#sens .rtab td:nth-child(2){display:none}
- #sens .rtab th:first-child,#sens .rtab td:first-child{width:28%}
- .tool>.seg1 .railSeg button{padding:0 8px!important;font-size:13px}
- .tool>.seg1 .railSeg{gap:2px}
- /* Affordability: numbers pinned under the header, tables small and clean */
- #v-afford .band p{display:none}
- #v-afford .band h1{font-size:20px;margin:0}
- #v-afford .band{padding:6px 0 10px}
- .afgrid{display:contents}
- .afgrid>div{display:contents}
- .verdict{font-size:13px;line-height:1.4;padding:12px 14px!important;margin:10px 0}
- .verdict h2,.verdict h3,.verdict b:first-child{font-size:15px;line-height:1.25}
- #inputs{position:sticky;top:var(--nav);z-index:30;margin:0 -16px 10px!important;padding:6px 16px 8px!important;border-radius:0!important;width:calc(100% + 32px);box-sizing:border-box;box-shadow:0 6px 14px rgba(20,24,60,.08);background:var(--card,#fff)}
- #inputs .fh{display:none}
- #inputs>.fh:nth-child(2){display:block;font-size:13px;line-height:30px;margin:0;padding:0}
- #inputs .fld2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 6px}
- #inputs .field{gap:2px;min-width:0}
- #inputs .field label{font-size:11px;line-height:13px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
- #inputs .chipIn{height:32px;padding:0 6px;gap:2px}
- #inputs .chipIn input{font-size:13px;min-width:0;width:100%;padding:0}
- #inputs .chipIn i{font-size:12px}
- #inputs:not(.open) .chipIn i{display:none}
- #inputs.open .chipIn input{font-size:15px}
- #inputs:not(.open)>.fld2:nth-child(n+4),#inputs:not(.open)>.fld2:nth-child(3) .field:nth-child(n+5){display:none}
- #inputs .fbtn{display:inline-flex;position:absolute;right:16px;top:6px;height:30px;padding:0 14px;font-size:13px;border-radius:10px}
- #inputs.open{max-height:calc(100vh - var(--nav) - 70px);overflow-y:auto}
- #inputs.open>.fh{display:block;font-size:12px;line-height:20px;margin:10px 0 4px}
- #inputs.open>.fh:nth-child(2){margin-top:0;line-height:30px;font-size:13px}
- #inputs.open .fld2{grid-template-columns:repeat(2,minmax(0,1fr))}
- #inputs.open .field label{white-space:normal}
- .card.panel{padding:12px 10px!important}
- .pageTitle h2{font-size:15px!important}
- .pageTitle .sub,#barSub,#sensSub{font-size:12px!important;line-height:1.35}
- .tbl .rtab th,.tbl .rtab td{font-size:11px!important;padding:5px 2px!important}
- .tbl .rtab th:first-child,.tbl .rtab td:first-child{font-size:11px!important}
- .rtab .big2,.rtab td .big2{font-size:12px!important}
- .tbl .note,.note{font-size:11px!important;line-height:1.35}
- .bars .bar{font-size:12px}
- html,body{overflow-x:clip}
- /* Apple-style tables: one line per row, one height, figures right-aligned in their column */
- .tbl .rtab th,.tbl .rtab td{white-space:nowrap!important;vertical-align:middle!important;text-align:right;font-variant-numeric:tabular-nums;height:34px;padding:0 3px!important;line-height:1.2;border-bottom:1px solid var(--line-2,#e6e4df)}
- .tbl .rtab th{height:34px;font-size:11px!important;font-weight:500;letter-spacing:.01em}
- .tbl .rtab th:first-child,.tbl .rtab td:first-child{text-align:left;width:25%}
- #sens .rtab th:first-child,#sens .rtab td:first-child{width:30%}
+ .tbl .rtab{width:100%;min-width:0!important;table-layout:fixed;margin-top:6px!important}
+ .tbl .rtab th,.tbl .rtab td{white-space:nowrap!important;vertical-align:middle!important;text-align:right;font-variant-numeric:tabular-nums;height:32px;padding:0 6px!important;font-size:12.5px;line-height:1.2;font-weight:500;border-bottom:1px solid var(--line-2)}
+ .tbl .rtab th{font-size:12px}
+ .tbl .rtab th:first-child,.tbl .rtab td:first-child{text-align:left;padding-left:2px!important;font-weight:400;font-size:12.5px;overflow:hidden;text-overflow:ellipsis}
  .tbl .rtab tr:last-child td{border-bottom:0}
- .tbl .rtab td{font-weight:500}
- .tbl .rtab td:first-child{font-weight:400}
- .rtab td.best,.rtab th.best{background:var(--sel)}
- .verdict{padding:10px 14px!important;margin:8px 0!important;border-radius:16px}
- .verdict h2{font-size:15px!important;line-height:1.25;margin:0}
- .verdict p{font-size:12px!important;line-height:1.35;margin:3px 0 0!important}
- #afTable .pageTitle .sub,#sensSub,#barSub{display:none}
- #v-afford .wrap.page{padding-top:0!important}
- #v-afford .band{padding:4px 0 6px!important}
- .verdict{margin:10px 0 8px!important}
- .tbl .rtab th,.tbl .rtab td{padding:0 7px!important}
- .tbl .rtab th:first-child,.tbl .rtab td:first-child{padding-left:2px!important;padding-right:4px!important}
- .tbl .rtab th:last-child,.tbl .rtab td:last-child{padding-right:4px!important}
- #afTable,#sens{padding:14px 12px!important}
- #sens .rtab th,#sens .rtab td{padding:0 5px!important}
- #sens .rtab th:first-child,#sens .rtab td:first-child{width:29%;padding-left:2px!important}
-}
-@media (max-width:800px){
- /* savings bar rides in the pinned inputs card: one line, input + the number */
- #inputs .cashBar{flex-direction:row;align-items:center;gap:8px;margin:6px 0 0;padding:6px 10px;border-radius:10px}
- #inputs .cashBar .cashIn{width:104px;flex:0 0 104px}
- #inputs .cashBar .cashIn label{font-size:11px}
- #inputs .cashOut{flex:1;min-width:0;gap:0}
- #inputs .cashBig span{font-size:11px;line-height:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
- #inputs .cashBig b{font-size:20px;line-height:24px}
- #inputs .cashBig em{display:none}
- #inputs .cashDet{display:none}
- #inputs.open .cashDet{display:flex}
- #cashTbl{padding:16px 10px!important}
- #cashTbl .rtab th:first-child,#cashTbl .rtab td:first-child{width:14%}
- #cashTbl .rtab th:last-child,#cashTbl .rtab td:last-child{display:none}
- #cashTbl .rtab+.rtab th:last-child,#cashTbl .rtab+.rtab td:last-child{display:table-cell}
- #cashTbl .rtab+.rtab th:first-child,#cashTbl .rtab+.rtab td:first-child{width:30%}
- #cashTbl .note{padding:0 4px}
- #cashSub{display:none}
- #map{height:calc(100vh - var(--nav) - 150px);min-height:360px;border-radius:14px}
- .vseg{margin-left:8px}
- .tlIn{gap:12px;margin:6px 0 8px}
- .tlIn .field{width:100%;flex:none}
- .tlHead b{font-size:22px}
- #tlCard{padding:16px 12px!important}
- #tlTbl .rtab+.rtab td:first-child{width:30%}
+ .rtab .big2{font-size:13.5px!important}
+ /* detail sheets */
+ .mhead{padding:10px 12px 4px}.mhead h2{font-size:17px}
+ .mbody{padding:10px 12px 20px;gap:14px}
+ .sec{margin-top:16px}
+ .sec h3{font-size:15px;margin-bottom:6px}
+ .mbody .rtab th,.mbody .rtab td{padding:7px 4px;font-size:12.5px;white-space:nowrap}
+ .specs{gap:8px 12px;font-size:13.5px}
+ .paybig{font-size:24px}
+ .empty{padding:28px 16px}.empty p{font-size:15px;margin-bottom:12px}
+ /* footer and the tab bar */
+ .foot{margin-top:20px;padding:16px 0 calc(72px + env(safe-area-inset-bottom))}
+ .foot .lock{display:none}
+ .footIn{gap:6px}
+ .footIn p{font-size:12px;line-height:1.4}
+ .bottom{height:calc(56px + env(safe-area-inset-bottom))}
+ .bottom button{gap:2px;font-size:11px}
+ .bottom button .i{width:20px;height:20px}
+ .svFab{height:38px;padding:0 12px;right:12px;bottom:calc(66px + env(safe-area-inset-bottom))}
+ .svToast{bottom:calc(70px + env(safe-area-inset-bottom))}
 }
 /* required styles */
 
@@ -1557,7 +1573,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="heroL">
         <h1 class="hin" style="--i:0">Finding our next family home</h1>
         <p class="lede hin" style="--i:1" id="lede"></p>
-        <div class="ctas hin" style="--i:2"><button class="btn hl press" data-jump="lineup">Browse the homes</button><button class="btn ghost press" data-view="afford">When we can buy</button></div>
+        <div class="ctas hin" style="--i:2"><button class="btn hl press" data-jump="lineup">Browse the homes</button><button class="btn ghost press" data-view="afford">What we can afford</button></div>
         <div class="stats hin" style="--i:3">
           <div class="stat ringStat"><div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="16"/><circle class="arc" id="hArc" cx="60" cy="60" r="48" fill="none" stroke="var(--hl)" stroke-width="16" stroke-linecap="round" stroke-dasharray="0 302"/></svg></div><div><b id="hN"></b><span id="hCap"></span></div></div>
           <div class="stat"><b id="sMed"></b><span>median list price</span></div>
@@ -1574,8 +1590,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <div class="card tool" id="tool">
           <button type="button" class="fbtn" aria-expanded="false">Filters</button>
           <div class="field seg1 wide"><span class="l sr">Region</span><div class="railSeg seg" id="regSeg"></div></div>
-          <div class="field"><label for="appr">Payments follow</label><select class="sel" id="appr">
-            <option value="best">Best option for each home</option><option value="w">Wife alone</option><option value="low">Both, lowest score</option><option value="avg">Both, scores averaged</option><option value="imp">Both, after the score goal</option></select></div>
           <div class="field"><label for="sort">Sort by</label><select class="sel" id="sort">
             <option value="pay">Monthly payment, lowest</option><option value="price">Price, lowest</option><option value="school">School rating, best</option><option value="rail">Train station, closest</option><option value="hub">Closest to NYC or Philadelphia</option><option value="year">Newest build</option><option value="sqft">Square feet, most</option></select></div>
           <div class="field"><label for="minAvg">School rating</label><select class="sel" id="minAvg"><option value="7">7 or better</option><option value="8">8 or better</option><option value="8.5">8.5 or better</option><option value="9">9 or better</option></select></div>
@@ -1589,7 +1603,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       </aside>
       <div class="mainCol">
       <section class="block" id="lineup">
-        <div class="bhead"><div><h2>The homes</h2><p>Houses, townhomes and condos with three or more bedrooms (pick 4 or more or a home type in Filters), any build year, $650,000 to $1.2 million, school ratings averaging 7 or better. Tap a home for the full payment breakdown.</p></div><div class="count" id="count"><span id="cntTxt"></span><div class="vseg" role="group" aria-label="View"><button type="button" class="on" id="vList" data-mode="list">List</button><button type="button" id="vMap" data-mode="map">Map</button></div></div></div>
+        <div class="bhead"><div><h2>The homes</h2><p>3+ bedrooms, $650,000 to $1.2 million, schools 7 or better. Tap a home for its payment.</p></div><div class="count" id="count"><span id="cntTxt"></span><div class="vseg" role="group" aria-label="View"><button type="button" class="on" id="vList" data-mode="list">List</button><button type="button" id="vMap" data-mode="map">Map</button></div></div></div>
         <div id="mapWrap" hidden><div id="map" role="region" aria-label="Map of homes"></div><div class="mapKey"><span><i class="k1"></i>Qualifies at our numbers</span><span><i class="k2"></i>Does not qualify</span><span id="mapN"></span></div></div>
         <div id="groups"></div>
       </section>
@@ -1599,297 +1613,239 @@ svg.leaflet-image-layer.leaflet-interactive path {
   </section>
 
   <section class="view" id="v-research" hidden>
-    <div class="band"><div class="wrap"><h1>Research: rates, timing and the six markets</h1><p>Where rates are headed, when to buy, and how each region is doing.</p></div></div>
-    <div class="wrap page">
-      <h2 class="rtitle">Mortgage rates</h2>
-      <div class="rgrid">
-        <div class="card rcard"><h3>Where rates are</h3><ul>
-          <li><b>30-year fixed:</b> 7.18% on Nov 5 (Freddie Mac). Down three weeks in a row, from 7.32% on Oct 22.</li>
-          <li><b>15-year fixed:</b> 6.57%.</li>
-          <li><b>A year ago:</b> 6.22%. Rates are about 1 point higher than last fall.</li>
-          <li><b>Credit gap:</b> a 620 score paid 7.17% and a 700 paid 6.61% on the same 30-year loan (Curinos via Experian, Feb 2026).</li>
-        </ul></div>
-        <div class="card rcard"><h3>Where forecasters see them going</h3><ul>
-          <li><b>Fannie Mae (Oct):</b> 7.4% this quarter, averaging 7.5% through 2027. Raised from 6.7% last month.</li>
-          <li><b>MBA (Oct):</b> about 7.3% this quarter, above 7% all of 2027, 7.0% by the end of 2028.</li>
-          <li><b>Older forecasts</b> of 5.9% to 6.7% for 2027 are out of date.</li>
-        </ul></div>
-        <div class="card rcard"><h3>What it means for us</h3><ul>
-          <li><b>Don't wait for rates.</b> Neither forecaster sees real relief in 2027.</li>
-          <li><b>Refinance later</b> if rates fall. Each 0.25 point is about $150 a month on a $900,000 loan.</li>
-          <li><b>Credit matters more than timing.</b> Brandon's score sets the rate and the mortgage insurance. The Affordability tab shows how much.</li>
-          <li><b>Ask builders about buydowns.</b> New construction is where sellers pay for a lower rate.</li>
-        </ul></div>
-      </div>
+    <div class="band"><div class="wrap"><h1>Research</h1><p>Rates, timing, the six markets and every town.</p></div></div>
+    <div class="wrap page sxs">
+      <section class="sx" data-open>
+        <div class="sxH"><h2>Mortgage rates</h2><p>Freddie Mac weekly survey, Nov 5.</p></div>
+        <div class="sxB">
+          <div class="figs">
+            <div class="fig1"><b>7.18%</b><span>30-year fixed</span></div>
+            <div class="fig1"><b>6.57%</b><span>15-year fixed</span></div>
+            <div class="fig1"><b>6.22%</b><span>30-year, a year ago</span></div>
+            <div class="fig1"><b>7.5%</b><span>Fannie Mae forecast, 2027</span></div>
+          </div>
+          <div class="ft">
+            <div class="fr"><b>Trend</b><span>Down three weeks in a row, from 7.32% on Oct 22.</span></div>
+            <div class="fr"><b>Fannie Mae (Oct)</b><span>7.4% this quarter, 7.5% through 2027. Raised from 6.7%.</span></div>
+            <div class="fr"><b>MBA (Oct)</b><span>Above 7% all of 2027, 7.0% by the end of 2028.</span></div>
+            <div class="fr"><b>Waiting</b><span>Neither forecaster sees relief in 2027.</span></div>
+            <div class="fr"><b>Refinancing</b><span>Each 0.25 point is about $150 a month on a $900,000 loan.</span></div>
+            <div class="fr"><b>Buydowns</b><span>Ask builders. New construction is where sellers pay for a lower rate.</span></div>
+          </div>
+        </div>
+      </section>
 
-      <h2 class="rtitle">Best time to buy</h2>
-      <div class="rgrid">
-        <div class="card rcard"><h3>What the studies say</h3><ul>
-          <li><b>Redfin:</b> August is the best month to buy. More listings, and sellers start offering concessions.</li>
-          <li><b>Realtor.com:</b> late September and early October in most big metros.</li>
-          <li><b>Zillow:</b> homes listed in late May sell fastest and for a bit more. Spring costs the most.</li>
-          <li><b>Late fall:</b> early November to mid-December is the best window in some metros (Redfin).</li>
-        </ul></div>
-        <div class="card rcard"><h3>What the local numbers say</h3><ul>
-          <li><b>Central NJ is softening.</b> Somerset: 31 days on market, 15.6% of listings cut. Monmouth: 25 days, 17.3% cut (Prodigy, Sept).</li>
-          <li><b>Pennsylvania suburbs stay fast.</b> Montgomery and Bucks sold in about 7 days in July.</li>
-          <li><b>Nassau and Westchester stay tight.</b> Few listings: 33 to 35 days in Nassau, 2.6 months of supply in Westchester.</li>
-        </ul></div>
-        <div class="card rcard"><h3>Our read</h3><ul>
-          <li><b>Now through January is off-peak.</b> Less competition and more motivated sellers, but fewer homes.</li>
-          <li><b>Pennsylvania:</b> little room to negotiate any time of year.</li>
-          <li><b>Central and Northern NJ:</b> the best shot at a price cut or seller credit this winter.</li>
-          <li><b>School year:</b> to move by August, sign in winter and close in summer.</li>
-        </ul></div>
-      </div>
+      <section class="sx">
+        <div class="sxH"><h2>Best time to buy</h2><p>What the studies say, and what it means this winter.</p></div>
+        <div class="sxB"><div class="ft">
+          <div class="fr"><b>Redfin</b><span><b>August.</b> More listings, and sellers start offering concessions.</span></div>
+          <div class="fr"><b>Realtor.com</b><span><b>Late September to early October</b> in most big metros.</span></div>
+          <div class="fr"><b>Zillow</b><span><b>Spring costs the most.</b> Late-May listings sell fastest.</span></div>
+          <div class="fr"><b>Late fall</b><span>Early November to mid-December is best in some metros (Redfin).</span></div>
+          <div class="fr"><b>Now to January</b><span>Off-peak: fewer homes, less competition, more motivated sellers.</span></div>
+          <div class="fr"><b>Where to negotiate</b><span>Central and Northern NJ this winter. Pennsylvania has little room any time of year.</span></div>
+          <div class="fr"><b>School year</b><span>To move by August, sign in winter and close in summer.</span></div>
+        </div></div>
+      </section>
 
-      <h2 class="rtitle">The six markets</h2>
-      <div class="rgrid" id="mkts">
-        <div class="card rcard"><h3>Northern NJ</h3><div class="inwhy"><b data-n="Northern NJ"></b> homes in this search</div>
-          <div class="mkrow"><span>Bergen median <b>$949,500</b></span><span>vs last year <b>+8.5%</b></span><span>Days on market <b>40</b></span></div>
-          <ul><li><b>Firm:</b> Prodigy calls Bergen and Morris firm (Sept). Bergen's median rose 7% to 9% a year through July.</li>
-          <li><b>For us:</b> our budget is at or just above the county median, so these are mid-market homes. Wayne, Sparta, Paramus, Long Valley and Livingston lead.</li></ul>
-          <p class="note">NJ Realtors county report, July 2026, via Bergen County. Property type not labeled in the table.</p></div>
-        <div class="card rcard"><h3>Central NJ</h3><div class="inwhy"><b data-n="Central NJ"></b> homes in this search</div>
-          <div class="mkrow"><span>Monmouth <b>$733,858</b></span><span>Somerset <b>$633,582</b></span><span>Middlesex <b>$528,000</b></span></div>
-          <ul><li><b>Monmouth:</b> +1.2% in September, 25 days, 17.3% of listings cut.</li>
-          <li><b>Somerset:</b> -0.6%, 31 days, 15.6% cut. Middlesex is slowest at about 75 days, with inventory up 13.5% earlier this year.</li>
-          <li><b>For us:</b> our budget is well above county medians. These are the top of each market, so there's room to negotiate. Manalapan, East Brunswick, Pennington and Branchburg lead.</li></ul>
-          <p class="note">Prodigy Real Estate (Sept 2026) and DeFalco Realty (Feb 2026, Middlesex).</p></div>
-        <div class="card rcard"><h3>Southern NJ</h3><div class="inwhy"><b data-n="Southern NJ"></b> homes in this search</div>
-          <div class="mkrow"><span>Camden typical value <b>$359,108</b></span><span>vs last year <b>+4.3%</b></span><span>Burlington list median <b>$404,975</b></span></div>
-          <ul><li><b>Priced well below our budget.</b> Typical values sit below our $650,000 floor, so this list is the top of the market. Mullica Hill, Voorhees, Moorestown and Haddonfield lead.</li>
-          <li><b>Median:</b> $848,000, the lowest of the six regions. Most are in Gloucester, Camden and Burlington counties.</li></ul>
-          <p class="note">Zillow Home Value Index (Aug 2026) and FRED median listing price (Sept 2026).</p></div>
-        <div class="card rcard"><h3>Pennsylvania suburbs</h3><div class="inwhy"><b data-n="Pennsylvania"></b> homes in this search</div>
-          <div class="mkrow"><span>Montgomery <b>$510,000</b></span><span>Bucks <b>$546,665</b></span><span>Delaware <b>$397,000</b></span></div>
-          <ul><li><b>Fast:</b> Montgomery and Bucks sold in about 7 days in July. Bucks is up 6.1% on the year.</li>
-          <li><b>Delaware County</b> (Haverford, Havertown): up 5.1% over the three months to July, about 33 days on market.</li>
-          <li><b>For us:</b> no further west than King of Prussia. Led by Newtown, Huntingdon Valley, Ambler, Yardley and Havertown, plus Main Line towns like Bryn Mawr and Wynnewood.</li></ul>
-          <p class="note">Bright MLS via Coldwell Banker Hearthside (July 2026); Redfin (Delaware County).</p></div>
-        <div class="card rcard"><h3>Westchester NY</h3><div class="inwhy"><b data-n="Westchester NY"></b> homes in this search</div>
-          <div class="mkrow"><span>Median <b>$805,000</b></span><span>vs last year <b>+3.2%</b></span><span>Supply <b>2.6 months</b></span></div>
-          <ul><li><b>Tight:</b> 1,661 homes for sale at the end of Q2, down 8.3%. Single-family median was above $1 million in February ($1,025,500).</li>
-          <li><b>For us:</b> few listings pass every filter (3+ bedrooms, $650,000 to $1.2 million, schools 7 or better). Yorktown Heights, Katonah and Cortlandt Manor lead. Movoto, our school source here, carries fewer Westchester listings than Redfin.</li></ul>
-          <p class="note">Hudson Gateway Realtors, Q2 2026 (summarized by Milton Coste) and February 2026 report.</p></div>
-        <div class="card rcard"><h3>Nassau County NY</h3><div class="inwhy"><b data-n="Nassau County NY"></b> homes in this search</div>
-          <div class="mkrow"><span>Median (May) <b>$890,000</b></span><span>Q1 <b>$842,000</b></span><span>Days on market <b>33 to 35</b></span></div>
-          <ul><li><b>Balanced to tight:</b> homes sold for about 99.9% of list price in Q1. Fewer sales, limited inventory.</li>
-          <li><b>For us:</b> Wantagh, Rockville Centre, Lynbrook and Port Washington lead. Movoto carries fewer Long Island listings than Redfin, so some homes are missing.</li></ul>
-          <p class="note">Appraiser market updates for Nassau (Q1 and May 2026); not official MLS data.</p></div>
-      </div>
+      <section class="sx">
+        <div class="sxH"><h2>The six markets</h2><p>County prices and pace against what is in this search.</p></div>
+        <div class="sxB">
+          <table class="mkt">
+            <tr><th>Region</th><th>Homes here</th><th>Median here</th><th>County medians</th><th>Pace</th><th>For us</th></tr>
+            <tr><td><b>Northern NJ</b></td><td data-l="Homes here" data-n="Northern NJ"></td><td data-l="Median here" data-m="Northern NJ"></td>
+              <td data-l="County medians">Bergen $949,500, up 8.5%</td><td data-l="Pace"><b>Firm.</b> 40 days on market</td>
+              <td data-l="For us">Mid-market at our budget. Wayne, Sparta, Paramus, Long Valley, Livingston.</td></tr>
+            <tr><td><b>Central NJ</b></td><td data-l="Homes here" data-n="Central NJ"></td><td data-l="Median here" data-m="Central NJ"></td>
+              <td data-l="County medians">Monmouth $733,858 &middot; Somerset $633,582 &middot; Middlesex $528,000</td><td data-l="Pace"><b>Softening.</b> 25 to 31 days, 15% to 17% of listings cut</td>
+              <td data-l="For us">Top of each market, room to negotiate. Manalapan, East Brunswick, Pennington, Branchburg.</td></tr>
+            <tr><td><b>Southern NJ</b></td><td data-l="Homes here" data-n="Southern NJ"></td><td data-l="Median here" data-m="Southern NJ"></td>
+              <td data-l="County medians">Camden $359,108, up 4.3% &middot; Burlington $404,975</td><td data-l="Pace">Typical values sit below our $650,000 floor</td>
+              <td data-l="For us">Top of the market. Mullica Hill, Voorhees, Moorestown, Haddonfield.</td></tr>
+            <tr><td><b>Nassau County NY</b></td><td data-l="Homes here" data-n="Nassau County NY"></td><td data-l="Median here" data-m="Nassau County NY"></td>
+              <td data-l="County medians">$890,000 in May, $842,000 in Q1</td><td data-l="Pace"><b>Tight.</b> 33 to 35 days, 99.9% of list price</td>
+              <td data-l="For us">Wantagh, Rockville Centre, Lynbrook, Port Washington. Some listings missing.</td></tr>
+            <tr><td><b>Westchester NY</b></td><td data-l="Homes here" data-n="Westchester NY"></td><td data-l="Median here" data-m="Westchester NY"></td>
+              <td data-l="County medians">$805,000, up 3.2%</td><td data-l="Pace"><b>Tight.</b> 2.6 months of supply, listings down 8.3%</td>
+              <td data-l="For us">Few listings pass every filter. Yorktown Heights, Katonah, Cortlandt Manor.</td></tr>
+            <tr><td><b>Pennsylvania</b></td><td data-l="Homes here" data-n="Pennsylvania"></td><td data-l="Median here" data-m="Pennsylvania"></td>
+              <td data-l="County medians">Montgomery $510,000 &middot; Bucks $546,665 &middot; Delaware $397,000</td><td data-l="Pace"><b>Fast.</b> About 7 days in Montgomery and Bucks</td>
+              <td data-l="For us">No further west than King of Prussia. Newtown, Huntingdon Valley, Ambler, Yardley, Havertown.</td></tr>
+          </table>
+          <p class="note">County figures: NJ Realtors (July 2026), Prodigy (Sept 2026), DeFalco (Feb 2026), Zillow and FRED (Aug to Sept 2026), Bright MLS via Hearthside (July 2026), Hudson Gateway Realtors (Q2 2026), Nassau appraiser updates (not official MLS data).</p>
+        </div>
+      </section>
 
-      <h2 class="rtitle">The towns</h2>
-      <p class="tnote">Every town with a home in this search. Descriptions and photos are from Wikipedia; the numbers are from the listings.</p>
-      <div id="townHost"></div>
+      <section class="sx">
+        <div class="sxH"><h2>The towns</h2><p>Every town with a home in this search. Open a region for its list.</p></div>
+        <div class="sxB" id="townHost"></div>
+      </section>
 
-      <h2 class="rtitle">How this list was built</h2>
-      <div class="rgrid">
-        <div class="card rcard"><h3>What is in the list</h3><ul>
-          <li><b>Source:</b> Redfin active listings. School ratings, tax and features come from the Redfin listing page or, where Redfin's page wasn't read, the Movoto listing page (same GreatSchools ratings). Every home also has a Zillow lookup link.</li>
-          <li><b>Filters:</b> $650,000 to $1,200,000, 3+ bedrooms, any build year, in the six regions.</li>
-          <li><b>Schools:</b> the average GreatSchools rating of the public schools that serve the address must be 7 or better. One school can be lower. A listing with no schools shown is left out.</li>
-          <li><b>Year built:</b> as Redfin lists it, any year. 2025 or later is tagged New build and may not be finished.</li>
-        </ul></div>
-        <div class="card rcard"><h3>What is not in the list</h3><ul>
-          <li><b>No year built:</b> listings that don't show one can't be checked and are left out.</li>
-          <li><b>Missing listings:</b> Redfin's feed leaves some out under MLS rules, so a home may exist that isn't here.</li>
-          <li><b>Distances</b> are straight-line miles from the map pin, not drive or train time.</li>
-          <li><b>Taxes and insurance</b> come from the listing. Movoto has no insurance figure, so those homes use the region's typical Redfin rate, marked estimated. If a new build's tax bill covers only the land, we use the region's typical rate and mark it on the home.</li>
-        </ul></div>
-        <div class="card rcard"><h3>Sources</h3><ul id="srcs">
-          <li><a class="link" href="https://www.freddiemac.com/pmms" target="_blank" rel="noopener">Freddie Mac PMMS</a> and <a class="link" href="https://www.rismedia.com/2026/11/05/mortgage-rates-edge-down-third-straight-week/" target="_blank" rel="noopener">RISMedia, Nov 5</a></li>
-          <li><a class="link" href="https://www.nationalmortgagenews.com/news/fannie-mae-raises-mortgage-rate-forecast-through-2027" target="_blank" rel="noopener">Fannie Mae forecast</a> and <a class="link" href="https://www.scotsmanguide.com/?p=126279" target="_blank" rel="noopener">MBA outlook</a></li>
-          <li><a class="link" href="https://www.redfin.com/blog/best-time-to-buy-a-house/" target="_blank" rel="noopener">Redfin, best time to buy</a> and <a class="link" href="https://www.nar.realtor/news/real-estate-news/the-best-time-to-buy-for-2026-is-coming-soon-are-your-buyers-ready" target="_blank" rel="noopener">NAR</a></li>
-          <li><a class="link" href="https://prodigyre.com/blog/nj-housing-market-report-october-2026" target="_blank" rel="noopener">Prodigy NJ report</a>, <a class="link" href="https://bergencountynj.gov/wp-content/uploads/2026/08/NJRealtors_202607.pdf" target="_blank" rel="noopener">NJ Realtors (Bergen)</a>, <a class="link" href="https://www.defalcorealty.com/blog/new-jersey-housing-market-report-march-2026/" target="_blank" rel="noopener">DeFalco</a></li>
-          <li><a class="link" href="https://cbhre.com/2026/07/21/june-2026-housing-market-update-whats-happening-across-our-service-areas" target="_blank" rel="noopener">Hearthside (Bright MLS)</a>, <a class="link" href="https://houwzer.com/blog/philadelphia-home-sales-city-vs-suburbs-q2-2026/" target="_blank" rel="noopener">Houwzer</a></li>
-          <li><a class="link" href="https://miltoncoste.com/reports/westchester-q2-2026" target="_blank" rel="noopener">Westchester Q2</a> and <a class="link" href="https://dmaappraisers.blogspot.com/2026/06/nassau-county-housing-market-update.html" target="_blank" rel="noopener">Nassau update</a></li>
-          <li><a class="link" href="https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026" target="_blank" rel="noopener">FHFA 2026 loan limits</a></li>
-        </ul></div>
-      </div>
+      <section class="sx">
+        <div class="sxH"><h2>How this list was built</h2><p>What is in it, what is not, and where it comes from.</p></div>
+        <div class="sxB"><div class="ft">
+          <div class="fr"><b>Listings</b><span>Redfin active listings. Every home also has a Zillow lookup link.</span></div>
+          <div class="fr"><b>Filters</b><span>$650,000 to $1,200,000, 3+ bedrooms, any build year, six regions.</span></div>
+          <div class="fr"><b>Schools</b><span>Assigned public schools average 7 or better on GreatSchools. No schools shown, left out.</span></div>
+          <div class="fr"><b>New builds</b><span>Built 2025 or later is tagged New build and may not be finished.</span></div>
+          <div class="fr"><b>Missing homes</b><span>Redfin's feed leaves some out under MLS rules.</span></div>
+          <div class="fr"><b>Distances</b><span>Straight-line miles from the map pin, not drive or train time.</span></div>
+          <div class="fr"><b>Tax and insurance</b><span>From the listing. Where it has none, or a new build's bill covers only the land, the region's typical rate, marked estimated.</span></div>
+          <div class="fr"><b>Sources</b><span class="srcs" id="srcs">
+            <a class="link" href="https://www.freddiemac.com/pmms" target="_blank" rel="noopener">Freddie Mac PMMS</a>
+            <a class="link" href="https://www.rismedia.com/2026/11/05/mortgage-rates-edge-down-third-straight-week/" target="_blank" rel="noopener">RISMedia</a>
+            <a class="link" href="https://www.nationalmortgagenews.com/news/fannie-mae-raises-mortgage-rate-forecast-through-2027" target="_blank" rel="noopener">Fannie Mae forecast</a>
+            <a class="link" href="https://www.scotsmanguide.com/?p=126279" target="_blank" rel="noopener">MBA outlook</a>
+            <a class="link" href="https://www.redfin.com/blog/best-time-to-buy-a-house/" target="_blank" rel="noopener">Redfin, best time to buy</a>
+            <a class="link" href="https://www.nar.realtor/news/real-estate-news/the-best-time-to-buy-for-2026-is-coming-soon-are-your-buyers-ready" target="_blank" rel="noopener">NAR</a>
+            <a class="link" href="https://prodigyre.com/blog/nj-housing-market-report-october-2026" target="_blank" rel="noopener">Prodigy NJ report</a>
+            <a class="link" href="https://bergencountynj.gov/wp-content/uploads/2026/08/NJRealtors_202607.pdf" target="_blank" rel="noopener">NJ Realtors (Bergen)</a>
+            <a class="link" href="https://www.defalcorealty.com/blog/new-jersey-housing-market-report-march-2026/" target="_blank" rel="noopener">DeFalco</a>
+            <a class="link" href="https://cbhre.com/2026/07/21/june-2026-housing-market-update-whats-happening-across-our-service-areas" target="_blank" rel="noopener">Hearthside (Bright MLS)</a>
+            <a class="link" href="https://houwzer.com/blog/philadelphia-home-sales-city-vs-suburbs-q2-2026/" target="_blank" rel="noopener">Houwzer</a>
+            <a class="link" href="https://miltoncoste.com/reports/westchester-q2-2026" target="_blank" rel="noopener">Westchester Q2</a>
+            <a class="link" href="https://dmaappraisers.blogspot.com/2026/06/nassau-county-housing-market-update.html" target="_blank" rel="noopener">Nassau update</a>
+            <a class="link" href="https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026" target="_blank" rel="noopener">FHFA 2026 loan limits</a>
+          </span></div>
+        </div></div>
+      </section>
     </div>
   </section>
 
   <section class="view" id="v-afford" hidden>
-    <div class="band"><div class="wrap"><h1>When we can buy</h1><p>Our savings over time against the cash each down payment needs.</p></div></div>
+    <div class="band"><div class="wrap"><h1>Affordability</h1><p>Price, payment and cash needed at our incomes.</p></div></div>
     <div class="wrap page">
+      <div class="afgrid">
+        <section class="card" id="inputs">
+          <button type="button" class="fbtn" data-l="More" aria-expanded="false">More</button>
+          <div class="fh">Incomes and target</div>
+          <div class="fld2">
+            <div class="field"><label for="bInc">Income A</label><div class="chipIn"><i>$</i><input id="bInc" inputmode="numeric" value="240,000"></div></div>
+            <div class="field"><label for="wInc">Income B</label><div class="chipIn"><i>$</i><input id="wInc" inputmode="numeric" value="165,000"></div></div>
+            <div class="field"><label for="tgt" data-s="Target">Target price</label><div class="chipIn"><i>$</i><input id="tgt" inputmode="numeric" value="950,000"></div></div>
+            <div class="field"><label for="dp" data-s="Down">Down payment</label><div class="chipIn"><input id="dp" inputmode="decimal" value="20"><i>%</i></div></div>
+          </div>
+          <div class="fh">The home</div>
+          <div class="fld2">
+            <div class="field full"><label for="afReg">Region (sets loan limits and tax)</label><select class="sel" id="afReg"></select></div>
+            <div class="field"><label for="taxPct">Property tax a year</label><div class="chipIn"><input id="taxPct" inputmode="decimal" value="1.6"><i>%</i></div></div>
+            <div class="field"><label for="insPct">Insurance a year</label><div class="chipIn"><input id="insPct" inputmode="decimal" value="0.25"><i>%</i></div></div>
+            <div class="field"><label for="hoa">HOA a month</label><div class="chipIn"><i>$</i><input id="hoa" inputmode="numeric" value="0"></div></div>
+            <div class="field"><label for="close">Closing costs</label><div class="chipIn"><input id="close" inputmode="decimal" value="3"><i>%</i></div></div>
+          </div>
+          <div class="fh">The loan</div>
+          <div class="fld2">
+            <div class="field"><label for="base">Interest rate, 20% down</label><div class="chipIn"><input id="base" inputmode="decimal" value="7.18"><i>%</i></div></div>
+            <div class="field"><label for="debts">Other monthly debts</label><div class="chipIn"><i>$</i><input id="debts" inputmode="numeric" value="0"></div></div>
+            <div class="field"><label for="convDti">Max debt-to-income, conventional</label><div class="chipIn"><input id="convDti" inputmode="numeric" value="45"><i>%</i></div></div>
+            <div class="field"><label for="fhaDti">Max debt-to-income, FHA</label><div class="chipIn"><input id="fhaDti" inputmode="numeric" value="50"><i>%</i></div></div>
+            <button class="btn press reset" id="afReset" type="button" style="grid-column:1/-1">Reset numbers</button>
+          </div>
+        </section>
+        <div class="afOut">
+          <div class="verdict" id="verdict"></div>
+          <section class="card panel"><div class="tbl" id="afTable"></div></section>
+        </div>
+      </div>
+
       <section class="card sv" id="svCard">
+        <div class="svHd"><h2>Savings calculator</h2><div class="sub">Enter what is saved and a weekly amount to see when each down payment is reached.</div></div>
+        <div class="svIn">
+          <div class="field"><label for="sav">Saved today</label><div class="chipIn"><i>$</i><input id="sav" inputmode="numeric" placeholder="0" value="" autocomplete="off"></div></div>
+          <div class="field"><label for="wksv">Saved per week</label><div class="chipIn"><i>$</i><input id="wksv" inputmode="numeric" placeholder="0" value="" autocomplete="off"></div></div>
+          <div class="svBumps"><div id="bumps"></div><button type="button" class="btn press bumpAdd" id="bumpAdd">+ Add a bonus or change</button></div>
+        </div>
         <div class="svTop"><div class="svRead" id="svRead"></div><div class="svGoals" id="svGoals"></div></div>
         <div id="svChart"></div>
         <input type="range" id="svT" class="svT" min="0" max="104" step="1" value="0" aria-label="Move through time">
-        <div class="svIn">
-          <div class="field"><label for="sav">Saved today</label><div class="chipIn"><i>$</i><input id="sav" inputmode="numeric" value="30,000"></div></div>
-          <div class="field"><label for="wksv">Saved per week</label><div class="chipIn"><i>$</i><input id="wksv" inputmode="numeric" value="1,000"></div></div>
-          <div class="field"><label for="tgt">Target price</label><div class="chipIn"><i>$</i><input id="tgt" inputmode="numeric" value="950,000"></div></div>
-          <div class="field"><label for="dp">Down payment</label><div class="chipIn"><input id="dp" inputmode="decimal" value="20"><i>%</i></div></div>
-        </div>
-        <div class="svBumps"><div class="svBh">Bonuses and changes</div><div id="bumps"></div><button type="button" class="btn press bumpAdd" id="bumpAdd">+ Add a bonus or change</button></div>
-        <div class="legend2">Savings earn no interest here. Cash needed is the down payment plus closing costs.</div>
+        <div class="legend2">Cash needed is the down payment plus closing costs. Savings earn no interest here, and nothing typed in this card is stored.</div>
       </section>
-      <details class="afMore" id="afMore"><summary><b>Loan details</b><span>Incomes and credit, rate and payment by approach, credit score steps</span></summary>
-      <div class="verdict" id="verdict"></div>
-      <div class="afgrid">
-        <div>
-          <section class="card" id="inputs">
-            <button type="button" class="fbtn" data-l="More" aria-expanded="false">More</button>
-            <div class="fh">Incomes and credit</div>
-            <div class="fld2">
-              <div class="field"><label for="wInc">Wife income</label><div class="chipIn"><i>$</i><input id="wInc" inputmode="numeric" value="165,000"></div></div>
-              <div class="field"><label for="bInc">Brandon income</label><div class="chipIn"><i>$</i><input id="bInc" inputmode="numeric" value="240,000"></div></div>
-              <div class="field"><label for="wSc">Wife score</label><div class="chipIn"><input id="wSc" inputmode="numeric" value="750"></div></div>
-              <div class="field"><label for="bSc">Brandon score</label><div class="chipIn"><input id="bSc" inputmode="numeric" value="600"></div></div>
-              <div class="field"><label for="bTgt">Brandon's score goal</label><div class="chipIn"><input id="bTgt" inputmode="numeric" value="680"></div></div>
-              <div class="field"><label for="debts">Other monthly debts</label><div class="chipIn"><i>$</i><input id="debts" inputmode="numeric" value="700"></div></div>
-            </div>
-            <div class="fh">The home</div>
-            <div class="fld2">
-              <div class="field full"><label for="afReg">Region (sets loan limits and tax)</label><select class="sel" id="afReg"></select></div>
-              <div class="field"><label for="taxPct">Property tax a year</label><div class="chipIn"><input id="taxPct" inputmode="decimal" value="1.6"><i>%</i></div></div>
-              <div class="field"><label for="insPct">Insurance a year</label><div class="chipIn"><input id="insPct" inputmode="decimal" value="0.25"><i>%</i></div></div>
-              <div class="field"><label for="hoa">HOA a month</label><div class="chipIn"><i>$</i><input id="hoa" inputmode="numeric" value="0"></div></div>
-              <div class="field"><label for="close">Closing costs</label><div class="chipIn"><input id="close" inputmode="decimal" value="3"><i>%</i></div></div>
-            </div>
-            <div class="fh">Rate and underwriting</div>
-            <div class="fld2">
-              <div class="field full"><label for="base">Base rate: 740+ score, 20% down</label><div class="chipIn"><input id="base" inputmode="decimal" value="7.18"><i>%</i></div></div>
-              <div class="field"><label for="convDti">Max debt-to-income, conventional</label><div class="chipIn"><input id="convDti" inputmode="numeric" value="45"><i>%</i></div></div>
-              <div class="field"><label for="fhaDti">Max debt-to-income, FHA</label><div class="chipIn"><input id="fhaDti" inputmode="numeric" value="50"><i>%</i></div></div>
-              <button class="btn press reset" id="afReset" type="button" style="grid-column:1/-1">Reset numbers</button>
-            </div>
-          </section>
+
+      <div class="sxs" style="margin-top:20px">
+      <section class="sx">
+        <div class="sxH"><h2>How approval works</h2><p>What a lender checks, from pre-approval to closing.</p></div>
+        <div class="sxB">
+          <details class="acc"><summary>The steps<span>Pre-approval to clear to close</span></summary><div class="ft">
+            <div class="fr"><b>Pre-approval</b><span>The lender reviews the file and writes a letter with the maximum loan. Sellers expect it with an offer.</span></div>
+            <div class="fr"><b>Papers</b><span>Two years of W-2s and returns, 30 days of pay stubs, two months of bank statements, photo ID.</span></div>
+            <div class="fr"><b>Underwriting</b><span>Starts at contract. The appraisal and title search are ordered.</span></div>
+            <div class="fr"><b>Clear to close</b><span>One last check before closing. Keep finances frozen until then.</span></div>
+          </div></details>
+          <details class="acc"><summary>Income<span>What counts and how</span></summary><div class="ft">
+            <div class="fr"><b>Gross pay</b><span>Income before taxes.</span></div>
+            <div class="fr"><b>Salary</b><span>Counts once the job is verified, often by a call near closing.</span></div>
+            <div class="fr"><b>Bonus or commission</b><span>Usually needs two years of history, then averaged.</span></div>
+            <div class="fr"><b>Who counts</b><span>Only the people on the loan.</span></div>
+            <div class="fr"><b>New job or a gap</b><span>Expect questions and a letter.</span></div>
+          </div></details>
+          <details class="acc"><summary>Debt-to-income<span>The ratio that sets the top price</span></summary><div class="ft">
+            <div class="fr"><b>The math</b><span>New house payment plus other monthly debts, divided by gross monthly income.</span></div>
+            <div class="fr"><b>House payment</b><span>Principal, interest, tax, insurance, mortgage insurance, HOA.</span></div>
+            <div class="fr"><b>Other debts</b><span>Car loans, student loans, minimum card payments. Not rent or utilities.</span></div>
+            <div class="fr"><b>The limit</b><span>This page uses 45% conventional and 50% FHA. Both can be changed.</span></div>
+          </div></details>
+          <details class="acc"><summary>Down payment and cash<span>20% down, closing costs, reserves</span></summary><div class="ft">
+            <div class="fr"><b>20% down</b><span>No mortgage insurance on a conventional loan.</span></div>
+            <div class="fr"><b>Closing costs</b><span>Separate cash, set by the percent in the calculator.</span></div>
+            <div class="fr"><b>Reserves</b><span>Lenders may want a few months of payments left in savings.</span></div>
+            <div class="fr"><b>Appraisal</b><span>The house must appraise at the price. A low appraisal means covering the gap.</span></div>
+          </div></details>
+          <details class="acc"><summary>Bank statements<span>What they read, what to do, what to avoid</span></summary><div class="ft">
+            <div class="fr"><b>How far back</b><span>Two months, every page, for each account that funds the purchase.</span></div>
+            <div class="fr"><b>Seasoned money</b><span>In the account 60 days: no explanation needed.</span></div>
+            <div class="fr"><b>New money</b><span>Any deposit that isn't a paycheck needs a paper trail.</span></div>
+            <div class="fr"><b>Do</b><span>Paychecks into the same account. Gift letters for gifts. Keep sale confirmations and every page.</span></div>
+            <div class="fr"><b>Avoid</b><span>Cash deposits, overdrafts, large Venmo or Zelle transfers, crypto and gambling charges, new payment plans.</span></div>
+          </div></details>
+          <details class="acc"><summary>Loan types<span>Conventional, FHA, jumbo</span></summary><div class="ft">
+            <div class="fr"><b>Conventional</b><span>3% to 5% down at the low end. Mortgage insurance until 20% equity.</span></div>
+            <div class="fr"><b>FHA</b><span>3.5% down. Insurance lasts the life of the loan with under 10% down. County loan limits apply.</span></div>
+            <div class="fr"><b>Jumbo</b><span>A loan above the conforming limit. This page assumes 20% down. Expect bigger reserves.</span></div>
+          </div></details>
+          <details class="acc"><summary>What lenders look for<span>Income, cash, the house</span></summary><div class="ft">
+            <div class="fr"><b>Income</b><span>Steady, documented, under the debt-to-income limit.</span></div>
+            <div class="fr"><b>Cash</b><span>Down payment, closing costs and reserves, all traceable.</span></div>
+            <div class="fr"><b>The house</b><span>Appraises at the price and meets the loan's condition rules.</span></div>
+            <div class="fr"><b>Nothing new</b><span>A new debt or job change is the usual reason a deal stalls.</span></div>
+          </div></details>
+          <details class="acc"><summary>Where to compare rates<span>Examples only, not endorsements</span></summary><div class="ft">
+            <div class="fr"><b>Credit unions</b><span>Often low fees. PenFed, Navy Federal, or a local PA or NJ credit union.</span></div>
+            <div class="fr"><b>Your own bank</b><span>Ask about a discount for existing accounts.</span></div>
+            <div class="fr"><b>Online lenders</b><span>Rocket Mortgage, Better, loanDepot.</span></div>
+            <div class="fr"><b>Brokers</b><span>One application, many lenders. Ask what they charge.</span></div>
+            <div class="fr"><b>Checking a quote</b><span>Freddie Mac's weekly average, Bankrate, NerdWallet, the CFPB rate tool.</span></div>
+            <div class="fr"><b>Comparing</b><span>3 to 5 written Loan Estimates on the same day, same points, same rate lock.</span></div>
+            <div class="fr"><b>State programs</b><span>NJHMFA in New Jersey and PHFA in Pennsylvania. Ask about income limits.</span></div>
+          </div></details>
+          <details class="acc"><summary>Get ready now<span>Papers and the down payment</span></summary><div class="ft">
+            <div class="fr"><b>Papers</b><span>Two years of W-2s and returns, recent pay stubs, two months of statements.</span></div>
+            <div class="fr"><b>Down payment</b><span>Park it in one account for at least two months.</span></div>
+            <div class="fr"><b>Debts</b><span>Add up real monthly debts, including a planned car payment.</span></div>
+          </div></details>
+          <details class="acc"><summary>Stop until closing<span>What stalls a deal</span></summary><div class="ft">
+            <div class="fr"><b>New cards or loans</b><span>Store cards and furniture financing included.</span></div>
+            <div class="fr"><b>A car loan</b><span>Raises debt-to-income and lowers the top price.</span></div>
+            <div class="fr"><b>Job or pay changes</b><span>Tell the lender first.</span></div>
+            <div class="fr"><b>Big transfers</b><span>Leave the money where it is.</span></div>
+            <div class="fr"><b>Co-signing</b><span>For anyone.</span></div>
+          </div></details>
         </div>
-        <div>
-          <section class="card panel"><div class="tbl" id="afTable"></div></section>
-          <section class="card panel" style="margin-top:20px"><div class="pageTitle"><div><h2>Highest price each approach qualifies for</h2><div class="sub" id="barSub"></div></div></div><div class="bars" id="bars"></div><div class="legend2">Black line = target price. Gold bar = the best option.</div></section>
-        </div>
+      </section>
+
+      <section class="sx">
+        <div class="sxH"><h2>How the numbers work</h2><p>Estimates, not quotes.</p></div>
+        <div class="sxB"><div class="ft">
+          <div class="fr"><b>Rate</b><span>Starts at the Freddie Mac average, <b>7.18%</b>. Change it in the calculator.</span></div>
+          <div class="fr"><b>Under 20% down</b><span>Adds 0.125 to the rate. Under 10% down adds 0.25.</span></div>
+          <div class="fr"><b>Mortgage insurance</b><span>Conventional under 20% down: 0.40% to 1.00% of the loan a year, by down payment.</span></div>
+          <div class="fr"><b>FHA</b><span>Rate starts 0.25 lower. 3.5% down, 1.75% up front, then 0.50% to 0.75% a year.</span></div>
+          <div class="fr"><b>Jumbo</b><span>Above the conforming limit: needs 20% down and adds 0.15 to the rate.</span></div>
+          <div class="fr"><b>Conforming limits</b><span><b>$832,750</b> baseline. <b>$1,249,125</b> in the NYC-area NJ and NY counties.</span></div>
+          <div class="fr"><b>FHA limits</b><span><b>$630,200</b> in Pennsylvania and Southern NJ. <b>$1,249,125</b> in the NYC-area counties.</span></div>
+          <div class="fr"><b>Ask every lender</b><span>How they count bonus pay, and a written estimate. Rates move daily.</span></div>
+        </div></div>
+      </section>
       </div>
-      <section class="card panel" style="margin-top:20px"><div class="pageTitle"><div><h2>Brandon's score, step by step</h2><div class="sub" id="sensSub"></div></div></div><div class="tbl" id="sens"></div></section>
-      <h2 class="rtitle" style="margin-top:44px">How approval works</h2>
-      <div class="expl" style="margin-top:0">
-        <div><h3>The steps</h3><ul>
-          <li><b>Pre-approval:</b> the lender checks credit and income papers and writes a letter with your maximum loan. Sellers expect it with an offer.</li>
-          <li><b>Papers:</b> two years of W-2s and tax returns, 30 days of pay stubs, two months of bank statements, photo ID.</li>
-          <li><b>Underwriting:</b> starts once a contract is signed. They recheck everything and order the appraisal and title search.</li>
-          <li><b>Clear to close:</b> one last check just before closing. Keep your finances frozen until the keys are in hand.</li>
-        </ul></div>
-        <div><h3>Income</h3><ul>
-          <li><b>Gross pay:</b> they use income before taxes.</li>
-          <li><b>Salary:</b> counts once they verify the job, often with a call to the employer near closing.</li>
-          <li><b>Bonus or commission:</b> usually needs two years of history and is averaged.</li>
-          <li><b>Who counts:</b> only people on the loan. Wife alone is her $165,000. Both is $405,000, with both credit reports.</li>
-          <li><b>New job or a gap:</b> expect questions and a letter.</li>
-        </ul></div>
-        <div><h3>Debt-to-income (DTI)</h3><ul>
-          <li><b>The math:</b> the new house payment plus your other monthly debts, divided by gross monthly income.</li>
-          <li><b>New house payment:</b> principal, interest, tax, insurance, mortgage insurance, HOA.</li>
-          <li><b>Other debts:</b> car loans, student loans, minimum card payments. Rent and utilities don't count.</li>
-          <li><b>The limit:</b> this page uses 45% conventional and 50% FHA. You can change both.</li>
-          <li><b>Why it matters:</b> DTI sets the top price as much as income does. Paying off a car loan helps.</li>
-        </ul></div>
-        <div><h3>Credit</h3><ul>
-          <li><b>The score they use:</b> the middle of the three bureau scores, for each borrower.</li>
-          <li><b>Minimums:</b> conventional usually 620. FHA 580 for 3.5% down. A lender can set a higher bar.</li>
-          <li><b>Two borrowers:</b> pricing and mortgage insurance use the lower score (Fannie Mae Selling Guide B3-5.1-02). Approval can use the average. Fannie's Desktop Underwriter has done this; ask each lender.</li>
-          <li><b>So:</b> her 750 doesn't lift his 600. At best the average gets the loan approved. The 600 still sets the rate.</li>
-          <li><b>What hurts it:</b> late payments, collections, card balances over about 30% of the limit.</li>
-        </ul></div>
-        <div><h3>Down payment and cash</h3><ul>
-          <li><b>20% down:</b> no private mortgage insurance on a conventional loan.</li>
-          <li><b>Closing costs:</b> separate cash, set by the percent in the box above.</li>
-          <li><b>Reserves:</b> lenders may want a few months of payments left in savings. Bigger loans often want more.</li>
-          <li><b>Appraisal:</b> the house has to appraise at the price. If it comes in low, you cover the gap.</li>
-        </ul></div>
-        <div><h3>Your bank statements</h3><ul>
-          <li><b>How far back:</b> usually the last two months, every page, for each account that funds the purchase.</li>
-          <li><b>Investment and retirement accounts:</b> the latest statement, often quarterly.</li>
-          <li><b>Seasoned money:</b> funds sitting in an account for 60 days need no explanation.</li>
-          <li><b>New money:</b> any deposit that isn't a paycheck gets a paper trail request. Big ones, about half a month's income or more, always do. Some lenders ask about much smaller ones.</li>
-          <li><b>If closing slips:</b> they ask for the newest statement again.</li>
-        </ul></div>
-        <div><h3>In your bank account: do</h3><ul>
-          <li><b>Pay in:</b> paychecks, into the same account, every time.</li>
-          <li><b>Move money between your own accounts</b> only with statements from both ends.</li>
-          <li><b>Gifts:</b> a signed gift letter from the giver, plus proof of the transfer.</li>
-          <li><b>Selling stock:</b> keep the sale confirmation and the deposit record.</li>
-          <li><b>Keep all pages</b> of every statement, even the blank ones.</li>
-        </ul></div>
-        <div><h3>In your bank account: avoid</h3><ul>
-          <li><b>Cash deposits.</b> They can't be traced.</li>
-          <li><b>Overdrafts and bounced payments.</b> They look like cash trouble.</li>
-          <li><b>Big Venmo, Zelle or Cash App transfers</b> from friends or family without a gift letter.</li>
-          <li><b>Crypto buys and gambling charges.</b> Both get questioned.</li>
-          <li><b>New loan or payment plan charges,</b> including buy-now-pay-later.</li>
-          <li><b>Drawing the down payment down</b> to near zero. Leave a cushion for reserves.</li>
-        </ul></div>
-        <div><h3>What each loan type asks</h3><ul>
-          <li><b>Conventional:</b> 620 at most lenders, 3% to 5% down at the low end, mortgage insurance until 20% equity.</li>
-          <li><b>FHA:</b> 580 for 3.5% down. Easier on score, but insurance lasts the life of the loan with under 10% down. County loan limits apply.</li>
-          <li><b>Jumbo:</b> a loan above the conforming limit. This page assumes a 700 score and 20% down. Expect bigger reserves.</li>
-        </ul></div>
-        <div><h3>What lenders look for</h3><ul>
-          <li><b>Income:</b> steady, documented, and enough to stay under the DTI limit.</li>
-          <li><b>Credit:</b> a middle score that clears the minimum and a clean recent record.</li>
-          <li><b>Cash:</b> down payment, closing costs and reserves, all traceable.</li>
-          <li><b>The house:</b> it appraises at the price and meets the loan's condition rules.</li>
-          <li><b>Nothing new:</b> a new debt or job change is the usual reason a deal stalls.</li>
-        </ul></div>
-        <div><h3>Where to compare rates</h3><ul>
-          <li><b>No single best lender.</b> The same borrower gets different rates and fees at different lenders.</li>
-          <li><b>Credit unions:</b> often low fees. PenFed or Navy Federal if you're eligible, or a local PA or NJ credit union.</li>
-          <li><b>Your own bank:</b> ask about a discount for the accounts you already have.</li>
-          <li><b>Online lenders:</b> Rocket Mortgage, Better, loanDepot. Quick quotes.</li>
-          <li><b>Mortgage brokers:</b> one application, quotes from many lenders. Ask what they charge.</li>
-          <li><b>To check a quote:</b> Freddie Mac's weekly average, Bankrate, NerdWallet, the CFPB rate tool.</li>
-          <li><b>Compare:</b> get 3 to 5 written Loan Estimates the same day, same points, same rate lock. Mortgage credit checks within a few weeks of each other count as one.</li>
-          <li><b>State programs:</b> NJHMFA in New Jersey and PHFA in Pennsylvania help some buyers. Ask about income limits.</li>
-          <li>Examples only, not endorsements.</li>
-        </ul></div>
-        <div><h3>Get ready now</h3><ul>
-          <li><b>Pull all three credit reports</b> free at annualcreditreport.com. Dispute errors first; fixes take weeks.</li>
-          <li><b>Pay cards down</b> below about 30% of each limit. Lower is better. It moves the score fastest, and a lender can rescore quickly once balances update.</li>
-          <li><b>Gather the papers:</b> two years of W-2s and returns, recent pay stubs, two months of statements.</li>
-          <li><b>Park the down payment</b> in one account for at least two months.</li>
-          <li><b>Add up real monthly debts,</b> including the planned car payment.</li>
-          <li><b>Pick a path:</b> wife alone, or both at the 600. See what a higher score would change.</li>
-        </ul></div>
-        <div><h3>Stop until closing</h3><ul>
-          <li><b>Opening cards or loans,</b> including store cards and furniture financing.</li>
-          <li><b>Buying the car first.</b> A new car loan raises DTI and lowers the top price.</li>
-          <li><b>Closing old cards.</b> It can lower the score.</li>
-          <li><b>Changing jobs or pay</b> without telling the lender.</li>
-          <li><b>Moving big money around.</b></li>
-          <li><b>Missing a payment,</b> even by a few days.</li>
-          <li><b>Co-signing</b> for anyone.</li>
-        </ul></div>
-      </div>
-      <h2 class="rtitle" style="margin-top:44px">How the numbers work</h2>
-      <div class="expl" style="margin-top:0">
-        <div><h3>The four approaches</h3><ul>
-          <li><b>Wife alone:</b> $165,000 income, 750 score. Best rate, lowest ceiling.</li>
-          <li><b>Both, lowest score:</b> $405,000 income, 600 score. Conventional needs 620, so this is FHA.</li>
-          <li><b>Both, scores averaged:</b> approved on the average if the lender allows it, priced at the 600. Some lenders use the lower score instead.</li>
-          <li><b>Both, after the score goal:</b> the same joint loan once Brandon hits the goal score in the box.</li>
-        </ul></div>
-        <div><h3>How the rate is built</h3><ul>
-          <li><b>Base:</b> the Freddie Mac average (7.18%) is for a strong borrower with 20% down. It's the 740+ line here. You can change it.</li>
-          <li><b>Score adders:</b> conventional rates rise about 0.1 to 0.2 points per 20 points of score below 740, and faster below 680. FHA starts 0.25 lower and moves less.</li>
-          <li><b>Mortgage insurance:</b> conventional under 20% down costs 0.25% to 2.6% of the loan a year, by score. FHA is 1.75% up front plus 0.50% to 0.75% a year, for the life of the loan when down is under 10%.</li>
-          <li><b>Jumbo:</b> above the conforming limit this page needs a 700 score and 20% down, and adds 0.15 to the rate.</li>
-          <li>Estimates, not quotes.</li>
-        </ul></div>
-        <div><h3>Loan limits</h3><ul>
-          <li><b>Conforming, 2026:</b> $832,750 baseline, $1,249,125 in high-cost counties (NYC-area NJ and NY).</li>
-          <li><b>FHA:</b> the high-cost NJ and NY counties go to $1,249,125. PA and South Jersey sit near $568,000 to $630,000 (Bucks $630,200), too low for this price range.</li>
-          <li>Check the county on HUD's and FHFA's lookup tools.</li>
-        </ul></div>
-        <div><h3>Ask every lender</h3><ul>
-          <li><b>Score rule:</b> average or lowest, and their minimum.</li>
-          <li><b>Debts:</b> the $700 default covers a planned car payment. Use the real total.</li>
-          <li><b>Income:</b> how they count bonus or variable pay.</li>
-          <li><b>Rates move daily.</b> Get a written estimate for each path.</li>
-        </ul></div>
-      </div>
-      </details>
     </div>
   </section>
 </main>
@@ -1897,7 +1853,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 <footer class="foot"><div class="wrap footIn">
   <div class="lock"><svg class="mk" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="rgba(255,255,255,.14)"/><path d="M7.500 21V10.500l8.500 7.500 8.500-7.500V21" fill="none" stroke="#fff" stroke-width="2.500" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 26.500h18" fill="none" stroke="#FF9E0D" stroke-width="2" stroke-linecap="round" stroke-dasharray="3.500 3.500"/></svg><div class="lt"><b>Marino</b><span>House Search</span></div></div>
   <div><p>Built by Brandon for the Marino family's next home. Listings from Redfin as of November 12, 2026; confirm price, status and schools on each listing before visiting.</p>
-  <p>Contains household income and credit details. Keep this file local; do not publish it.</p></div>
+  </div>
 </div></footer>
 
 <nav class="bottom" aria-label="Pages">
@@ -1920,9 +1876,9 @@ const TOWNS={"Annandale":{"t":"Annandale, New Jersey","b":"Annandale is an uninc
 const REGIONS=['Northern NJ','Central NJ','Southern NJ','Nassau County NY','Westchester NY','Pennsylvania'];
 const RI={'Northern NJ':{lim:1249125,fha:1249125,tax:2.2,hub:'NYC'},'Central NJ':{lim:1249125,fha:1249125,tax:1.6,hub:'NYC'},'Southern NJ':{lim:832750,fha:630200,tax:1.9,hub:'Philadelphia'},
  'Nassau County NY':{lim:1249125,fha:1249125,tax:1.7,hub:'NYC'},'Westchester NY':{lim:1249125,fha:1249125,tax:1.9,hub:'NYC'},'Pennsylvania':{lim:832750,fha:630200,tax:1.3,hub:'Philadelphia'}};
-const DEF={sav:'30,000',wksv:'1,000',wInc:'165,000',bInc:'240,000',wSc:'750',bSc:'600',bTgt:'680',debts:'700',tgt:'950,000',dp:'10',taxPct:'1.6',insPct:'0.25',hoa:'0',close:'3',base:'7.18',convDti:'45',fhaDti:'50'};
-const INP=Object.keys(DEF);
-const S={mode:'list',view:'homes',reg:'all',sort:'pay',appr:'best',minAvg:'7',minBeds:'3',ptype:'all',qOnly:false,noNew:false,rail2:false,afReg:'Central NJ',bumps:[],svW:null};
+const DEF={sav:'',wksv:'',wInc:'165,000',bInc:'240,000',debts:'0',tgt:'950,000',dp:'20',taxPct:'1.6',insPct:'0.25',hoa:'0',close:'3',base:'7.18',convDti:'45',fhaDti:'50'};
+const INP=Object.keys(DEF),NOSAVE=['sav','wksv'];
+const S={mode:'list',view:'homes',reg:'all',sort:'pay',minAvg:'7',minBeds:'3',ptype:'all',qOnly:false,noNew:false,rail2:false,afReg:'Central NJ',bumps:[],svW:null};
 /* Shared "Saved" list for the car and house pages. Inlined into each page at build (see build_dashboard.py).
    makeSaved({key, noun, email, get(id), info(obj)}) -> {btn(id), refresh(), toggle(id)} */
 function makeSaved(cfg){
@@ -2025,9 +1981,14 @@ function makeSaved(cfg){
 }
 
 ;document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.fbtn');var t=document.querySelector('.tool.open,#inputs.open');var rst=function(x){x.classList.remove('open');var y=x.querySelector('.fbtn');y.textContent=y.dataset.l||'Filters';y.setAttribute('aria-expanded','false')};if(b){var tool=b.closest('.tool,#inputs');if(t&&t!==tool)rst(t);var o=tool.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Done':(b.dataset.l||'Filters');return}if(t&&!e.target.closest('.tool,#inputs'))rst(t)});
+;(function(){var mq=matchMedia('(max-width:800px)');
+ function set(){document.querySelectorAll('.sx').forEach(function(s){s.classList.toggle('shut',mq.matches&&!s.hasAttribute('data-open'))})}
+ document.addEventListener('click',function(e){var h=e.target.closest&&e.target.closest('.sxH');if(h&&mq.matches)h.parentNode.classList.toggle('shut')});
+ set();if(mq.addEventListener)mq.addEventListener('change',set);
+})();
 
 const Saved=makeSaved({key:'marinoHousesSaved',noun:'homes',one:'home',email:'jbmarino24@gmail.com',get:id=>HOUSES.find(h=>h.id===id),info:h=>({title:nm(h)+' '+h.zip,price:usd(h.price),sub:h.region+' · '+h.beds+' bd · '+h.baths+' ba · '+(h.sqft?h.sqft.toLocaleString()+' sqft':''),url:h.url,img:h.img})});
-const KEEP=['reg','sort','appr','minAvg','minBeds','ptype','qOnly','noNew','rail2','afReg'];
+const KEEP=['reg','sort','minAvg','minBeds','ptype','qOnly','noNew','rail2','afReg'];
 const $=id=>document.getElementById(id);
 const num=id=>{const v=parseFloat(String($(id).value).replace(/[^0-9.\-]/g,''));return isFinite(v)?v:0};
 const usd=n=>'$'+Math.round(n).toLocaleString('en-US');
@@ -2043,73 +2004,49 @@ const med=a=>{const s=[...a].sort((x,y)=>x-y);return s.length?(s.length%2?s[s.le
 let Q={};
 function params(){
   const ri=RI[S.afReg]||RI['Central NJ'];
-  Q={sav:num('sav'),wk:num('wksv'),W:num('wInc'),B:num('bInc'),ws:num('wSc'),bs:num('bSc'),bt:num('bTgt'),debts:num('debts'),tgt:num('tgt'),dp:Math.min(Math.max(num('dp'),0),100),
+  Q={sav:num('sav'),wk:num('wksv'),inc:num('wInc')+num('bInc'),debts:num('debts'),tgt:num('tgt'),dp:Math.min(Math.max(num('dp'),0),100),
      tax:num('taxPct'),ins:num('insPct'),hoa:num('hoa'),close:num('close'),base:num('base'),convDti:num('convDti')/100,fhaDti:num('fhaDti')/100,lim:ri.lim,fhaLim:ri.fha};
 }
 const pmt=(L,r,n=360)=>L<=0?0:r>0?L*r/(1-Math.pow(1+r,-n)):L/n;
-const convAdder=s=>s>=780?-.05:s>=740?0:s>=720?.10:s>=700?.20:s>=680?.35:s>=660?.50:s>=640?.65:s>=620?.80:1.10;
-const fhaAdder=s=>s>=720?0:s>=680?.10:s>=640?.25:s>=620?.35:.50;
-function pmiRate(ltv,s){
-  const t=s>=740?0:s>=700?1:s>=680?2:s>=660?3:s>=640?4:s>=620?5:6;
-  const tab=ltv>.95?[.70,1.00,1.30,1.60,1.90,2.20,2.60]:ltv>.90?[.50,.75,1.00,1.30,1.60,1.90,2.30]:ltv>.85?[.35,.55,.80,1.05,1.30,1.55,1.95]:[.25,.40,.55,.75,.95,1.15,1.50];
-  return tab[t];
-}
-function conv(a,p,h){
-  const d=Q.dp/100,ltv=1-d,loan=p*(1-d),jumbo=loan>h.lim,o={prog:'Conventional 30-yr',key:'conv',loan,jumbo,elig:false,ok:false,why:''};
-  if(a.inc<=0){o.why='No income entered';return o}
-  if(a.sElig<620){o.why='Lender minimum is 620; score used is '+Math.round(a.sElig);return o}
+const pmiRate=ltv=>ltv>.95?1.00:ltv>.90?.75:ltv>.85?.55:.40;
+function conv(p,h){
+  const d=Q.dp/100,ltv=1-d,loan=p*(1-d),jumbo=loan>h.lim,o={prog:'Conventional 30-yr',nm:'Conventional',key:'conv',loan,jumbo,elig:false,ok:false,why:''};
+  if(Q.inc<=0){o.why='No income entered';return o}
   if(d<.05){o.why='Conventional needs 5% down';return o}
-  if(jumbo&&a.sPrice<700){o.why='Above the conforming limit ('+usd(h.lim)+'): jumbo needs 700+';return o}
   if(jumbo&&d<.2){o.why='Above the conforming limit ('+usd(h.lim)+'): jumbo needs 20% down';return o}
-  const rate=Q.base+convAdder(a.sPrice)+(ltv>.9?.25:ltv>.8?.125:0)+(jumbo?.15:0);
-  const mi=(!jumbo&&ltv>.8)?loan*pmiRate(ltv,a.sPrice)/1200:0;
-  const pi=pmt(loan,rate/1200),pay=pi+h.tax+h.ins+h.hoa+mi,dti=(pay+Q.debts)/(a.inc/12);
+  const rate=Q.base+(ltv>.9?.25:ltv>.8?.125:0)+(jumbo?.15:0);
+  const mi=(!jumbo&&ltv>.8)?loan*pmiRate(ltv)/1200:0;
+  const pi=pmt(loan,rate/1200),pay=pi+h.tax+h.ins+h.hoa+mi,dti=(pay+Q.debts)/(Q.inc/12);
   Object.assign(o,{elig:true,rate,pi,mi,pay,dti,financed:loan,upfront:0});
   if(dti>Q.convDti){o.why='Payment too high for income (DTI '+Math.round(dti*100)+'%, limit '+Math.round(Q.convDti*100)+'%)'}else o.ok=true;
   return o;
 }
-function fha(a,p,h){
-  const d=Q.dp/100,loan0=p*(1-d),o={prog:'FHA 30-yr',key:'fha',loan:loan0,elig:false,ok:false,why:''};
-  if(a.inc<=0){o.why='No income entered';return o}
-  if(a.sPrice<580){o.why='FHA minimum is 580';return o}
+function fha(p,h){
+  const d=Q.dp/100,loan0=p*(1-d),o={prog:'FHA 30-yr',nm:'FHA',key:'fha',loan:loan0,elig:false,ok:false,why:''};
+  if(Q.inc<=0){o.why='No income entered';return o}
   if(d<.035){o.why='FHA needs 3.5% down';return o}
   if(loan0>h.fha){o.why='Over the FHA limit ('+usd(h.fha)+') for this county';return o}
-  const loan=loan0*1.0175,rate=Q.base-.25+fhaAdder(a.sPrice),ltv=1-d;
+  const loan=loan0*1.0175,rate=Q.base-.25,ltv=1-d;
   const mip=loan0>726200?(ltv>.95?.75:.70):(ltv>.95?.55:.50),mi=loan0*mip/1200;
-  const pi=pmt(loan,rate/1200),pay=pi+h.tax+h.ins+h.hoa+mi,dti=(pay+Q.debts)/(a.inc/12);
+  const pi=pmt(loan,rate/1200),pay=pi+h.tax+h.ins+h.hoa+mi,dti=(pay+Q.debts)/(Q.inc/12);
   Object.assign(o,{elig:true,rate,pi,mi,pay,dti,financed:loan,upfront:loan0*.0175});
   if(dti>Q.fhaDti){o.why='Payment too high for income (DTI '+Math.round(dti*100)+'%, limit '+Math.round(Q.fhaDti*100)+'%)'}else o.ok=true;
   return o;
 }
-const evalA=(a,p,h)=>[conv(a,p,h),fha(a,p,h)];
+const progs=(p,h)=>[conv(p,h),fha(p,h)];
 const bestOf=l=>{const o=l.filter(x=>x.ok);return o.length?o.reduce((m,x)=>x.pay<m.pay?x:m):null};
 const attempt=l=>bestOf(l)||l.filter(x=>x.elig).sort((x,y)=>x.dti-y.dti)[0]||l[0];
 const hg=p=>({tax:p*Q.tax/1200,ins:p*Q.ins/1200,hoa:Q.hoa,lim:Q.lim,fha:Q.fhaLim});
-function approaches(){
-  const lo=Math.min(Q.ws,Q.bs),imp=Math.min(Q.ws,Q.bt);
-  return [
-    {id:'w',name:'Wife alone',sub:'Her income and score',inc:Q.W,sElig:Q.ws,sPrice:Q.ws},
-    {id:'low',name:'Both, lowest score',sub:'Combined income, '+Math.round(lo)+' score',inc:Q.W+Q.B,sElig:lo,sPrice:lo},
-    {id:'avg',name:'Both, scores averaged',sub:'Approved on the '+Math.round((Q.ws+Q.bs)/2)+' average, priced at '+Math.round(lo),inc:Q.W+Q.B,sElig:(Q.ws+Q.bs)/2,sPrice:lo},
-    {id:'imp',name:'Both, after the score goal',sub:'Combined income, '+Math.round(imp)+' score',inc:Q.W+Q.B,sElig:imp,sPrice:imp}];
-}
-function maxP(a,which){
+function maxP(which){
   let best=0,seen=false;
   for(let p=100000;p<=3000000;p+=5000){
-    const h=hg(p),r=which==='conv'?conv(a,p,h):fha(a,p,h);
+    const h=hg(p),r=which==='conv'?conv(p,h):fha(p,h);
     if(r.ok){best=p;seen=true}else if(seen)break;
   }
   return best;
 }
 const hFor=h=>({tax:h.tax,ins:h.ins,hoa:h.hoa,lim:RI[h.region].lim,fha:RI[h.region].fha});
-function calcHouse(h){
-  const as=approaches(),hh=hFor(h),rs=as.map(a=>{const l=evalA(a,h.price,hh);return {a,list:l,b:bestOf(l),at:attempt(l)}});
-  let pick=null;
-  if(S.appr==='best'){const o=rs.filter(r=>r.b&&r.a.id!=='imp');pick=o.length?o.reduce((m,r)=>r.b.pay<m.b.pay?r:m):null}
-  else{const r=rs.find(x=>x.a.id===S.appr);pick=r&&r.b?r:null}
-  const ref=S.appr==='best'?rs.filter(r=>r.a.id!=='imp').reduce((m,r)=>(r.at.pay||1e9)<(m.at.pay||1e9)?r:m):rs.find(x=>x.a.id===S.appr);
-  return {rs,pick,ref};
-}
+function calcHouse(h){const l=progs(h.price,hFor(h));return {list:l,b:bestOf(l),at:attempt(l)}}
 
 /* ---------- homes ---------- */
 const nm=h=>`${h.addr}, ${h.city}`;
@@ -2123,21 +2060,18 @@ function townGroups(){
   HOUSES.forEach(h=>{const t=TOWNS[h.city];const key=t?t.t:h.city;(g[key]=g[key]||{name:h.city,t,hs:[],reg:h.region}).hs.push(h)});
   return Object.values(g);
 }
-function townCard(g){
+function townRow(g){
   const hs=g.hs,t=g.t,n=hs.length,ps=hs.map(h=>h.price),sa=hs.reduce((a,h)=>a+h.school_avg,0)/n;
   const st=hs.map(h=>h.stations[0]).sort((a,b)=>a.mi-b.mi)[0],hubs=hs.map(h=>h.hub.mi),hn=hs[0].hub.name;
   const rng=Math.min(...ps)===Math.max(...ps)?usdK(ps[0]):usdK(Math.min(...ps))+' to '+usdK(Math.max(...ps));
   const hubTxt=Math.round(Math.min(...hubs))===Math.round(Math.max(...hubs))?Math.round(hubs[0])+' mi':Math.round(Math.min(...hubs))+' to '+Math.round(Math.max(...hubs))+' mi';
-  return `<article class="tcard"><div class="timg">${t&&t.i?`<img loading="lazy" alt="${g.name}" src="${t.i}">`:`<div class="tnone">${g.name[0]}</div>`}</div>
-    <div class="tb"><h4>${g.name}, ${hs[0].st}</h4><div class="tcnt">${n} ${n>1?'homes':'home'}, ${rng}</div>
-    ${t?`<p>${t.b}</p>`:''}
-    <div class="tfacts"><span>Schools <b>${sa.toFixed(1)}</b></span><span>Train <b>${st.name}, ${st.mi} mi</b></span><span>To ${hn==='NYC'?'NYC':'Philadelphia'} <b>${hubTxt}</b></span></div>
-    <div class="tlinks">${t?`<a class="link" href="${t.u}" target="_blank" rel="noopener">Wikipedia</a>`:''}<a class="link" href="${mapUrl(hs[0])}" target="_blank" rel="noopener">Map</a></div></div></article>`;
+  return `<tr><td class="tn">${t&&t.i?`<img loading="lazy" alt="" src="${t.i}">`:`<i>${g.name[0]}</i>`}<b>${g.name}, ${hs[0].st}</b></td><td data-l="Homes">${n}</td><td data-l="Prices">${rng}</td><td data-l="Schools">${sa.toFixed(1)}</td><td data-l="Train">${st.name}, ${st.mi} mi</td><td data-l="To ${hn}">${hubTxt}</td><td class="tl">${t?`<a class="link" href="${t.u}" target="_blank" rel="noopener">Wiki</a>`:''}<a class="link" href="${mapUrl(hs[0])}" target="_blank" rel="noopener">Map</a></td></tr>`;
 }
 function renderTowns(){
   const gs=townGroups();
-  $('townHost').innerHTML=REGIONS.map(r=>{const L=gs.filter(g=>g.reg===r).sort((a,b)=>a.name.localeCompare(b.name));
-    return L.length?`<h3 class="tgh">${r}</h3><div class="tg">${L.map(townCard).join('')}</div>`:''}).join('');
+  $('townHost').innerHTML=REGIONS.map(r=>{const L=gs.filter(g=>g.reg===r).sort((a,b)=>a.name.localeCompare(b.name));if(!L.length)return '';
+    const n=L.reduce((a,g)=>a+g.hs.length,0);
+    return `<details class="acc"><summary>${r}<span>${L.length} towns, ${n.toLocaleString()} homes</span></summary><div class="ttw"><table class="tt"><tr><th>Town</th><th>Homes</th><th>Prices</th><th>Schools</th><th>Nearest train</th><th>To ${RI[r].hub}</th><th></th></tr>${L.map(townRow).join('')}</table></div></details>`}).join('');
 }
 function townBlock(h){
   const t=TOWNS[h.city];if(!t)return '';
@@ -2146,17 +2080,17 @@ function townBlock(h){
 
 function list(skipQ){
   const ma=parseFloat(S.minAvg),mb=+S.minBeds;
-  return HOUSES.filter(h=>(S.reg==='all'||h.region===S.reg)&&h.school_avg>=ma&&h.beds>=mb&&(S.ptype==='all'||(h.ptype||'House')===S.ptype)&&(!S.noNew||!h.new)&&(!S.rail2||stn(h).mi<=2)&&(skipQ||!S.qOnly||calcHouse(h).pick));
+  return HOUSES.filter(h=>(S.reg==='all'||h.region===S.reg)&&h.school_avg>=ma&&h.beds>=mb&&(S.ptype==='all'||(h.ptype||'House')===S.ptype)&&(!S.noNew||!h.new)&&(!S.rail2||stn(h).mi<=2)&&(skipQ||!S.qOnly||calcHouse(h).b));
 }
 function sorter(){
-  const pay=h=>{const c=calcHouse(h);return c.pick?c.pick.b.pay:1e9+h.price};
+  const pay=h=>{const c=calcHouse(h);return c.b?c.b.pay:1e9+h.price};
   return {pay,price:h=>h.price,school:h=>-h.school_avg*1e7+h.price,rail:h=>stn(h).mi*1e7+h.price,hub:h=>h.hub.mi*1e7+h.price,year:h=>-(h.year||0)*1e7+h.price,sqft:h=>-(h.sqft||0)}[S.sort];
 }
 function card(h,ix){
-  const c=calcHouse(h),r=c.pick,x=r?r.b:null,ref=c.ref.at;
+  const c=calcHouse(h),x=c.b,ref=c.at;
   const mo=x?`<div class="mo"><b>${usd(x.pay)}</b> / mo</div>`:`<div class="mo">Payment n/a</div>`;
-  const q=x?`<div class="qual y">Qualifies: ${r.a.name}, ${pc(x.rate)} ${x.key==='fha'?'FHA':'conventional'}</div>`
-           :`<div class="qual n">${S.appr==='best'?'No approach qualifies':'Does not qualify'}: ${ref.why||'see details'}</div>`;
+  const q=x?`<div class="qual y">Qualifies: ${pc(x.rate)} ${x.key==='fha'?'FHA':'conventional'}</div>`
+           :`<div class="qual n">Does not qualify: ${ref.why||'see details'}</div>`;
   const tags=`${h.ptype&&h.ptype!=='House'?'<span class="tag b">'+h.ptype+'</span>':''}${h.new?'<span class="tag b">New build</span>':''}${x?'<span class="tag q">Qualifies</span>':'<span class="tag x">Over reach</span>'}`;
   const facts=[`<span><b>${h.beds}</b> bd</span>`,`<span><b>${h.baths}</b> ba</span>`,h.sqft?`<span><b>${h.sqft.toLocaleString()}</b> sq ft</span>`:'',(h.year?`<span>Built <b>${h.year}</b></span>`:''),lot(h)?`<span>${lot(h)}</span>`:'',h.garage?`<span><b>${h.garage}</b>-car garage</span>`:''].join('');
   const am=h.amen.slice(0,5).map(a=>`<span>${a}</span>`).join('');
@@ -2180,7 +2114,7 @@ function card(h,ix){
 }
 function renderHomes(){
   const L=list(),key=sorter(),all=HOUSES.length;
-  const qn=HOUSES.filter(h=>calcHouse(h).pick).length;
+  const qn=HOUSES.filter(h=>calcHouse(h).b).length;
   const gh=REGIONS.filter(r=>S.reg==='all'||r===S.reg).map(r=>{
     const hs=L.filter(h=>h.region===r).sort((a,b)=>(key(a)-key(b))||(a.price-b.price));
     const all_r=HOUSES.filter(h=>h.region===r);
@@ -2188,7 +2122,7 @@ function renderHomes(){
     const rs=hs.length?`<div class="rs"><span><b>${hs.length}</b> home${hs.length>1?'s':''}</span><span>Typical <b>${usdK(med(hs.map(h=>h.price)))}</b></span><span>To ${ri.hub} <b>${Math.round(Math.min(...hs.map(h=>h.hub.mi)))} to ${Math.round(Math.max(...hs.map(h=>h.hub.mi)))} mi</b></span><span>Nearest station <b>${Math.min(...hs.map(h=>stn(h).mi)).toFixed(1)} mi</b></span></div>`:'';
     let body;
     if(hs.length)body=`<div class="grid">${hs.map((h,i)=>card(h,i)).join('')}</div>`;
-    else if(!all_r.length)body=`<div class="card emptyRg">No home in the Redfin pull met all six filters (3+ bedrooms, $650,000 to $1.2 million, school ratings averaging 7 or better) in ${r}. See Research for why.</div>`;
+    else if(!all_r.length)body=`<div class="card emptyRg">No home in ${r} met every filter.</div>`;
     else body=`<div class="card emptyRg">The ${all_r.length} ${r} homes are hidden by the filters above.</div>`;
     return `<section class="rgn" id="rg-${r.replace(/\W+/g,'')}"><div class="bhead"><div><h2>${r}</h2></div>${rs}</div>${body}</section>`;
   }).join('');
@@ -2200,7 +2134,7 @@ function renderHomes(){
   $('sMed').textContent=usdK(med(HOUSES.map(h=>h.price)));
   $('sSch').textContent=med(HOUSES.map(h=>h.school_avg)).toFixed(1);
   $('sRail').textContent=med(HOUSES.map(h=>stn(h).mi)).toFixed(1)+' mi';
-  $('lede').textContent=`${all.toLocaleString()} homes with 3+ bedrooms, any build year, from $650,000 to $1.2 million, in school districts that average a 7 or better, across six regions from Long Island to the Philadelphia Main Line.`;
+  $('lede').textContent=`${all.toLocaleString()} homes in six regions, from Long Island to the Philadelphia Main Line. 3+ bedrooms, $650,000 to $1.2 million, schools 7 or better.`;
 }
 /* ---------- map ---------- */
 let MAP=null,MLAY=null;
@@ -2218,9 +2152,9 @@ function renderMap(L){
   const pts=[];
   L.forEach(h=>{
     if(h.lat==null)return;
-    const q=!!calcHouse(h).pick,c=calcHouse(h).pick;
+    const c=calcHouse(h).b,q=!!c;
     const ic=L_.divIcon({className:'pinw',html:`<div class="pin ${q?'q':'n'}">${usdK(h.price)}</div>`,iconSize:[0,0]});
-    const pop=`<div class="mp"><img alt="" src="${h.img}"><div class="mpb"><b>${usd(h.price)}</b>${c?`<span>${usd(c.b.pay)} / mo</span>`:'<span>Over reach</span>'}<div>${nm(h)}</div><small>${h.beds} bd, ${h.baths} ba${h.sqft?', '+h.sqft.toLocaleString()+' sq ft':''}${h.year?', built '+h.year:''}</small><small>Schools ${h.school_avg.toFixed(1)} avg</small><div class="mpl"><button type="button" data-open="${h.id}">Details</button><a href="${h.url}" target="_blank" rel="noopener">Redfin</a><a href="${zillow(h)}" target="_blank" rel="noopener">Zillow</a></div></div></div>`;
+    const pop=`<div class="mp"><img alt="" src="${h.img}"><div class="mpb"><b>${usd(h.price)}</b>${c?`<span>${usd(c.pay)} / mo</span>`:'<span>Over reach</span>'}<div>${nm(h)}</div><small>${h.beds} bd, ${h.baths} ba${h.sqft?', '+h.sqft.toLocaleString()+' sq ft':''}${h.year?', built '+h.year:''}</small><small>Schools ${h.school_avg.toFixed(1)} avg</small><div class="mpl"><button type="button" data-open="${h.id}">Details</button><a href="${h.url}" target="_blank" rel="noopener">Redfin</a><a href="${zillow(h)}" target="_blank" rel="noopener">Zillow</a></div></div></div>`;
     L_.marker([h.lat,h.lon],{icon:ic,riseOnHover:true}).bindPopup(pop,{maxWidth:300,minWidth:230}).addTo(MLAY);
     pts.push([h.lat,h.lon]);
   });
@@ -2235,10 +2169,10 @@ function setMode(m){
 }
 function openHome(id){
   const h=HOUSES.find(x=>x.id===id),L=list().sort((a,b)=>sorter()(a)-sorter()(b)),i=L.findIndex(x=>x.id===id);
-  const c=calcHouse(h),pk=c.pick,show=pk?pk.b:(c.ref.at.elig?c.ref.at:null),a=pk?pk.a:c.ref.a;
+  const c=calcHouse(h),show=c.b||(c.at.elig?c.at:null);
   const row=(l,v)=>`<tr><td>${l}</td><td>${v}</td></tr>`;
-  const rt=c.rs.map(r=>{const t=r.at;const ok=!!r.b;return `<tr><td>${r.a.name}</td><td>${t.elig?pc(t.rate):'&ndash;'}</td><td>${t.elig?usd(t.pay):'&ndash;'}</td><td>${t.elig?Math.round(t.dti*100)+'%':'&ndash;'}</td><td class="${ok?'pos':'neg'}">${ok?'Yes':'No'}</td></tr>`}).join('');
-  const why=c.rs.filter(r=>!r.b).map(r=>`<li><b>${r.a.name}:</b> ${r.list.map(x=>x.prog+': '+(x.why||'ok')).join('; ')}</li>`).join('');
+  const rt=c.list.map(t=>`<tr><td>${t.nm}</td><td>${t.elig?pc(t.rate):'&ndash;'}</td><td>${t.elig?usd(t.pay):'&ndash;'}</td><td>${t.elig?Math.round(t.dti*100)+'%':'&ndash;'}</td><td class="${t.ok?'pos':'neg'}">${t.ok?'Yes':'No'}</td></tr>`).join('');
+  const why=c.list.filter(t=>!t.ok).map(t=>`<li><b>${t.nm}:</b> ${t.why}</li>`).join('');
   const hh=hFor(h);
   $('modal').innerHTML=`<div class="mhead"><div><h2>${nm(h)} ${h.zip}</h2><div class="sub">${h.region} &middot; ${usd(h.price)}${h.dom!=null?' &middot; '+h.dom+' days on Redfin':''} &middot; Redfin #${h.id}</div><div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">${Saved.btn(h.id)}${Saved.mail(h.id)}</div></div><div class="mnav"><button class="x press" data-step="-1" aria-label="Previous home"${i>0?'':' disabled'}>${ico('left')}</button><button class="x press" data-step="1" aria-label="Next home"${i>=0&&i<L.length-1?'':' disabled'}>${ico('right')}</button><button class="x press" data-close aria-label="Close">${ico('x')}</button></div></div>
   <div class="mbody"><div>
@@ -2258,14 +2192,14 @@ function openHome(id){
       ${row('Downtown',`${h.downtown.name}, ${h.downtown.mi} mi`)}
       ${row('To '+(h.hub.name==='NYC'?'Grand Central, New York':'City Hall, Philadelphia'),h.hub.mi+' mi')}</table></div>
   </div><div>
-    <div class="sec"><h3>Monthly payment by approach (${S.dp_txt||pc(Q.dp,0)+' down'})</h3><table class="rtab"><tr><th></th><th>Rate</th><th>Payment</th><th>DTI</th><th>Qualifies</th></tr>${rt}</table>
-      <div class="note">Rates and mortgage insurance are the Affordability tab's estimates. Change incomes, scores and down payment there.</div></div>
-    ${show?`<div class="sec"><h3>Breakdown: ${a.name}, ${show.prog}</h3>
+    <div class="sec"><h3>Monthly payment by loan type (${pc(Q.dp,Q.dp%1?1:0)} down)</h3><table class="rtab"><tr><th></th><th>Rate</th><th>Payment</th><th>DTI</th><th>Qualifies</th></tr>${rt}</table>
+      <div class="note">Estimates. Change incomes, rate and down payment on the Affordability tab.</div></div>
+    ${show?`<div class="sec"><h3>Breakdown: ${show.prog}</h3>
       <div class="paybig">${usd(show.pay)}<small> / month</small></div>
       <table>${row('Principal and interest at '+pc(show.rate),usd(show.pi))}${row('Property tax'+(h.tax_est?' (estimated)':''),usd(hh.tax))}${row('Insurance'+(h.ins_est?' (estimated)':''),usd(hh.ins))}${row(show.key==='fha'?'FHA mortgage insurance':'Mortgage insurance',show.mi?usd(show.mi):'None')}${row('HOA',usd(hh.hoa))}
       <tr class="tot"><td>Total</td><td>${usd(show.pay)}</td></tr></table>
       <div class="note">Down payment ${usd(h.price*Q.dp/100)} plus about ${usd(h.price*Q.close/100)} closing costs = ${usd(h.price*(Q.dp+Q.close)/100)} cash. Loan ${usd(show.financed)}${show.upfront?' including the '+usd(show.upfront)+' FHA up-front premium':''}. DTI ${Math.round(show.dti*100)}%.</div></div>`:''}
-    ${why?`<div class="sec"><h3>Why an approach does not qualify</h3><ul style="margin:0;padding-left:18px">${why}</ul></div>`:''}
+    ${why?`<div class="sec"><h3>Why a loan type does not qualify</h3><ul style="margin:0;padding-left:18px">${why}</ul></div>`:''}
     <div class="acts" style="margin-top:20px"><a class="btn pri press" href="${h.url}" target="_blank" rel="noopener">Open on Redfin</a><a class="btn press" href="${zillow(h)}" target="_blank" rel="noopener">Look up on Zillow</a>${h.src==='Movoto'?`<a class="btn press" href="${h.src_url}" target="_blank" rel="noopener">Schools on Movoto</a>`:''}</div>
   </div></div>`;
   S.open=id;const s=$('scrim');s.classList.remove('out');s.classList.add('show');document.body.style.overflow='hidden';
@@ -2273,8 +2207,8 @@ function openHome(id){
 function hide(){const s=$('scrim');if(!s.classList.contains('show'))return;document.body.style.overflow='';s.classList.add('out');setTimeout(()=>s.classList.remove('show','out'),180)}
 
 /* ---------- savings: what cash and income allow together ---------- */
-function incomePrice(dp,cur){
-  const keep=Q.dp;Q.dp=dp;let m=0;cur.forEach(r=>{m=Math.max(m,maxP(r.a,'conv'),maxP(r.a,'fha'))});Q.dp=keep;return m;
+function incomePrice(dp){
+  const keep=Q.dp;Q.dp=dp;const m=Math.max(maxP('conv'),maxP('fha'));Q.dp=keep;return m;
 }
 /* ---------- savings over time: weekly savings, bonuses and changes, goal dates ---------- */
 let SVC=null;
@@ -2303,9 +2237,9 @@ function simulate(NW){
   }
   return {bal,marks};
 }
-function renderSV(cur,tgt){
-  const capOf={},cap=d=>capOf[d]!==undefined?capOf[d]:(capOf[d]=incomePrice(d,cur));
-  SVC={cur,tgt,cap};
+function renderSV(tgt){
+  const capOf={},cap=d=>capOf[d]!==undefined?capOf[d]:(capOf[d]=incomePrice(d));
+  SVC={tgt,cap};
   drawSV();
 }
 function drawSV(){
@@ -2314,6 +2248,12 @@ function drawSV(){
   const ds=[...new Set([5,10,20,dpn])].sort((a,b)=>a-b);
   const full=simulate(MAXW);
   const goals=ds.map(d=>{const need=tgt*(d+Q.close)/100,hit=full.bal.findIndex(v=>v>=need);return {d,need,hit:hit<0?null:hit,inc:cap(d)>=tgt,pri:d===dpn}});
+  const blank=!Q.sav&&!Q.wk&&!bumpList().some(b=>b.a>0);
+  $('svChart').hidden=$('svT').hidden=$('svRead').hidden=blank;
+  if(blank){
+    $('svGoals').innerHTML=goals.map(g=>`<div class="gchip${g.pri?' pri':''}${g.inc?'':' no'}"><span>${pc(g.d,g.d%1?1:0)} down</span><b>${usdM(Math.round(g.need))}</b><em>${g.inc?'cash needed':'Income too low'}</em></div>`).join('');
+    $('svChart').innerHTML='';return;
+  }
   const hits=goals.filter(g=>g.hit!==null).map(g=>g.hit);
   const NW=hits.length?Math.min(MAXW,Math.max(104,Math.ceil((Math.max(...hits)+26)/26)*26)):260;
   const bal=full.bal.slice(0,NW+1),marks=full.marks.filter(w=>w<=NW);
@@ -2373,52 +2313,30 @@ function renderBumps(){
 /* ---------- affordability ---------- */
 function renderAf(){
   params();
-  const as=approaches(),tgt=Q.tgt,hh=hg(tgt);
-  const res=as.map(a=>{const l=evalA(a,tgt,hh),b=bestOf(l),at=attempt(l);return {a,l,b,at,mc:maxP(a,'conv'),mf:maxP(a,'fha')}});
-  res.forEach(r=>{r.mp=Math.max(r.mc,r.mf)});
-  const cur=res.filter(r=>r.a.id!=='imp'),imp=res[3],oks=cur.filter(r=>r.b),best=oks.length?oks.reduce((m,r)=>r.b.pay<m.b.pay?r:m):cur.reduce((m,r)=>r.mp>m.mp?r:m);
-  const top=cur.reduce((m,r)=>r.mp>m.mp?r:m);
-  const sn=n=>MOB?({'Wife alone':'Wife','Both, lowest score':'Both low','Both, scores averaged':'Both avg','Both, after the score goal':'Both goal'}[n]||n):n;
-  let v;
-  if(oks.length){
-    const w=res[0],gain=imp.b?best.b.pay-imp.b.pay:0;
-    v=MOB?`<h2>Best at ${usdM(tgt)}: ${best.a.name}</h2><p>${best.b.prog.replace('Conventional','Conv.')}, ${pc(best.b.rate)}, ${usd(best.b.pay)} a month. ${oks.length} of 3 qualify. Top price ${usdM(top.mp)}.</p>`:v=`<h2>Best option today at ${usd(tgt)}: ${best.a.name}</h2><p>${best.b.prog} at ${pc(best.b.rate)}, ${usd(best.b.pay)} a month with tax, insurance and mortgage insurance. ${oks.length} of 3 current approaches qualify at this price. ${w.b?'':'Wife alone tops out at '+(w.mp?usd(w.mp):'less than $100,000')+'. '}The highest price reachable today is ${usd(top.mp)} (${top.a.name}).${imp.b&&gain>1?' If Brandon reaches '+Math.round(Math.min(Q.ws,Q.bt))+', the same house costs '+usd(imp.b.pay)+' a month at '+pc(imp.b.rate)+', '+usd(gain)+' less.':''}</p>`;
-  }else{
-    v=MOB?`<h2>None reach ${usdM(tgt)}</h2><p>Top price ${usdM(top.mp)} (${sn(top.a.name)}). Lower the target or raise the down payment.</p>`:`<h2>No current approach reaches ${usd(tgt)}</h2><p>The highest price today is ${usd(top.mp)} with ${top.a.name}. Lower the target price, raise the down payment or reduce other monthly debts.</p>`;
-  }
-  $('verdict').innerHTML=v;
-  renderSV(cur,tgt);
-  const cols=res.map(r=>`<th class="${r.a.id===best.a.id&&oks.length?'best':''}">${sn(r.a.name)}<small>${r.a.sub}</small></th>`).join('');
-  const LB={'Highest price':'Max price','Largest loan':'Max loan','Payment at target':'Payment','Debt-to-income':'DTI','Qualifies at target':'Qualifies','Mortgage insurance':'PMI','Interest over 30 years':'Interest','Cash to close':'Cash in'};
-  const T=(l,f)=>`<tr><td>${MOB?(LB[l]||l):l}</td>${res.map(r=>`<td class="${r.a.id===best.a.id&&oks.length?'best':''}${f.no&&f.no(r)?' no':''}">${f.f(r)}</td>`).join('')}</tr>`;
-  const cash=tgt*(Q.dp+Q.close)/100;
-  $('afTable').innerHTML=`<div class="pageTitle"><div><h2>Rate, price and payment by approach</h2><div class="sub">Target ${usd(tgt)}, ${pc(Q.dp,0)} down, ${S.afReg}. The shaded column is the best option.</div></div></div>
-  <table class="rtab" style="margin-top:12px"><tr><th></th>${cols}</tr>
-  ${T('Program',{f:r=>{const x=r.b?r.b.prog:r.at.elig?r.at.prog+(MOB?'':'<br><span class="sub">not at this price</span>'):'None eligible';return MOB?x.replace('Conventional','Conv.').replace(' 30-yr',''):x},no:r=>!r.b})}
-  ${T('Rate',{f:r=>r.at.elig?`<span class="big2">${pc(r.at.rate)}</span>`:'&ndash;'})}
-  ${T('Highest price',{f:r=>r.mp?`<span class="big2">${usdM(r.mp)}</span>`:'None',no:r=>!r.mp})}
-  ${T('Largest loan',{f:r=>r.mp?usdM(r.mp*(1-Q.dp/100)):'&ndash;'})}
-  ${T('Payment at target',{f:r=>r.at.elig?`<span class="big2">${usd(r.at.pay)}</span>`:'&ndash;'})}
-  ${T('Debt-to-income',{f:r=>r.at.elig?Math.round(r.at.dti*100)+'%':'&ndash;'})}
-  ${T('Qualifies at target',{f:r=>r.b?'Yes':(MOB?'No':(r.at.why||'No')),no:r=>!r.b})}
-  ${T('Mortgage insurance',{f:r=>r.at.elig?(r.at.mi?usd(r.at.mi)+(MOB?'':' / mo'):'None'):'&ndash;'})}
-  ${T('Interest over 30 years',{f:r=>r.at.elig?usdM(r.at.pi*360-r.at.financed):'&ndash;'})}
-  ${T('Cash to close',{f:r=>usdM(cash)})}
-  </table><div class="note">Payment includes principal, interest, property tax (${pc(Q.tax)}), insurance (${pc(Q.ins)}) and mortgage insurance. Interest over 30 years assumes no extra payments and no refinance.</div>`;
-  const mx=Math.max(...res.map(r=>r.mp),tgt)*1.08||1;
-  $('barSub').textContent=`At ${pc(Q.dp,0)} down, ${pc(Q.convDti*100,0)} DTI conventional and ${pc(Q.fhaDti*100,0)} FHA, after ${usd(Q.debts)} of other monthly debts.`;
-  $('bars').innerHTML=res.map(r=>`<div class="bar"><span>${r.a.name}</span><div class="tr"><div class="fl${r.a.id===best.a.id&&oks.length?' hl':''}" style="width:${r.mp/mx*100}%"></div><div class="tg" style="left:${tgt/mx*100}%"></div></div><span class="v">${r.mp?usdK(r.mp):'None'}</span></div>`).join('');
-  const sc=[580,600,620,640,660,680,700,720,740,760];
-  const row=(lab,a,cl)=>{const l=evalA(a,tgt,hh),b=bestOf(l),at=attempt(l),mp=Math.max(maxP(a,'conv'),maxP(a,'fha'));
-    return `<tr class="${cl||''}"><td>${MOB?lab.replace('Both, Brandon at ','Both, ').replace(' (today)',' now'):lab}</td><td>${at.elig?at.prog:'None eligible'}</td><td>${at.elig?pc(at.rate):'&ndash;'}</td><td>${at.elig?usd(at.pay):'&ndash;'}</td><td>${mp?usdM(mp):'None'}</td><td class="${b?'pos':'neg'}">${b?'Yes':'No'}</td></tr>`};
-  const rows=[row('Wife alone ('+Math.round(Q.ws)+')',res[0].a,'sel'),...sc.map(s=>{const m=Math.min(Q.ws,s);return row('Both, Brandon at '+s+(s===Math.round(Q.bs)?' (today)':''),{inc:Q.W+Q.B,sElig:m,sPrice:m},s===Math.round(Q.bs)?'sel':'')})];
-  $('sensSub').textContent=`Combined income, lowest score used, at the ${usd(tgt)} target. Shows what each score step buys.`;
-  $('sens').innerHTML=`<table class="rtab"><tr><th></th><th>Program</th><th>Rate</th><th>${MOB?'Payment':'Payment at target'}</th><th>${MOB?'Max price':'Highest price'}</th><th>Qualifies</th></tr>${rows.join('')}</table>`;
+  const tgt=Q.tgt,l=progs(tgt,hg(tgt)),b=bestOf(l),at=attempt(l),mx={conv:maxP('conv'),fha:maxP('fha')},top=Math.max(mx.conv,mx.fha);
+  const cash=tgt*(Q.dp+Q.close)/100,dpt=pc(Q.dp,Q.dp%1?1:0),u=MOB?usdK:usd;
+  $('verdict').innerHTML=`<div><h2>${u(tgt)} at ${dpt} down ${b?'qualifies':'is out of reach'}</h2>${b?'':`<p>${at.why}.</p>`}</div>
+  <div class="vs"><div><b>${at.elig?usd(at.pay):'&ndash;'}</b><span>a month, all in</span></div><div><b>${at.elig?pc(at.rate):'&ndash;'}</b><span>${at.elig?at.nm+' rate':'no loan type fits'}</span></div><div><b>${at.elig?Math.round(at.dti*100)+'%':'&ndash;'}</b><span>debt-to-income</span></div><div><b>${top?u(top):'None'}</b><span>highest price</span></div><div><b>${u(cash)}</b><span>cash to close</span></div></div>`;
+  renderSV(tgt);
+  const hi=r=>b&&r.key===b.key?'best':'';
+  const T=(lab,f,no)=>`<tr><td>${lab}</td>${l.map(r=>`<td class="${hi(r)}${no&&no(r)?' no':''}">${f(r)}</td>`).join('')}</tr>`;
+  $('afTable').innerHTML=`<div class="pageTitle"><div><h2>Payment and price by loan type</h2><div class="sub">${usd(tgt)}, ${dpt} down, ${S.afReg}. The shaded column is the lower payment.</div></div></div>
+  <table class="rtab" style="margin-top:12px"><tr><th></th>${l.map(r=>`<th class="${hi(r)}">${r.nm}</th>`).join('')}</tr>
+  ${T('Rate',r=>r.elig?`<span class="big2">${pc(r.rate)}</span>`:'&ndash;')}
+  ${T('Payment at target',r=>r.elig?`<span class="big2">${usd(r.pay)}</span>`:'&ndash;')}
+  ${T('Qualifies at target',r=>r.ok?'Yes':(MOB?'No':(r.why||'No')),r=>!r.ok)}
+  ${T('Debt-to-income',r=>r.elig?Math.round(r.dti*100)+'%':'&ndash;')}
+  ${T('Mortgage insurance',r=>r.elig?(r.mi?usd(r.mi)+' / mo':'None'):'&ndash;')}
+  ${T('Highest price',r=>mx[r.key]?u(mx[r.key]):'None',r=>!mx[r.key])}
+  ${T('Largest loan',r=>mx[r.key]?u(mx[r.key]*(1-Q.dp/100)):'&ndash;')}
+  ${T('Interest over 30 years',r=>r.elig?u(r.pi*360-r.financed):'&ndash;')}
+  ${T('Cash to close',r=>u(cash))}
+  </table><div class="note">Payment is principal, interest, property tax (${pc(Q.tax)}), insurance (${pc(Q.ins)}), mortgage insurance and HOA.</div>`;
 }
 
 /* ---------- shell ---------- */
-function save(){try{const o={};KEEP.forEach(k=>o[k]=S[k]);o.v=S.view;o.bumps=S.bumps;INP.forEach(k=>o['i_'+k]=$(k).value);localStorage.setItem('marinoHouse5',JSON.stringify(o))}catch(e){}}
-function load(){try{const o=JSON.parse(localStorage.getItem('marinoHouse5')||'{}');KEEP.forEach(k=>{if(o[k]!==undefined)S[k]=o[k]});if(o.v)S.view=o.v;if(Array.isArray(o.bumps))S.bumps=o.bumps;INP.forEach(k=>{if(o['i_'+k]!==undefined)$(k).value=o['i_'+k]})}catch(e){}}
+function save(){try{const o={};KEEP.forEach(k=>o[k]=S[k]);o.v=S.view;INP.forEach(k=>{if(!NOSAVE.includes(k))o['i_'+k]=$(k).value});localStorage.setItem('marinoHouse6',JSON.stringify(o))}catch(e){}}
+function load(){try{localStorage.removeItem('marinoHouse5');const o=JSON.parse(localStorage.getItem('marinoHouse6')||'{}');KEEP.forEach(k=>{if(o[k]!==undefined)S[k]=o[k]});if(o.v)S.view=o.v;INP.forEach(k=>{if(!NOSAVE.includes(k)&&o['i_'+k]!==undefined)$(k).value=o['i_'+k]})}catch(e){}}
 function thumbs(){document.querySelectorAll('.railSeg').forEach(g=>{
   let t=g.querySelector('.thumb');if(!t){t=document.createElement('span');t.className='thumb';g.prepend(t)}
   const b=g.querySelector('button.on');if(!b||!b.offsetWidth){t.style.opacity=0;return}
@@ -2428,13 +2346,13 @@ function render(){
   for(const v of Object.keys(VIEWS))$('v-'+v).hidden=S.view!==v;
   document.title='Marino House Search | '+VIEWS[S.view];
   document.querySelectorAll('[data-view]').forEach(b=>{b.classList.toggle('on',b.dataset.view===S.view&&b.closest('.navSeg')!==null);if(S.view===b.dataset.view)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
-  ['appr','sort','minAvg','minBeds','ptype','afReg'].forEach(k=>$(k).value=S[k]);
+  ['sort','minAvg','minBeds','ptype','afReg'].forEach(k=>$(k).value=S[k]);
   ['qOnly','noNew','rail2'].forEach(k=>$(k).checked=S[k]);
   $('regSeg').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v===S.reg));
-  const imp=Math.round(Math.min(Q.ws,Q.bt));$('appr').querySelector('[value=imp]').textContent='Both, Brandon at '+Math.round(Q.bt);
   renderHomes();
   if(S.view==='afford')renderAf();
   document.querySelectorAll('[data-n]').forEach(e=>e.textContent=HOUSES.filter(h=>h.region===e.dataset.n).length);
+  document.querySelectorAll('[data-m]').forEach(e=>{const a=HOUSES.filter(h=>h.region===e.dataset.m).map(h=>h.price);e.textContent=a.length?usdK(med(a)):'None'});
   save();thumbs();
 }
 function init(){
@@ -2442,7 +2360,7 @@ function init(){
   $('regSeg').innerHTML=['all',...REGIONS].map(r=>`<button class="press" data-v="${r}">${r==='all'?'All regions':r}</button>`).join('');
   $('afReg').innerHTML=REGIONS.map(r=>`<option>${r}</option>`).join('');
   load();
-  for(const k of ['appr','sort','minAvg','minBeds','ptype','afReg'])$(k).addEventListener('change',e=>{S[k]=e.target.value;if(k==='afReg'){$('taxPct').value=String(RI[S.afReg].tax)}render()});
+  for(const k of ['sort','minAvg','minBeds','ptype','afReg'])$(k).addEventListener('change',e=>{S[k]=e.target.value;if(k==='afReg'){$('taxPct').value=String(RI[S.afReg].tax)}render()});
   for(const k of ['qOnly','noNew','rail2'])$(k).addEventListener('change',e=>{S[k]=e.target.checked;render()});
   INP.forEach(k=>{$(k).addEventListener('input',()=>render());$(k).addEventListener('blur',()=>{const n=parseFloat(String($(k).value).replace(/[^0-9.]/g,''));if(isFinite(n)&&!['dp','taxPct','insPct','close','base','convDti','fhaDti'].includes(k))$(k).value=n.toLocaleString('en-US')})});
   document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
