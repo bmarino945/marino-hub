@@ -570,6 +570,8 @@ td.sel,th.sel{background:var(--sel)}
  .vseg{margin-left:8px}
  .mapKey{margin:8px 2px 10px;gap:10px;font-size:12px}
 }
+/* the six region cards sit three across */
+@media (min-width:801px){#groups.gcs{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
 /* ---- saved list (shared by the car and house pages) ---- */
 .saveBtn{display:inline-flex;align-items:center;justify-content:center;gap:7px}
@@ -754,55 +756,85 @@ td.sel,th.sel{background:var(--sel)}
  .acc>.ft{padding-bottom:8px}
  .srcs{font-size:13px;gap:4px 14px}
 }
-/* ---- group cards (shared): one per region or model, ranked by median price; the header opens its list ---- */
+/* ---- overview cards and the list they open (shared): one card per region or model, ranked by median price ---- */
 .vseg{display:inline-flex;flex:none;margin-left:12px;background:var(--sel);border-radius:10px;padding:2px;vertical-align:middle}
 .vseg button{border:0;background:transparent;font:inherit;font-size:13px;font-weight:500;padding:5px 14px;border-radius:8px;cursor:pointer;color:var(--ink-2);white-space:nowrap}
 .vseg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(20,24,60,.15)}
-.gps{display:flex;flex-direction:column;gap:12px;align-self:stretch;min-width:0}
-.gp{scroll-margin-top:calc(var(--nav) + 16px)}
-.gpH{width:100%;display:flex;align-items:center;gap:8px 24px;padding:16px 22px;border:0;border-radius:var(--r-card);background:var(--card);box-shadow:var(--sh);font:inherit;color:var(--ink);text-align:left;transition:transform 160ms var(--ease),box-shadow 200ms var(--ease)}
-button.gpH{cursor:pointer}
-button.gpH:active{transform:scale(.985);transition-duration:100ms}
-button.gpH:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-@media (hover:hover) and (pointer:fine){button.gpH:hover{box-shadow:var(--sh-pop)}}
-.gpL{flex:1 1 0;display:flex;align-items:center;gap:14px;min-width:0}
+.gcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;align-self:stretch;min-width:0}
+.gc{display:flex;flex-direction:column;gap:14px;min-width:0;padding:20px 22px;border:0;border-radius:var(--r-card);background:var(--card);box-shadow:var(--sh);font:inherit;color:var(--ink);text-align:left;cursor:pointer;transition:transform 160ms var(--ease),box-shadow 200ms var(--ease)}
+.gc:active{transform:scale(.985);transition-duration:100ms}
+.gc:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){.gc:hover{box-shadow:var(--sh-pop)}.gc:hover .gcA{transform:translateX(3px);stroke:var(--accent)}}
+.gc em,.gpS em{font-style:normal;font-size:var(--fs-13);font-weight:500;color:var(--ink-2)}
+.gc .k b,.gpS .k b{color:var(--accent)}
+.gcP{display:block;aspect-ratio:16/10;margin:-8px -10px 0;border-radius:12px;overflow:hidden;background:var(--fill)}
+.gcP img{display:block;width:100%;height:100%;object-fit:cover}
+.gcT{display:flex;align-items:center;gap:12px;min-width:0}
+.gcT>span{flex:1 1 0;min-width:0}
+.gcT b{display:block;font-size:var(--fs-20);font-weight:600;line-height:1.25;letter-spacing:-.01em}
+.gcT small{display:block;margin-top:2px;font-size:var(--fs-14);line-height:1.4;color:var(--ink-2)}
+.gcA{flex:none;width:20px;height:20px;fill:none;stroke:var(--ink-2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform 200ms var(--ease),stroke 150ms}
 .gpN{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--sel);color:var(--accent);font-style:normal;font-weight:600;font-size:var(--fs-16)}
+.gcM{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.gcM>span,.gcR>span,.gpS>span{display:flex;flex-direction:column;gap:1px}
+.gcM b{font-size:32px;line-height:1.15;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.gcM>span+span{text-align:right}
+.gcM>span+span b{font-size:var(--fs-20);line-height:1.5;letter-spacing:-.01em}
+.gcD{display:flex;flex-direction:column;margin-top:auto}
+.gcHist{display:flex;align-items:flex-end;gap:3px;height:44px}
+.gcHist i{flex:1 1 0;min-height:3px;border-radius:3px 3px 0 0;background:var(--accent);opacity:.2}
+.gcHist i.m{background:var(--hl);opacity:1}
+.gcR{display:flex;justify-content:space-between;gap:12px;padding-top:8px;border-top:1px solid var(--line)}
+.gcR>span+span{text-align:right}
+.gcR b{font-size:var(--fs-16);font-weight:600;font-variant-numeric:tabular-nums}
+/* the bar above an opened region or model: back, name, figures */
+.gps{display:flex;flex-direction:column;align-self:stretch;min-width:0}
+.gpH{display:flex;align-items:center;gap:8px 22px;padding:14px 22px 14px 14px;border-radius:var(--r-card);background:var(--card);box-shadow:var(--sh)}
+.gpBack{flex:none;height:40px;padding:0 14px 0 10px;gap:6px}
+.gpBack .gcA,.gpF .gcA{width:18px;height:18px;stroke:currentColor}
+.gpL{flex:1 1 0;display:flex;align-items:center;gap:14px;min-width:0}
 .gpI{flex:none;width:76px;height:57px;object-fit:cover;border-radius:10px;background:var(--fill)}
 .gpT{min-width:0}
 .gpT b{display:block;font-size:var(--fs-20);font-weight:600;line-height:1.25;letter-spacing:-.01em}
 .gpT small{display:block;margin-top:2px;font-size:var(--fs-14);line-height:1.4;color:var(--ink-2)}
 .gpS{flex:none;display:grid;grid-template-columns:56px repeat(3,80px);gap:0 12px}
-.gpS>span{display:flex;flex-direction:column;gap:1px}
-.gpS em{font-style:normal;font-size:var(--fs-13);font-weight:500;color:var(--ink-2)}
 .gpS b{font-size:var(--fs-18);font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
-.gpS .k b{color:var(--accent)}
-.gpBar{flex:none;width:110px;position:relative;height:6px;border-radius:3px;background:var(--fill)}
-.gpBar i{position:absolute;top:0;bottom:0;min-width:6px;border-radius:3px;background:var(--accent);opacity:.3}
-.gpBar u{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--hl);box-shadow:0 0 0 2px var(--card)}
-.gpC{flex:none;width:22px;height:22px;fill:none;stroke:var(--ink-2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform 200ms var(--ease)}
-.gp.open .gpC{transform:rotate(180deg)}
-.gp.none .gpH{background:var(--fill);box-shadow:none}
 .gpB{padding:14px 0 18px}
 .gpF{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:16px;font-size:var(--fs-14);font-weight:500;color:var(--ink-2)}
-.gpF .btn{flex:none;height:40px;padding:0 18px}
-@media (max-width:1240px){.gpBar{display:none}.gpH{gap:8px 18px;padding:14px 18px}.gpT b{font-size:var(--fs-18)}.gpI{width:60px;height:45px}}
+.gpF .btn{flex:none;height:40px;padding:0 18px;gap:6px}
+.gps>.emptyRg,.gps>.empty{margin-top:14px}
+.emptyRg{padding:24px 26px;color:var(--ink-2);font-size:var(--fs-16)}
+/* the overview is the cards alone: the filter column comes back inside a region */
+@media (min-width:801px){.lay.ov{grid-template-columns:minmax(0,1fr)}.lay.ov>.side{display:none}}
+@media (max-width:1240px){.gpH{gap:8px 16px}.gpT b{font-size:var(--fs-18)}.gpI{width:60px;height:45px}}
 @media (max-width:800px){
- .gps{gap:8px}
- .gp{scroll-margin-top:calc(var(--nav) + 56px)}
- .gpH{flex-wrap:wrap;gap:8px 10px;padding:11px 12px;border-radius:14px}
- .gpL{gap:10px}
- .gpN{width:26px;height:26px;font-size:13px}
+ .lay.ov .tool{display:none!important}
+ .gcs{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .gc{gap:8px;padding:12px;border-radius:14px}
+ .gc em,.gpS em{font-size:11.5px}
+ .gcP{margin:-4px -4px 0;border-radius:10px}
+ .gcT{gap:8px;align-items:flex-start}
+ .gcT b{font-size:15px;line-height:1.25}
+ .gcT small{margin-top:1px;font-size:12px}
+ .gcT small .gx,.gc .gcA{display:none}
+ .gpN{width:24px;height:24px;font-size:12.5px}
+ .gcM b{font-size:22px}
+ .gcM>span+span b{font-size:15px;line-height:1.55}
+ .gcHist{height:30px;gap:2px}
+ .gcR{padding-top:5px}
+ .gcR b{font-size:13.5px}
+ .gpH{flex-wrap:wrap;gap:8px 10px;padding:10px 12px;border-radius:14px}
+ .gpBack{order:1;height:34px;padding:0 12px 0 8px;font-size:13px}
+ .gpL{order:0;flex:1 1 0;gap:10px}
  .gpI{width:52px;height:39px;border-radius:8px}
- .gpT b{font-size:15.5px}
+ .gpT b{font-size:16px}
  .gpT small{margin-top:0;font-size:12px}
- .gpS{order:3;flex:1 1 100%;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 8px}
- .gpBar{display:none}
- .gpS em{font-size:11.5px}
- .gpS b{font-size:14.5px}
- .gpC{width:20px;height:20px}
+ .gpS{order:2;flex:1 1 100%;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 8px}
+ .gpS b{font-size:14px}
  .gpB{padding:8px 0 10px}
  .gpF{margin-top:10px;gap:8px 10px;font-size:12.5px}
  .gpF .btn{height:36px;padding:0 14px;font-size:13px}
+ .emptyRg{padding:14px;font-size:13px}
 }
 
 /* ---- phone layout (shared by the car and house pages): laid out like an app ----
@@ -1618,13 +1650,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
     </div></div>
 
     <div class="wrap">
-      <div class="lay">
+      <div class="lay" id="lay">
       <aside class="side">
         <div class="card tool" id="tool">
           <button type="button" class="fbtn" aria-expanded="false">Filters</button>
           <div class="field seg1 wide"><span class="l sr">Region</span><div class="railSeg seg" id="regSeg"></div></div>
           <div class="field"><label for="sort">Sort by</label><select class="sel" id="sort">
-            <option value="price">Price, lowest</option><option value="pay">Monthly payment, lowest</option><option value="school">School rating, best</option><option value="rail">Train station, closest</option><option value="hub">Closest to NYC or Philadelphia</option><option value="year">Newest build</option><option value="sqft">Square feet, most</option></select></div>
+            <option value="price">Price, lowest</option><option value="priceHi">Price, highest</option><option value="pay">Monthly payment, lowest</option><option value="school">School rating, best</option><option value="rail">Train station, closest</option><option value="hub">Closest to NYC or Philadelphia</option><option value="year">Newest build</option><option value="sqft">Square feet, most</option></select></div>
           <div class="field"><label for="minAvg">School rating</label><select class="sel" id="minAvg"><option value="7">7 or better</option><option value="8">8 or better</option><option value="8.5">8.5 or better</option><option value="9">9 or better</option></select></div>
           <div class="field"><label for="minBeds">Bedrooms</label><select class="sel" id="minBeds"><option value="3">3 or more</option><option value="4">4 or more</option><option value="5">5 or more</option></select></div>
           <div class="field"><label for="ptype">Home type</label><select class="sel" id="ptype"><option value="all">Houses, townhomes, condos</option><option value="House">Houses only</option><option value="Townhome">Townhomes only</option><option value="Condo">Condos only</option></select></div>
@@ -1636,7 +1668,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       </aside>
       <div class="mainCol">
       <section class="block" id="lineup">
-        <div class="bhead"><div><h2>The homes</h2><p>Six regions, ranked by median list price.</p></div><div class="count" id="count"><span id="cntTxt"></span><div class="vseg" role="group" aria-label="View"><button type="button" class="on" id="vList" data-mode="list">List</button><button type="button" id="vMap" data-mode="map">Map</button></div></div></div>
+        <div class="bhead"><div><h2>The homes</h2><p id="lineP"></p></div><div class="count" id="count"><span id="cntTxt"></span><div class="vseg" role="group" aria-label="View"><button type="button" class="on" id="vList" data-mode="list">List</button><button type="button" id="vMap" data-mode="map">Map</button></div></div></div>
         <div id="mapWrap" hidden><div id="map" role="region" aria-label="Map of homes"></div><div class="mapKey"><span><i class="k1"></i>Qualifies at our numbers</span><span><i class="k2"></i>Does not qualify</span><span id="mapN"></span></div></div>
         <div id="groups" class="gps"></div>
       </section>
@@ -1911,7 +1943,7 @@ const RI={'Northern NJ':{lim:1249125,fha:1249125,tax:2.2,hub:'NYC'},'Central NJ'
  'Nassau County NY':{lim:1249125,fha:1249125,tax:1.7,hub:'NYC'},'Westchester NY':{lim:1249125,fha:1249125,tax:1.9,hub:'NYC'},'Pennsylvania':{lim:832750,fha:630200,tax:1.3,hub:'Philadelphia'}};
 const DEF={sav:'',wksv:'',wInc:'165,000',bInc:'240,000',debts:'0',tgt:'950,000',dp:'20',taxPct:'1.6',insPct:'0.25',hoa:'0',close:'3',base:'7.18',convDti:'45',fhaDti:'50'};
 const INP=Object.keys(DEF),NOSAVE=['sav','wksv'];
-const S={mode:'list',view:'homes',reg:'all',sort:'price',openG:new Set(),shutG:new Set(),pg:{},minAvg:'7',minBeds:'3',ptype:'all',qOnly:false,noNew:false,rail2:false,afReg:'Central NJ',bumps:[],svW:null};
+const S={mode:'list',view:'homes',reg:'all',sort:'price',pg:{},minAvg:'7',minBeds:'3',ptype:'all',qOnly:false,noNew:false,rail2:false,afReg:'Central NJ',bumps:[],svW:null};
 /* Shared "Saved" list for the car and house pages. Inlined into each page at build (see build_dashboard.py).
    makeSaved({key, noun, email, get(id), info(obj)}) -> {btn(id), refresh(), toggle(id)} */
 function makeSaved(cfg){
@@ -2021,7 +2053,7 @@ function makeSaved(cfg){
 })();
 
 const Saved=makeSaved({key:'marinoHousesSaved',noun:'homes',one:'home',email:'jbmarino24@gmail.com',get:id=>HOUSES.find(h=>h.id===id),info:h=>({title:nm(h)+' '+h.zip,price:usd(h.price),sub:h.region+' · '+h.beds+' bd · '+h.baths+' ba · '+(h.sqft?h.sqft.toLocaleString()+' sqft':''),url:h.url,img:h.img})});
-const KEEP=['reg','sort','minAvg','minBeds','ptype','qOnly','noNew','rail2','afReg'];
+const KEEP=['sort','minAvg','minBeds','ptype','qOnly','noNew','rail2','afReg'];
 const $=id=>document.getElementById(id);
 const num=id=>{const v=parseFloat(String($(id).value).replace(/[^0-9.\-]/g,''));return isFinite(v)?v:0};
 const usd=n=>'$'+Math.round(n).toLocaleString('en-US');
@@ -2120,7 +2152,7 @@ function list(skipQ){
 }
 function sorter(){
   const pay=h=>{const c=calcHouse(h);return c.b?c.b.pay:1e9+h.price};
-  return {pay,price:h=>h.price,school:h=>-h.school_avg*1e7+h.price,rail:h=>stn(h).mi*1e7+h.price,hub:h=>h.hub.mi*1e7+h.price,year:h=>-(h.year||0)*1e7+h.price,sqft:h=>-(h.sqft||0)}[S.sort];
+  return {pay,price:h=>h.price,priceHi:h=>-h.price,school:h=>-h.school_avg*1e7+h.price,rail:h=>stn(h).mi*1e7+h.price,hub:h=>h.hub.mi*1e7+h.price,year:h=>-(h.year||0)*1e7+h.price,sqft:h=>-(h.sqft||0)}[S.sort];
 }
 function card(h,ix){
   const c=calcHouse(h),x=c.b,ref=c.at;
@@ -2148,40 +2180,43 @@ function card(h,ix){
       <div class="acts" style="margin-top:auto;padding-top:6px"><button class="btn pri press" data-open="${h.id}">Details</button><a class="btn press" href="${h.url}" target="_blank" rel="noopener">Redfin</a>${Saved.btn(h.id)}${Saved.mail(h.id)}</div>
     </div></article>`;
 }
-/* ---------- homes: one card per region, ranked by median price; a card opens its list a page at a time ---------- */
+/* ---------- homes: the tab opens on six region cards, ranked by median price (highest first); a card opens that region's list a page at a time ---------- */
 const PAGE=24,NREG={};HOUSES.forEach(h=>NREG[h.region]=(NREG[h.region]||0)+1);
 let GR=[];
 const ordered=()=>GR.flatMap(g=>g.hs);
-const autoG=()=>S.reg!=='all';
-const isOpenG=g=>g.n>0&&(autoG()?!S.shutG.has(g.r):S.openG.has(g.r));
-const chev='<svg class="gpC" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9.500l6 6 6-6"/></svg>';
+const arrow='<svg class="gcA" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const backI='<svg class="gcA" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>';
+const stat=(l,v,k)=>`<span${k?' class="k"':''}><em>${l}</em><b>${v}</b></span>`;
+/* region figures over every home (the filters work inside a region); bins = homes per $50,000 of price */
+const SUM=(()=>{
+  const ps=HOUSES.map(h=>h.price),b0=Math.floor(Math.min(...ps)/5e4)*5e4,nb=Math.max(1,Math.ceil((Math.max(...ps)-b0+1)/5e4));
+  return REGIONS.map(r=>{
+    const hs=HOUSES.filter(h=>h.region===r),p=hs.map(h=>h.price),hubs=hs.map(h=>h.hub.mi),bins=Array(nb).fill(0),m=med(p);
+    p.forEach(v=>bins[Math.min(nb-1,Math.floor((v-b0)/5e4))]++);
+    return {r,n:hs.length,lo:Math.min(...p),hi:Math.max(...p),med:m,mb:Math.min(nb-1,Math.floor((m-b0)/5e4)),towns:new Set(hs.map(h=>h.city)).size,hub0:Math.round(Math.min(...hubs)),hub1:Math.round(Math.max(...hubs)),bins};
+  }).filter(x=>x.n).sort((a,b)=>b.med-a.med);
+})();
+function gTile(g,i){
+  const mx=Math.max(...g.bins);
+  return `<button type="button" class="gc" data-reg="${g.r}">
+    <span class="gcT"><i class="gpN">${i+1}</i><span><b>${g.r}</b><small>${g.towns} towns<span class="gx"> &middot; ${g.hub0} to ${g.hub1} mi to ${RI[g.r].hub}</span></small></span>${arrow}</span>
+    <span class="gcM">${stat('Median price',usdK(g.med),1)}${stat('Homes',g.n.toLocaleString())}</span>
+    <span class="gcD"><span class="gcHist" aria-hidden="true">${g.bins.map((n,j)=>`<i${j===g.mb?' class="m"':''} style="height:${Math.max(6,Math.round(n/mx*100))}%"></i>`).join('')}</span>
+    <span class="gcR">${stat('Low',usdK(g.lo))}${stat('High',usdK(g.hi))}</span></span></button>`;
+}
 function gFoot(g,n){
-  return `<div class="gpF">${n<g.n?`<button type="button" class="btn pri press" data-more="${g.r}">Show ${Math.min(PAGE,g.n-n)} more</button>`:''}<span>${n.toLocaleString()} of ${g.n.toLocaleString()} shown</span><button type="button" class="btn press" data-grp="${g.r}">Close ${g.r}</button></div>`;
+  return `<div class="gpF">${n<g.n?`<button type="button" class="btn pri press" data-more="${g.r}">Show ${Math.min(PAGE,g.n-n)} more</button>`:''}<span>${n.toLocaleString()} of ${g.n.toLocaleString()} shown</span><button type="button" class="btn press" data-reg="all">${backI}All regions</button></div>`;
 }
 function gBody(g){
   const n=Math.min(S.pg[g.r]||PAGE,g.n);
   return `<div class="grid">${g.hs.slice(0,n).map((h,i)=>card(h,i)).join('')}</div>${gFoot(g,n)}`;
 }
-function gCard(g,i){
-  if(!g.n)return `<section class="gp none" id="rg-${g.id}"><div class="gpH"><span class="gpL"><span class="gpT"><b>${g.r}</b><small>${g.all?`The ${g.all.toLocaleString()} homes here are hidden by the filters.`:'No home met every filter.'}</small></span></span></div></section>`;
-  const open=isOpenG(g);
-  const st=(l,v,k)=>`<span${k?' class="k"':''}><em>${l}</em><b>${v}</b></span>`;
+function gRegion(g){
   const hubs=g.hs.map(h=>h.hub.mi),towns=new Set(g.hs.map(h=>h.city)).size;
-  return `<section class="gp${open?' open':''}" id="rg-${g.id}">
-    <button type="button" class="gpH" data-grp="${g.r}" aria-expanded="${open}" aria-controls="gb-${g.id}">
-      <span class="gpL"><i class="gpN">${i+1}</i><span class="gpT"><b>${g.r}</b><small>${towns} town${towns>1?'s':''} &middot; ${Math.round(Math.min(...hubs))} to ${Math.round(Math.max(...hubs))} mi to ${RI[g.r].hub}</small></span></span>
-      <span class="gpS">${st('Homes',g.n.toLocaleString())}${st('Low',usdK(g.lo))}${st('Median',usdK(g.med),1)}${st('High',usdK(g.hi))}</span>${chev}
-    </button>
-    <div class="gpB" id="gb-${g.id}"${open?'':' hidden'}>${open?gBody(g):''}</div></section>`;
-}
-function toggleG(r){
-  const g=GR.find(x=>x.r===r);if(!g||!g.n)return;
-  const set=autoG()?S.shutG:S.openG;if(set.has(r))set.delete(r);else set.add(r);
-  const open=isOpenG(g),el=$('rg-'+g.id),b=$('gb-'+g.id);
-  if(!open)delete S.pg[r];
-  el.classList.toggle('open',open);el.querySelector('.gpH').setAttribute('aria-expanded',open);
-  b.hidden=!open;b.innerHTML=open?gBody(g):'';
-  if(!open&&el.getBoundingClientRect().top<(MOB?110:80))el.scrollIntoView({block:'start'});
+  return `<div class="gpH"><button type="button" class="btn press gpBack" data-reg="all">${backI}All regions</button>
+    <span class="gpL"><span class="gpT"><b>${g.r}</b><small>${g.n?`${towns} town${towns>1?'s':''} &middot; ${Math.round(Math.min(...hubs))} to ${Math.round(Math.max(...hubs))} mi to ${RI[g.r].hub}`:`${g.all.toLocaleString()} homes, none with these filters`}</small></span></span>
+    ${g.n?`<span class="gpS">${stat('Homes',g.n.toLocaleString())}${stat('Low',usdK(g.lo))}${stat('Median',usdK(g.med),1)}${stat('High',usdK(g.hi))}</span>`:''}</div>
+    ${g.n?`<div class="gpB" id="gb-${g.id}">${gBody(g)}</div>`:`<div class="card emptyRg">No ${g.r} home meets every filter. Loosen the filters or go back to all regions.</div>`}`;
 }
 function moreG(r){
   const g=GR.find(x=>x.r===r);if(!g)return;
@@ -2189,15 +2224,22 @@ function moreG(r){
   b.querySelector('.grid').insertAdjacentHTML('beforeend',g.hs.slice(a,n).map((h,i)=>card(h,i)).join(''));
   b.querySelector('.gpF').outerHTML=gFoot(g,n);
 }
+function setReg(r){
+  S.reg=r;S.pg={};render();
+  const y=document.querySelector('#lineup>.bhead').getBoundingClientRect().top+scrollY-(MOB?56:80);if(scrollY>y)scrollTo(0,y);
+}
 function renderHomes(){
-  const L=list(),key=sorter(),all=HOUSES.length,by={};
+  const L=list(),key=sorter(),all=HOUSES.length,by={},ov=S.reg==='all',cards=ov&&S.mode==='list';
   L.forEach(h=>(by[h.region]=by[h.region]||[]).push(h));
-  GR=REGIONS.filter(r=>S.reg==='all'||r===S.reg).map(r=>{
+  GR=REGIONS.filter(r=>ov||r===S.reg).map(r=>{
     const hs=(by[r]||[]).map(h=>[key(h),h]).sort((a,b)=>(a[0]-b[0])||(a[1].price-b[1].price)).map(x=>x[1]),ps=hs.map(h=>h.price);
     return {r,id:r.replace(/\W+/g,''),hs,n:hs.length,all:NREG[r]||0,lo:Math.min(...ps),hi:Math.max(...ps),med:med(ps)};
-  }).sort((a,b)=>(!a.n-!b.n)||(a.med-b.med));
-  $('groups').innerHTML=GR.map(gCard).join('');
-  $('cntTxt').textContent=`Showing ${L.length.toLocaleString()} of ${all.toLocaleString()}`;
+  });
+  $('lay').classList.toggle('ov',cards);
+  const host=$('groups');host.className=ov?'gcs':'gps';
+  host.innerHTML=ov?SUM.map(gTile).join(''):gRegion(GR[0]);
+  $('lineP').textContent=cards?'Six regions, highest median price first. Pick one to see its homes.':'3+ bedrooms, $650,000 to $1.2 million, schools 7 or better. Tap a home for its payment.';
+  $('cntTxt').textContent=cards?`${all.toLocaleString()} homes in ${SUM.length} regions`:`Showing ${L.length.toLocaleString()} of ${(ov?all:NREG[S.reg]||0).toLocaleString()}`;
   if(S.mode==='map')renderMap(L);
   const qn=HOUSES.filter(h=>calcHouse(h).b).length;
   const C=2*Math.PI*48;$('hArc').setAttribute('stroke-dasharray',`${(C*qn/all).toFixed(1)} ${C.toFixed(1)}`);
@@ -2452,9 +2494,9 @@ function init(){
   document.addEventListener('click',e=>{
     if(e.target.closest('a[href]'))return;
     if(e.target===$('scrim')){hide();return}
-    const t=e.target.closest('[data-step],[data-open],[data-close],[data-view],[data-jump],[data-grp],[data-more],#regSeg button');if(!t)return;
-    if(t.closest('#regSeg')){S.reg=t.dataset.v;S.pg={};S.shutG.clear();render();return}
-    if(t.dataset.grp){toggleG(t.dataset.grp);return}
+    const t=e.target.closest('[data-step],[data-open],[data-close],[data-view],[data-jump],[data-reg],[data-more],#regSeg button');if(!t)return;
+    if(t.closest('#regSeg')){setReg(t.dataset.v);return}
+    if(t.dataset.reg){setReg(t.dataset.reg);return}
     if(t.dataset.more){moreG(t.dataset.more);return}
     if(t.dataset.jump){$(t.dataset.jump).scrollIntoView({behavior:'smooth',block:'start'});return}
     if(t.dataset.view){e.preventDefault();hide();S.view=t.dataset.view;render();window.scrollTo(0,0);return}
